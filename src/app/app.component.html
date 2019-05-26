@@ -1,21 +1,139 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+
+<body class="">
+<div class="">
+  <div class="sidebar" data-color="blue" data-background-color="white" >
+
+    <div class="logo">
+      <a href="http://www.mlprior.com" class="simple-text logo-normal">
+        ML p(r)ior
+      </a>
+    </div>
+    <div class="sidebar-wrapper" id="main-navbar">
+      <ul class="nav navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/dashboard">
+            <i class="fas fa-chart-line"></i>
+            <p>Home</p>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/articles">
+            <i class="fas fa-th-list"></i>
+            <p>Articles</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/articles/library">
+            <i class="fas fa-bookmark"></i>
+            <p>Library</p>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item {% if page_id == 'feedback' %}active{% endif %}">
+          <a class="nav-link" href="/feedback">
+            <i class="material-icons">feedback</i>
+            <p>Feature request</p>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item text-center">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_donations" />
+            <input type="hidden" name="business" value="BGJRWRJFQ59NG" />
+            <input type="hidden" name="item_name" value="ML p(r)ior development" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/RU/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt=""  border="0" src="https://www.paypal.com/en_RU/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+        </li>
+
+      </ul>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="main-panel">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+
+        <div class="col-md-4 ml-auto mr-auto">
+          <!--{% include 'articles/articles_navigation.html' %}-->
+        </div>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+
+        <ul class="navbar-nav">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">person</i>
+              <p class="d-lg-none d-md-block">
+                Account
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+              <!--<span class="dropdown-item">{% user_display user %}</span>-->
+              <a class="dropdown-item" href="/accounts/logout" data-toggle="modal" data-target="#logoutModal">Log out</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="content">
+    <div class="container-fluid">
 
 <router-outlet></router-outlet>
+
+
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container-fluid">
+      <nav class="float-left">
+
+      </nav>
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, ML p(r)ior
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+
+        <!--<form method="post" action="{% url 'account_logout' %}">-->
+          <!--{% csrf_token %}-->
+          <!--<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>-->
+          <!--<button class="btn btn-primary" type="submit">{% trans 'Logout' %}</button>-->
+        <!--</form>-->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
