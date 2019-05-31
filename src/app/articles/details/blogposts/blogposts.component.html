@@ -1,0 +1,100 @@
+<div class="card shadow mb-4">
+  <div class="card-header card-header-danger card-header-icon">
+
+    <div class="card-icon">
+      <i class="material-icons">library_books</i>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="card-title">Blog posts <a style="color: #4e73df !important;" data-toggle="popover"
+                                             data-trigger="hover"
+                                             data-content="Blogposts, that are related to the article. We appreciate if you add one more..."><i
+          class="fas fa-question"></i></a></h4>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-10">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-primary btn-round btn-fab note" type="button"
+                type="button" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed">
+      <div class="col-sm-12">
+        <form [formGroup]="newBlogPostForm" id="blogPostForm" (submit)="addBlogPost()">
+          {{details.article.id}}
+          <!--<input value="{{ details.article.id }}"  formControlName="article_id" placeholder="article_id" class='form-control' hidden>-->
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Title</label>
+                <input type="text" formControlName="title" placeholder="Nice blog post about Deep Learning..."
+                       class='form-control'/>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">URL</label>
+                <input type="url" placeholder="http://example.com" formControlName="url" class='form-control'/>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer justify-content-center">
+            <button class="btn btn-primary btn-user btn-block" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <span *ngIf="!created" class="text-danger">
+    The blog post is already attached...
+    </span>
+    </div>
+
+    <table class="table">
+      <tbody>
+      <tr *ngFor="let blogpost of details.article.blog_posts">
+        <td><a href="{{ blogpost.url }}">
+                        <span>
+                            {{ blogpost.title}}
+                        </span>
+        </a></td>
+        <td class="td-actions text-right">
+          <span class="blogpostrating" id="blogpost-rating-{{ blogpost.id }}">{{ blogpost.rating }}</span>
+          <button type="button" rel="tooltip" title="" (click)="changBlogPostLike(blogpost)"
+                  class="btn btn-primary btn-link" data-original-title="Edit Task">
+
+            <i class="fas fa-heart blogpostlike" *ngIf="blogpost.is_like"></i>
+            <i class="far fa-heart blogpostlike" *ngIf="!blogpost.is_like"></i>
+
+          </button>
+        </td>
+      </tr>
+
+      <!--<div *ngIf="!details.article.blog_posts.length">-->
+                    <!--<span>-->
+                        <!--There is no assigned blog posts. Yet...-->
+                    <!--</span>-->
+      <!--</div>-->
+
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+

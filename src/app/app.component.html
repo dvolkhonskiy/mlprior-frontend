@@ -17,14 +17,14 @@
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/articles">
+        <li class="nav-item"  [class.active]="isArticles()">
+          <a class="nav-link" routerLink="/articles/recommended">
             <i class="fas fa-th-list"></i>
             <p>Articles</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/articles/library">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/articles/library">
             <i class="fas fa-bookmark"></i>
             <p>Library</p>
           </a>
@@ -59,7 +59,7 @@
       <div class="navbar-wrapper">
 
         <div class="col-md-4 ml-auto mr-auto">
-          <!--{% include 'articles/articles_navigation.html' %}-->
+          <app-navigation *ngIf="isArticles()"></app-navigation>
         </div>
       </div>
 

@@ -1,0 +1,35 @@
+.stacked-chart path,
+.stacked-chart line,
+.stacked-chart rect {
+  shape-rendering: crispEdges;
+}
+
+
+.stacked-chart text {
+  font: 10px sans-serif;
+}
+
+.stacked-chart .axis path,
+.stacked-chart .axis line {
+  fill: none;
+  stroke: lightgrey;
+  stroke-width: 0.3px;
+}
+
+.stacked-chart .layer rect {
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.stacked-chart .series-label {
+  fill: black;
+  text-anchor: end;
+  alignment-baseline: central;
+}
+
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
