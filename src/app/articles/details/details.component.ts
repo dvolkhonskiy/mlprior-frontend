@@ -12,7 +12,7 @@ import {ArticleService} from '../articles.service';
 })
 export class DetailsComponent implements OnInit {
 
-  public article = {};
+  article: any;
 
   constructor(private httpClient: HttpClient, private articleService: ArticleService, private route: ActivatedRoute) { }
 

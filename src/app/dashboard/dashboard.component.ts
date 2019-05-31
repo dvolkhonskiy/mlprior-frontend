@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
 
 
-  constructor(private apiService: APIService, private route: ActivatedRoute) { }
+  constructor(public apiService: APIService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     let data = this.apiService.getStats();

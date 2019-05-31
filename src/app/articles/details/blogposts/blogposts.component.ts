@@ -19,7 +19,7 @@ export class BlogpostsComponent implements OnInit {
 
   // newBlogPost = {url: String, title: String};
 
-  constructor(private details: DetailsComponent, private articleService: ArticleService, private formBuilder: FormBuilder) { }
+  constructor(public details: DetailsComponent, public articleService: ArticleService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
   }

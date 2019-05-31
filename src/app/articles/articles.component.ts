@@ -13,7 +13,7 @@ import {switchMap} from 'rxjs/operators';
 export class ArticlesComponent implements OnInit {
 
 
-  constructor(private httpClient: HttpClient, private articleService: ArticleService, private route: ActivatedRoute) {}
+  constructor(private httpClient: HttpClient, public articleService: ArticleService, public route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe(
