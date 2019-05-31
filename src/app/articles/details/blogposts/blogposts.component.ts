@@ -26,7 +26,7 @@ export class BlogpostsComponent implements OnInit {
 
   addBlogPost() {
     let blogpost = this.newBlogPostForm.value;
-    blogpost.article_id = this.details.article.id;
+    blogpost.article_id = this.details.article['id'];
     this.articleService.addBlogPost(JSON.stringify(blogpost));
   }
 
