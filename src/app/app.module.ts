@@ -21,6 +21,7 @@ import { BlogpostsComponent } from './articles/details/blogposts/blogposts.compo
 import { GithubsComponent } from './articles/details/githubs/githubs.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {AuthGuardService} from './auth-guard.service';
 // import { LandingComponent } from './landing/landing.component';
 
 
@@ -47,7 +48,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, ArticleService, APIService],
+  providers: [AuthService, ArticleService, APIService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

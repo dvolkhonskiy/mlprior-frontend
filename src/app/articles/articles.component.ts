@@ -19,11 +19,7 @@ export class ArticlesComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        console.log(params);
-        if (params['page'] === 'library' && !this.articleService.isAuthorised()) {
-          this.articleService.redirectToLogin();
-        }
-        this.articleService.resetArticles(params['page']);
+        this.articleService.resetArticles(params.page);
         this.articleService.getArticles();
       }
     );
