@@ -46,7 +46,7 @@
 /*}*/
 
 .vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
 
   display: flex;
@@ -64,8 +64,7 @@ a:focus {
 }
 
 
-
-.sidebar[data-color="blue"] li.active>a {
+.sidebar[data-color="blue"] li.active > a {
   background-color: #4e73df;
   /*box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);*/
 }
@@ -98,7 +97,7 @@ a:focus {
 
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
-.show>.btn-primary.dropdown-toggle {
+.show > .btn-primary.dropdown-toggle {
   color: #ffffff;
   background-color: #0c7cd5;
   border-color: #0b75c9;
@@ -134,8 +133,8 @@ a:focus {
 
 .btn.btn-primary:active,
 .btn.btn-primary.active,
-.open>.btn.btn-primary.dropdown-toggle,
-.show>.btn.btn-primary.dropdown-toggle {
+.open > .btn.btn-primary.dropdown-toggle,
+.show > .btn.btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #4e73df;
   border-color: #4e73df;
@@ -148,23 +147,23 @@ a:focus {
 .btn.btn-primary.active:hover,
 .btn.btn-primary.active:focus,
 .btn.btn-primary.active.focus,
-.open>.btn.btn-primary.dropdown-toggle:hover,
-.open>.btn.btn-primary.dropdown-toggle:focus,
-.open>.btn.btn-primary.dropdown-toggle.focus,
-.show>.btn.btn-primary.dropdown-toggle:hover,
-.show>.btn.btn-primary.dropdown-toggle:focus,
-.show>.btn.btn-primary.dropdown-toggle.focus {
+.open > .btn.btn-primary.dropdown-toggle:hover,
+.open > .btn.btn-primary.dropdown-toggle:focus,
+.open > .btn.btn-primary.dropdown-toggle.focus,
+.show > .btn.btn-primary.dropdown-toggle:hover,
+.show > .btn.btn-primary.dropdown-toggle:focus,
+.show > .btn.btn-primary.dropdown-toggle.focus {
   color: #fff;
   background-color: #4e73df;
   border-color: #3f1048;
 }
 
-.open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon {
+.open > .btn.btn-primary.dropdown-toggle.bmd-btn-icon {
   color: inherit;
   background-color: #4e73df;
 }
 
-.open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
+.open > .btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
   background-color: #4e73df;
 }
 
@@ -214,7 +213,7 @@ a:focus {
   color: #fff;
   background-color: #ff4500;
   border-color: #ff4500;
-  box-shadow: 0 2px 2px 0 rgba(255,69,0,.14), 0 3px 1px -2px rgba(255,69,0,.2), 0 1px 5px 0 rgba(255,69,0,.12);
+  box-shadow: 0 2px 2px 0 rgba(255, 69, 0, .14), 0 3px 1px -2px rgba(255, 69, 0, .2), 0 1px 5px 0 rgba(255, 69, 0, .12);
 }
 
 .btn.btn-just-icon {
@@ -234,68 +233,71 @@ a:focus {
 }
 
 
-.bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
   color: #999;
 }
 
 
-
 .bootstrap-select .btn.dropdown-toggle.select-with-transition {
-  border: 0!important;
-  background-image: linear-gradient(0deg,#9c27b0 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0);
-  background-size: 0 100%,100% 100%;
+  border: 0 !important;
+  background-image: linear-gradient(0deg, #9c27b0 2px, rgba(156, 39, 176, 0) 0), linear-gradient(0deg, #d2d2d2 1px, hsla(0, 0%, 82%, 0) 0);
+  background-size: 0 100%, 100% 100%;
   background-repeat: no-repeat;
-  background-position: bottom,50% calc(100% - 1px);
-  background-color: transparent!important;
-  transition: background 0s linear!important;
-  float: none!important;
-  box-shadow: none!important;
-  border-radius: 0!important;
-  color: #3c4858!important;
+  background-position: bottom, 50% calc(100% - 1px);
+  background-color: transparent !important;
+  transition: background 0s linear !important;
+  float: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color: #3c4858 !important;
   height: 34px;
-  padding-left: 0!important;
-  padding-bottom: 5px!important;
+  padding-left: 0 !important;
+  padding-bottom: 5px !important;
 }
 
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
   width: 220px;
 }
 
-.bootstrap-select>.dropdown-toggle {
+.bootstrap-select > .dropdown-toggle {
   position: relative;
   width: 100%;
   z-index: 1;
   text-align: right;
   white-space: nowrap;
 }
-.bootstrap-select>.dropdown-toggle {
+
+.bootstrap-select > .dropdown-toggle {
   padding-right: 25px;
 }
 
 .bootstrap-select.form-control:not([class*=col-]), .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
   width: 100%;
 }
+
 .bootstrap-select:not(.input-group-btn), .bootstrap-select[class*=col-] {
   float: none;
   display: inline-block;
   margin-left: 0;
 }
+
 .bootstrap-select {
   width: 220px \0;
 }
+
 .collapsing, .dropdown, .dropup {
   position: relative;
 }
 
-.bootstrap-select>select {
-  position: absolute!important;
+.bootstrap-select > select {
+  position: absolute !important;
   bottom: 0;
   left: 50%;
-  display: block!important;
-  width: .5px!important;
-  height: 100%!important;
-  padding: 0!important;
-  opacity: 0!important;
+  display: block !important;
+  width: .5px !important;
+  height: 100% !important;
+  padding: 0 !important;
+  opacity: 0 !important;
   border: none;
 }
 
@@ -322,20 +324,20 @@ a:focus {
 }
 
 .bootstrap-select .btn.dropdown-toggle.select-with-transition {
-  border: 0!important;
-  background-image: linear-gradient(0deg,#9c27b0 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0);
-  background-size: 0 100%,100% 100%;
+  border: 0 !important;
+  background-image: linear-gradient(0deg, #9c27b0 2px, rgba(156, 39, 176, 0) 0), linear-gradient(0deg, #d2d2d2 1px, hsla(0, 0%, 82%, 0) 0);
+  background-size: 0 100%, 100% 100%;
   background-repeat: no-repeat;
-  background-position: bottom,50% calc(100% - 1px);
-  background-color: transparent!important;
-  transition: background 0s linear!important;
-  float: none!important;
-  box-shadow: none!important;
-  border-radius: 0!important;
-  color: #3c4858!important;
+  background-position: bottom, 50% calc(100% - 1px);
+  background-color: transparent !important;
+  transition: background 0s linear !important;
+  float: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color: #3c4858 !important;
   height: 34px;
-  padding-left: 0!important;
-  padding-bottom: 5px!important;
+  padding-left: 0 !important;
+  padding-bottom: 5px !important;
 }
 
 .card-collapse .card-header a[aria-expanded=true] i {
@@ -343,11 +345,11 @@ a:focus {
   transform: rotate(180deg);
 }
 
-.animation-transition-fast, .bootstrap-datetimepicker-widget table td>div, .bootstrap-datetimepicker-widget table td span, .bootstrap-datetimepicker-widget table th, .bootstrap-datetimepicker-widget table th>div, .bootstrap-tagsinput .tag, .bootstrap-tagsinput [data-role=remove], .card-collapse .card-header a i, .navbar {
+.animation-transition-fast, .bootstrap-datetimepicker-widget table td > div, .bootstrap-datetimepicker-widget table td span, .bootstrap-datetimepicker-widget table th, .bootstrap-datetimepicker-widget table th > div, .bootstrap-tagsinput .tag, .bootstrap-tagsinput [data-role=remove], .card-collapse .card-header a i, .navbar {
   transition: all .15s ease 0s;
 }
 
-.card-collapse .card-header .rating-and-like  {
+.card-collapse .card-header .rating-and-like {
   float: right;
   top: -12px;
 

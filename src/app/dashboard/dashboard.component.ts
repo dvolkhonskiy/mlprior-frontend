@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {APIService} from '../api.service';
 import {ActivatedRoute, Params, Route} from '@angular/router';
 
@@ -6,15 +6,13 @@ import {ActivatedRoute, Params, Route} from '@angular/router';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  providers: [
-
-  ]
+  providers: []
 })
 export class DashboardComponent implements OnInit {
 
 
-
-  constructor(public apiService: APIService, private route: ActivatedRoute) { }
+  constructor(public apiService: APIService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     let data = this.apiService.getStats();

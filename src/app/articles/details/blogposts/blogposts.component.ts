@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DetailsComponent} from '../details.component';
 import {ArticleService} from '../../articles.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
@@ -19,12 +19,13 @@ export class BlogpostsComponent implements OnInit {
 
   // newBlogPost = {url: String, title: String};
 
-  constructor(public details: DetailsComponent, public articleService: ArticleService, private formBuilder: FormBuilder) { }
+  constructor(public details: DetailsComponent, public articleService: ArticleService, private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
     this.newBlogPostForm.valueChanges.subscribe(
-      
-    )
+
+    );
   }
 
   addBlogPost() {

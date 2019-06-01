@@ -1,101 +1,100 @@
-
-<div ng-app="drf-angular">
-  <div ng-controller="MainCtrl">
-
-    <div id="article-{{ article.id }}">
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <div class="row">
-            <div class="col-sm-10">
-              <h3 class="card-title" style="">{{ article.title }}</h3>
-            </div>
-            <div class="col-sm-2 text-danger">
-              <strong>{{ article.date }}</strong>
-              <!--{% include 'articles/utils/more_dropdown.html' %}-->
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-10">
-              <div class="h7 pl-3 pt-2 font-weight-bold text-gray-800">
+<div id="article-{{ article.id }}" *ngIf="article">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <div class="row">
+        <div class="col-sm-10">
+          <h3 class="card-title" style="">{{ article.title }}</h3>
+        </div>
+        <div class="col-sm-2 text-danger">
+          <strong>{{ article.date }}</strong>
+          <!--{% include 'articles/utils/more_dropdown.html' %}-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10">
+          <div class="h7 pl-3 pt-2 font-weight-bold text-gray-800">
             <span style="color: #4e73df" *ngFor="let author of article.authors;  let isLast=last">
               {{ author.name }}{{isLast ? '' : ', '}}
             </span>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              {{ article.arxiv_id }} | {{ article.category }}
-            </div>
           </div>
         </div>
-        <div class="card-body">
-          {{ article.abstract }}
-          <hr>
-          <div class="row form-group">
-            <div class="col-sm-10">
-              <a href="{{ article.url }}" class="btn btn-success btn-round" target="_blank">
-            <span class="icon">
-            <i class="material-icons">unarchive</i>
-            </span>
-                <span class="text">Read on ArXiv</span>
-              </a>
-
-              <button class="btn btn-primary btn-round savetolibrary" *ngIf="!article.in_lib" (click)="articleService.addRemoveFromLib(article)">
-          <span class="icon">
-          <i class="material-icons">bookmark</i>
-          </span>
-                <span class="text">Save to Library</span>
-              </button>
-              <button class="btn btn-default btn-round donotsave" *ngIf="article.in_lib" (click)="articleService.addRemoveFromLib(article)">
-            <span class="icon">
-            <i class="material-icons">bookmark</i>
-            </span>
-                <span class="text">Saved</span>
-              </button>
-            </div>
-            <div class="col-md-2">
-
-              <button class="btn btn-primary btn-round btn-fab likebutton">
-                <i class="fas fa-thumbs-up fa-sm" *ngIf="article.like_dislike == true" (click)="articleService.likeDislike(article, null)"></i>
-                <i class="far fa-thumbs-up fa-sm" *ngIf="article.like_dislike != true" (click)="articleService.likeDislike(article, true)"></i>
-              </button>
-
-              <button class="btn btn-primary btn-round btn-fab dislikebutton">
-                <i class="fas fa-thumbs-down fa-sm" *ngIf="article.like_dislike == false" (click)="articleService.likeDislike(article, null)"></i>
-                <i class="far fa-thumbs-down fa-sm" *ngIf="article.like_dislike != false" (click)="articleService.likeDislike(article, false)"></i>
-              </button>
-
-            </div>
-            <p>
-          </div>
-        </div>
-      </div>
-      <p></p>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card shadow mb-4">
-            <div class="card-header card-header-warning card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">comment</i>
-              </div>
-              <h4 class="card-title">Note</h4>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-               <textarea class="form-control  note-area note-form"
-                         placeholder="You type, we save..." rows="3">{{article.note}}</textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <app-blogposts></app-blogposts>
-        </div>
-        <div class="col-md-6">
-          <app-githubs></app-githubs>
+        <div class="col-sm-2">
+          {{ article.arxiv_id }} | {{ article.category }}
         </div>
       </div>
     </div>
+    <div class="card-body">
+      {{ article.abstract }}
+      <hr>
+      <div class="row form-group">
+        <div class="col-sm-10">
+          <a href="{{ article.url }}" class="btn btn-success btn-round" target="_blank">
+            <span class="icon">
+            <i class="material-icons">unarchive</i>
+            </span>
+            <span class="text">Read on ArXiv</span>
+          </a>
 
+          <button class="btn btn-primary btn-round savetolibrary" *ngIf="!article.in_lib"
+                  (click)="articleService.addRemoveFromLib(article)">
+          <span class="icon">
+          <i class="material-icons">bookmark</i>
+          </span>
+            <span class="text">Save to Library</span>
+          </button>
+          <button class="btn btn-default btn-round donotsave" *ngIf="article.in_lib"
+                  (click)="articleService.addRemoveFromLib(article)">
+            <span class="icon">
+            <i class="material-icons">bookmark</i>
+            </span>
+            <span class="text">Saved</span>
+          </button>
+        </div>
+        <div class="col-md-2">
+
+          <button class="btn btn-primary btn-round btn-fab likebutton">
+            <i class="fas fa-thumbs-up fa-sm" *ngIf="article.like_dislike == true"
+               (click)="articleService.likeDislike(article, null)"></i>
+            <i class="far fa-thumbs-up fa-sm" *ngIf="article.like_dislike != true"
+               (click)="articleService.likeDislike(article, true)"></i>
+          </button>
+
+          <button class="btn btn-primary btn-round btn-fab dislikebutton">
+            <i class="fas fa-thumbs-down fa-sm" *ngIf="article.like_dislike == false"
+               (click)="articleService.likeDislike(article, null)"></i>
+            <i class="far fa-thumbs-down fa-sm" *ngIf="article.like_dislike != false"
+               (click)="articleService.likeDislike(article, false)"></i>
+          </button>
+
+        </div>
+        <p>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow mb-4">
+        <div class="card-header card-header-warning card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">comment</i>
+          </div>
+          <h4 class="card-title">Note</h4>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+               <textarea class="form-control  note-area note-form"
+                         placeholder="You type, we save..." rows="3">{{article.note}}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-blogposts></app-blogposts>
+    </div>
+    <div class="col-md-6">
+      <app-githubs></app-githubs>
+    </div>
   </div>
 </div>

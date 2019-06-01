@@ -3,33 +3,22 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 import {tap, map} from 'rxjs/operators';
 
 import {Article, BlogPost, GitHub, ArticleAuthor} from './article.model';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Injectable()
 export class ArticleService {
 
-  articles: Article[] = [];
+
   article: Article;
-  API_URL_FIRST_PAGE_RECOMMENDED = environment.baseUrl + 'api/articles/recommended?page=1';
-  API_URL_FIRST_PAGE_RECENT = environment.baseUrl + 'api/articles/recent?page=1';
-  API_URL_FIRST_PAGE_POPULAR = environment.baseUrl + 'api/articles/popular?page=1';
-  API_URL_FIRST_PAGE_LIBRARY = environment.baseUrl + 'api/articles/library?page=1';
+  API_URL_ARTICLES_LIST = environment.baseUrl + 'api/articles/';
 
   API_URL_ARTICLE_DETAILS = environment.baseUrl + 'api/articles/details/';
   API_URL_ARTICLE_LIBRARY = environment.baseUrl + 'api/articles/library/';
   API_URL_BLOGPOSTS = environment.baseUrl + 'api/blogposts/';
-
-  nextPage = this.API_URL_FIRST_PAGE_RECOMMENDED;
-
-  typeToURL = {
-    recommended: this.API_URL_FIRST_PAGE_RECOMMENDED,
-    recent: this.API_URL_FIRST_PAGE_RECENT,
-    popular: this.API_URL_FIRST_PAGE_POPULAR,
-    library: this.API_URL_FIRST_PAGE_LIBRARY,
-  };
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -39,11 +28,7 @@ export class ArticleService {
   };
 
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {  }
-
-  resetArticles(type): void {
-    this.articles = [];
-    this.nextPage = this.typeToURL[type];
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
   }
 
   isAuthorised(): boolean {
@@ -115,18 +100,15 @@ export class ArticleService {
     });
   }
 
-  getArticles(): void {
-    this.http.get<{results: Article[], next: string, previous: string}>(this.nextPage, this.httpOptions).subscribe(
-      data => {
-        this.articles = this.articles.concat(data.results);
-        this.nextPage = data.next;
-      },
-      error => console.error('couldn\'t get articles because', error)
-    );
+  fetchArticles(type: string, page: string) {
+    const url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;
+    return this.http.get<{ results: Article[], next: string, previous: string }>(url, this.httpOptions);
   }
 
-  getArticle(id) {
-    return this.http.get<Article>(this.API_URL_ARTICLE_DETAILS + id, this.httpOptions).pipe( tap(res => {return res; }));
+  fetchArticleDetails(id) {
+    return this.http.get<Article>(this.API_URL_ARTICLE_DETAILS + id, this.httpOptions).pipe(tap(res => {
+      return res;
+    }));
   }
 
 }

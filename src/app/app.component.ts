@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
+
 // import {AuthService} from './user.service';
 
 @Component({
@@ -10,7 +11,8 @@ import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'mlprior-frontend';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {

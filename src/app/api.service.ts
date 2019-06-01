@@ -14,7 +14,8 @@ export class APIService {
   nBlogPosts = 0;
   nGitHubs = 0;
 
-  constructor(private httpClient: HttpClient, private router: Router, private _authService: AuthService) {  }
+  constructor(private httpClient: HttpClient, private router: Router, private _authService: AuthService) {
+  }
 
 
   getStats(): any {

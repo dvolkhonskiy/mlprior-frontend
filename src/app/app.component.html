@@ -1,8 +1,6 @@
-
-
 <body class="">
 <div class="">
-  <div class="sidebar" data-color="blue" data-background-color="white" >
+  <div class="sidebar" data-color="blue" data-background-color="white">
 
     <div class="logo">
       <a href="http://www.mlprior.com" class="simple-text logo-normal">
@@ -17,7 +15,7 @@
             <p>Dashboard</p>
           </a>
         </li>
-        <li class="nav-item"  [class.active]="isArticles()">
+        <li class="nav-item" [class.active]="isArticles()">
           <a class="nav-link" routerLink="/articles/recommended">
             <i class="fas fa-th-list"></i>
             <p>Articles</p>
@@ -39,12 +37,13 @@
         <hr>
         <li class="nav-item text-center">
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_donations" />
-            <input type="hidden" name="business" value="BGJRWRJFQ59NG" />
-            <input type="hidden" name="item_name" value="ML p(r)ior development" />
-            <input type="hidden" name="currency_code" value="USD" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/RU/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-            <img alt=""  border="0" src="https://www.paypal.com/en_RU/i/scr/pixel.gif" width="1" height="1" />
+            <input type="hidden" name="cmd" value="_donations"/>
+            <input type="hidden" name="business" value="BGJRWRJFQ59NG"/>
+            <input type="hidden" name="item_name" value="ML p(r)ior development"/>
+            <input type="hidden" name="currency_code" value="USD"/>
+            <input type="image" src="https://www.paypalobjects.com/en_US/RU/i/btn/btn_donateCC_LG.gif" border="0"
+                   name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button"/>
+            <img alt="" border="0" src="https://www.paypal.com/en_RU/i/scr/pixel.gif" width="1" height="1"/>
           </form>
         </li>
 
@@ -63,7 +62,8 @@
         </div>
       </div>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+              aria-expanded="false" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
         <span class="navbar-toggler-icon icon-bar"></span>
         <span class="navbar-toggler-icon icon-bar"></span>
@@ -75,16 +75,16 @@
 
 
           <!--<li class="nav-item dropdown">-->
-            <!--<a class="nav-link" href="" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-              <!--<i class="material-icons">person</i>-->
-              <!--<p class="d-lg-none d-md-block">-->
-                <!--Account-->
-              <!--</p>-->
-            <!--</a>-->
-            <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">-->
-              <!--&lt;!&ndash;<span class="dropdown-item">{% user_display user %}</span>&ndash;&gt;-->
-              <!--<a class="dropdown-item" href="/accounts/logout" data-toggle="modal" data-target="#logoutModal">Log out</a>-->
-            <!--</div>-->
+          <!--<a class="nav-link" href="" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <!--<i class="material-icons">person</i>-->
+          <!--<p class="d-lg-none d-md-block">-->
+          <!--Account-->
+          <!--</p>-->
+          <!--</a>-->
+          <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">-->
+          <!--&lt;!&ndash;<span class="dropdown-item">{% user_display user %}</span>&ndash;&gt;-->
+          <!--<a class="dropdown-item" href="/accounts/logout" data-toggle="modal" data-target="#logoutModal">Log out</a>-->
+          <!--</div>-->
           <!--</li>-->
         </ul>
       </div>
@@ -94,7 +94,7 @@
   <div class="content">
     <div class="container-fluid">
 
-<router-outlet></router-outlet>
+      <router-outlet></router-outlet>
 
 
     </div>
@@ -108,13 +108,15 @@
         &copy;
         <script>
           document.write(new Date().getFullYear())
-        </script>, ML p(r)ior
+        </script>
+        , ML p(r)ior
       </div>
     </div>
   </footer>
 </div>
 
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     style="display: none;" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -127,9 +129,9 @@
       <div class="modal-footer">
 
         <!--<form method="post" action="{% url 'account_logout' %}">-->
-          <!--{% csrf_token %}-->
-          <!--<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>-->
-          <!--<button class="btn btn-primary" type="submit">{% trans 'Logout' %}</button>-->
+        <!--{% csrf_token %}-->
+        <!--<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>-->
+        <!--<button class="btn btn-primary" type="submit">{% trans 'Logout' %}</button>-->
         <!--</form>-->
 
       </div>
