@@ -22,6 +22,9 @@ export class BlogpostsComponent implements OnInit {
   constructor(public details: DetailsComponent, public articleService: ArticleService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.newBlogPostForm.valueChanges.subscribe(
+      
+    )
   }
 
   addBlogPost() {

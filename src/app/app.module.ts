@@ -20,6 +20,8 @@ import { DetailsComponent } from './articles/details/details.component';
 import { BlogpostsComponent } from './articles/details/blogposts/blogposts.component';
 import { GithubsComponent } from './articles/details/githubs/githubs.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NavigationComponent,
     DetailsComponent,
     BlogpostsComponent,
-    GithubsComponent
+    GithubsComponent,
+    PageNotFoundComponent,
+    // LandingComponent
   ],
   imports: [
     BrowserModule,

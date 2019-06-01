@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: [
     './signup.component.css',
     '../../app.component.css'
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class SignupComponent implements OnInit {

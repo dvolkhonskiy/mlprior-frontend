@@ -10,7 +10,7 @@
     <div class="card-header py-3">
       <div class="row">
         <div class="col-sm-10">
-          <a routerLink="/articles/details/{{ article.id }}"><h3 class="card-title" style="">{{ article.title }}</h3></a>
+          <a [routerLink]="['/articles', 'details', article.id]"><h3 class="card-title" style="">{{ article.title }}</h3></a>
         </div>
         <div class="col-sm-2 text-danger">
           <div style="float: left">
@@ -41,7 +41,7 @@
 
         <div class="col-sm-10">
 
-          <a routerLink="/articles/details/{{ article.id }}" class="btn btn-primary btn-round">
+          <a [routerLink]="['/articles', 'details', article.id]" class="btn btn-primary btn-round">
     <span class="icon">
         <i class="material-icons">info</i>
     </span>
@@ -82,14 +82,9 @@
             <i class="fas fa-thumbs-down fa-sm" *ngIf="article.like_dislike == false" (click)="articleService.likeDislike(article, null)"></i>
             <i class="far fa-thumbs-down fa-sm" *ngIf="article.like_dislike != false" (click)="articleService.likeDislike(article, false)"></i>
           </button>
-
         </div>
-
       </div>
-
-
     </div>
   </div>
-
 </div>
 </div>
