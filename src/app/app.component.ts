@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
 // import {AuthService} from './user.service';
 
 @Component({
@@ -7,35 +7,19 @@ import {ActivatedRoute, Route, Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'mlprior-frontend';
-
-  /**
-   * An object representing the user for the login form
-   */
-  // public user: any;
 
   constructor(private router: Router) { }
 
-  // ngOnInit() {
-  //   this.user = {
-  //     username: '',
-  //     password: ''
-  //   };
-  // }
-  //
-  // login() {
-  //   this._userService.login({'username': this.user.username, 'password': this.user.password});
-  // }
-  //
-  // refreshToken() {
-  //   this._userService.refreshToken();
-  // }
-  //
-  // logout() {
-  //   this._userService.logout();
-  // }
-
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
+  }
 
   public isArticles(): boolean {
     return (this.router.url.includes('recommended')
