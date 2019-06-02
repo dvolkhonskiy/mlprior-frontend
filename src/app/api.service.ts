@@ -7,8 +7,10 @@ import {environment} from '../environments/environment';
 @Injectable()
 export class APIService {
 
-  API_URL_STATS = environment.baseUrl + 'api/stats';
+  API_URL_STATS = environment.baseUrl + "api/stats";
+  API_URL_TREND = environment.baseUrl + "api/visualization/trends";
 
+  // STATISTICS
   nArticles = 0;
   nArticlesInLib = 0;
   nBlogPosts = 0;
@@ -38,5 +40,25 @@ export class APIService {
       error => console.error('couldn\'t post because', error)
     );
 
+  }
+
+  getTrends(keywords, res, component): any {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT ' + this._authService.token
+      })
+    };
+
+    let url = this.API_URL_TREND + "?res=" + res + "&keywords=" + keywords;
+    this.httpClient.get(url, httpOptions).subscribe(
+      data => {
+        component.seriesOptions = data['seriesOptions'];
+        component.trendInfo = data['data'];
+        component.resolution = data['resolution'];
+        component.resolutionName = data['resolution_name'];
+      },
+      error => console.error('couldn\'t post because', error)
+    );
   }
 }

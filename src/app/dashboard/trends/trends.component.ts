@@ -3,7 +3,8 @@ import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxChartModule, DxSelectBoxModule } from 'devextreme-angular';
-import { ArchitectureInfo, DashboardDataService } from '../dashboard-data.service';
+import { DashboardDataService } from '../dashboard-data.service';
+import {APIService} from "../../api.service";
 
 @Component({
   selector: 'app-trends',
@@ -15,14 +16,20 @@ import { ArchitectureInfo, DashboardDataService } from '../dashboard-data.servic
 })
 export class TrendsComponent implements OnInit {
 
-  types: string[] = ["spline", "stackedspline", "fullstackedspline"];
-  architecturesInfo: ArchitectureInfo[];
+  resolutions: string[] = ["Month", "Quater", "Half", "Year"];
+  trendInfo;
+  seriesOptions;
+  resolution;
+  resolutionName;
 
-  constructor(private service: DashboardDataService) {
-    this.architecturesInfo = service.getArchitecturesInfo();
+
+  constructor(public apiService: APIService, private service: DashboardDataService) {
   }
 
   ngOnInit() {
+    this.apiService.getTrends("A, The, In, Of", 6, this);
+
+    //this.apiService.seriesOptions;
   }
 
 }

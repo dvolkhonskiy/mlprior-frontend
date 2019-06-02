@@ -1,51 +1,39 @@
 import { Injectable } from '@angular/core';
 
-export class ArchitectureInfo {
-  year: number;
-  smp: number;
-  mmp: number;
-  cnstl: number;
-  cluster: number;
-}
-
-let architecturesInfo: ArchitectureInfo[]  = [{
-  year: 1997,
-  smp: 263,
-  mmp: 226,
-  cnstl: 10,
-  cluster: 1
-}, {
-  year: 1999,
-  smp: 169,
-  mmp: 256,
-  cnstl: 66,
-  cluster: 7
-}, {
-  year: 2001,
-  smp: 57,
-  mmp: 257,
-  cnstl: 143,
-  cluster: 43
-}, {
-  year: 2003,
-  smp: 0,
-  mmp: 163,
-  cnstl: 127,
-  cluster: 210
-}, {
-  year: 2005,
-  smp: 0,
-  mmp: 103,
-  cnstl: 36,
-  cluster: 361
-}, {
-  year: 2007,
-  smp: 0,
-  mmp: 91,
-  cnstl: 3,
-  cluster: 406
-}];
-
+let trendInfo = [
+        {
+            date: "W1 2000",
+            date_code: 2000.0,
+            a: 0,
+            the: 3,
+            in: 1,
+            of: 2
+        },
+        {
+            date: "W1 2001",
+            date_code: 2001.0,
+            a: 1,
+            the: 2,
+            in: 1,
+            of: 2
+        },
+        {
+            date: "W1 2002",
+            date_code: 2002.0,
+            a: 2,
+            the: 1,
+            in: 1,
+            of: 2
+        },
+        {
+            date: "W1 2003",
+            date_code: 2003.0,
+            a: 3,
+            the: 0,
+            in: 1,
+            of: 2
+        }
+    ];
 
 export class CountryInfo {
   country: string;
@@ -56,7 +44,7 @@ export class CountryInfo {
   nuclear: number;
 }
 
-let countriesInfo: CountryInfo[]  = [{
+let countriesInfo = [{
   country: "USA",
   hydro: 59.8,
   oil: 937.6,
@@ -102,8 +90,8 @@ let countriesInfo: CountryInfo[]  = [{
 
 @Injectable()
 export class DashboardDataService {
-  getArchitecturesInfo(): ArchitectureInfo[] {
-    return architecturesInfo;
+  getTrendInfo() {
+    return trendInfo;
   }
 
   getCountriesInfo(): CountryInfo[] {
