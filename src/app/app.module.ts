@@ -22,6 +22,10 @@ import {GithubsComponent} from './articles/details/githubs/githubs.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuardService} from './auth-guard.service';
+import { TrendsComponent } from './dashboard/trends/trends.component';
+import {DxChartModule, DxSelectBoxModule} from 'devextreme-angular';
+import {DashboardDataService} from './dashboard/dashboard-data.service';
+import { CategoriesComponent } from './dashboard/categories/categories.component';
 
 // import { LandingComponent } from './landing/landing.component';
 
@@ -38,7 +42,10 @@ import {AuthGuardService} from './auth-guard.service';
     BlogpostsComponent,
     GithubsComponent,
     PageNotFoundComponent,
+    TrendsComponent,
+    CategoriesComponent,
     // LandingComponent
+
   ],
   imports: [
     BrowserModule,
@@ -47,9 +54,11 @@ import {AuthGuardService} from './auth-guard.service';
     FormsModule,
     InfiniteScrollModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DxChartModule,
+    DxSelectBoxModule
   ],
-  providers: [AuthService, ArticleService, APIService, AuthGuardService],
+  providers: [AuthService, ArticleService, APIService, AuthGuardService, DashboardDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
