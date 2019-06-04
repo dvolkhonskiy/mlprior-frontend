@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    let data = this.apiService.getStats();
+    const data = this.apiService.getStats();
     console.log(data);
 
   }

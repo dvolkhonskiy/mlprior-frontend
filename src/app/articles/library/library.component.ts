@@ -1,16 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {ActivatedRoute, Params} from '@angular/router';
-import {ArticleService} from './articles.service';
-import {Article} from './article.model';
+import { Component, OnInit } from '@angular/core';
+import {ArticlesComponent} from '../articles.component';
+import {Article} from '../article.model';
+import {ArticleService} from '../articles.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-articles',
-  templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.css', '../app.component.css'],
-  providers: []
+  selector: 'app-library',
+  templateUrl: './library.component.html',
+  styleUrls: ['./library.component.css', '../../app.component.css']
 })
-export class ArticlesComponent implements OnInit {
+export class LibraryComponent implements OnInit {
+
   articles: Article[] = [];
   nextPage = '';
   error = null;
@@ -55,5 +55,6 @@ export class ArticlesComponent implements OnInit {
       }
     );
   }
+
 
 }

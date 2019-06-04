@@ -3,22 +3,59 @@ import {Routes, RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {SignupComponent} from './auth/signup/signup.component';
-import {SigninComponent} from './auth/signin/signin.component';
+import {LoginComponent} from './auth/login/login.component';
 import {DetailsComponent} from './articles/details/details.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {AuthGuardService} from './auth-guard.service';
-// import {LandingComponent} from './landing/landing.component';
+import {AuthGuard} from './auth/auth-guard.service';
+import {LibraryComponent} from './articles/library/library.component';
 
 const routes: Routes = [
   // {path: '', component:LandingComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'articles/library', component: ArticlesComponent, canActivate: [AuthGuardService]},
-  {path: 'articles/liked', component: ArticlesComponent, canActivate: [AuthGuardService]},
-  {path: 'articles/disliked', component: ArticlesComponent, canActivate: [AuthGuardService]},
-  {path: 'articles/:page', component: ArticlesComponent},
+  {
+    path: 'articles',
+    children: [
+      {
+        path: 'recommended',
+        component: ArticlesComponent,
+      },
+      {
+        path: 'recent',
+        component: ArticlesComponent,
+      },
+      {
+        path: 'popular',
+        component: ArticlesComponent,
+      }
+    ]
+  },
+  {
+    path: 'library',
+    children: [
+      {
+        path: 'saved',
+        component: LibraryComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'liked',
+        component: LibraryComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'disliked',
+        component: LibraryComponent,
+        canActivate: [AuthGuard]
+      }
+    ]
+  },
+  // {path: 'articles/library', component: ArticlesComponent, canActivate: [AuthGuard]},
+  // {path: 'articles/liked', component: ArticlesComponent, canActivate: [AuthGuard]},
+  // {path: 'articles/disliked', component: ArticlesComponent, canActivate: [AuthGuard]},
+  // {path: 'articles/:page', component: ArticlesComponent},
   {path: 'articles/details/:id', component: DetailsComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'signin', component: SigninComponent},
+  {path: 'signUp', component: SignupComponent},
+  {path: 'login', component: LoginComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

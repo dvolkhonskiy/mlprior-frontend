@@ -1,82 +1,96 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {BehaviorSubject} from 'rxjs';
+import {User} from './user.model';
+import {tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
+
+interface UserResponse {
+  email: string;
+  token: string;
+}
+
+interface AuthResponseData {
+  "user": UserResponse;
+}
 
 @Injectable()
 export class AuthService {
+  user = new BehaviorSubject<User>(null);
 
-  // http options used for making API calls
-  private httpOptions: any;
-  private loginUrl = 'http://localhost:8000/users/login';
-  // the actual JWT token
-  public token = '';
+  private API_URL_LOGIN = environment.baseUrl + 'api/auth/login';
+  private API_URL_SIGN_UP = environment.baseUrl + 'api/auth/signUp';
 
-  // the token expiration date
-  public tokenExpires: Date;
+  constructor(private http: HttpClient, private router: Router) { }
 
-  // the username of the logged in user
-  public username: string;
-
-  // error messages received from the login attempt
-  public errors: any = [];
-
-  constructor(private http: HttpClient) {
-    this.httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
-  }
-
-  // Uses http.post() to get an auth token from djangorestframework-jwt endpoint
-  public login(user) {
-    console.log(JSON.stringify(user));
-    this.http.post(this.loginUrl, user, this.httpOptions).subscribe(
-      data => {
-        this.updateData(data['user']['token']);
-        console.log(this.token);
-      },
-      err => {
-        console.log(err.error);
-        this.errors = err.error;
-      }
+  signUp(email: string, password: string) {
+    let data = { user: { email: email, password: password}};
+    return this.http.post<AuthResponseData>(this.API_URL_SIGN_UP, data).pipe(
+      tap( resData => { this.handleAuthentication(resData.user.email, resData.user.token); } )
     );
   }
 
-  isAuthenticated() {
-    const promise = new Promise(
-      (resolve, reject) => {
-        resolve(this.token !== '');
-      }
-    );
-
-    return promise;
-  }
-
-  // Refreshes the JWT token, to extend the time the user is logged in
-  public refreshToken() {
-    this.http.post('/api-token-refresh/', JSON.stringify({token: this.token}), this.httpOptions).subscribe(
-      data => {
-        this.updateData(data['user']['token']);
-      },
-      err => {
-        this.errors = err.error;
-      }
+  login(email: string, password: string) {
+    let data = {"user": {"email": email, "password":  password}};
+    console.log(data);
+    return this.http.post<AuthResponseData>(this.API_URL_LOGIN, data).pipe(
+      tap(
+        resData => {
+          this.handleAuthentication(resData.user.email, resData.user.token);
+        })
     );
   }
 
-  public logout() {
-    this.token = null;
-    this.tokenExpires = null;
-    this.username = null;
+    autoLogin() {
+    const userData: {
+      email: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+
+    if (!userData) {
+      return;
+    }
+
+    console.log(userData);
+    const loadedUser = new User(userData.email, userData._token, new Date(userData._tokenExpirationDate));
+
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+    }
   }
 
-  private updateData(token) {
-    this.token = token;
-    this.errors = [];
+  private handleAuthentication(email: string, token: string) {
+    const expirationDate = this.getTokenExpirationDate(token);
+    console.log(email, token, expirationDate);
+    const newUser = new User(email, token, expirationDate);
+    this.user.next(newUser);
+    localStorage.setItem('userData', JSON.stringify(newUser));
+  }
 
-    // decode the token to read the username and expiration timestamp
-    const token_parts = this.token.split(/\./);
+  logout() {
+    this.user.next(null);
+    this.router.navigate(['/dashboard']);
+  }
+
+  getTokenExpirationDate(token: string) {
+    const token_parts = token.split(/\./);
     const token_decoded = JSON.parse(window.atob(token_parts[1]));
-    this.tokenExpires = new Date(token_decoded.exp * 1000);
-    this.username = token_decoded.username;
+    console.log('expires');
+    console.log(token_decoded);
+    return new Date(token_decoded.exp * 1000);
   }
+
+  // public updateData(token) {
+  //   this.token = token;
+  //   // this.errors = [];
+  //
+  //   // decode the token to read the username and expiration timestamp
+  //   const token_parts = this.token.split(/\./);
+  //   const token_decoded = JSON.parse(window.atob(token_parts[1]));
+  //   this.tokenExpires = new Date(token_decoded.exp * 1000);
+  //   this.username = token_decoded.username;
+  // }
 
 }

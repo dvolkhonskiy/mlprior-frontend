@@ -22,16 +22,8 @@ export class APIService {
 
 
   getStats(): any {
-    let httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'JWT ' + this._authService.token
-      })
-    };
 
-    // let stats = {};
-
-    this.httpClient.get(this.API_URL_STATS, httpOptions).subscribe(
+    this.httpClient.get(this.API_URL_STATS).subscribe(
       data => {
         this.nArticles = data['n_articles'];
         this.nArticlesInLib = data['n_articles_in_lib'];
@@ -44,15 +36,9 @@ export class APIService {
   }
 
   getTrends(keywords, component): any {
-    let httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'JWT ' + this._authService.token
-      })
-    };
 
     let url = this.API_URL_TREND + "?keywords=" + keywords;
-    this.httpClient.get(url, httpOptions).subscribe(
+    this.httpClient.get(url).subscribe(
       data => {
         component.trendInfo = data['data'];
       },
@@ -61,15 +47,8 @@ export class APIService {
   }
 
   getCategories(categories, component): any {
-    let httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'JWT ' + this._authService.token
-      })
-    };
-
     let url = this.API_URL_CATEG + "?categories=" + categories;
-    this.httpClient.get(url, httpOptions).subscribe(
+    this.httpClient.get(url).subscribe(
       data => {
         component.categoryInfo = data['data'];
       },

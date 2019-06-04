@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 ml-auto mr-auto">
     <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
-      <div class="btn-group" *ngIf="isArticlesPage">
+      <div class="btn-group" *ngIf="!isLibrary">
         <a routerLink="/articles/recommended" class="btn btn-white" routerLinkActive="btn-primary" role="button">
           <i class="material-icons" style="color: #4caf50;">widgets</i>
           <span routerLinkActive="text-dark"> Recommended</span>
@@ -16,7 +16,7 @@
           <span routerLinkActive="text-dark"> Popular</span>
         </a>
       </div>
-      <div class="btn-group" *ngIf="!isArticlesPage">
+      <div class="btn-group" *ngIf="isLibrary">
         <a routerLink="/articles/library" class="btn btn-white" routerLinkActive="btn-primary" role="button">
           <i class="material-icons" style="color: #4caf50;">widgets</i>
           <span routerLinkActive="text-dark"> Library</span>

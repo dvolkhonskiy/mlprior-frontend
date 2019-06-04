@@ -3,8 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
-import {Observable} from 'rxjs/Observable';
-import {tap, map} from 'rxjs/operators';
+import {tap, map, take, exhaustMap} from 'rxjs/operators';
 
 import {Article, BlogPost, GitHub, ArticleAuthor} from './article.model';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
@@ -19,32 +18,21 @@ export class ArticleService {
   API_URL_ARTICLE_DETAILS = environment.baseUrl + 'api/articles/details/';
   API_URL_ARTICLE_LIBRARY = environment.baseUrl + 'api/articles/library/';
   API_URL_BLOGPOSTS = environment.baseUrl + 'api/blogposts/';
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + this.authService.token
-    })
-  };
+  //
+  // httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'JWT ' + this.authService.token
+  //   })
+  // };
 
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
   }
 
-  isAuthorised(): boolean {
-    return this.authService.token !== '';
-  }
-
-  redirectToLogin(): void {
-    this.router.navigate(['signin']);
-  }
 
   updateArticle(article, update): void {
-    if (!this.isAuthorised()) {
-      this.redirectToLogin();
-    }
-
-    this.http.put(this.API_URL_ARTICLE_LIBRARY + article.id + '/', update, this.httpOptions).subscribe(
+    this.http.put(this.API_URL_ARTICLE_LIBRARY + article.id + '/', update).subscribe(
       data => {
         console.log(data);
       },
@@ -55,7 +43,7 @@ export class ArticleService {
   }
 
   updateBlogPost(blogpost, update): void {
-    this.http.put(this.API_URL_BLOGPOSTS + blogpost.id + '/', update, this.httpOptions).subscribe(
+    this.http.put(this.API_URL_BLOGPOSTS + blogpost.id + '/', update).subscribe(
       data => {
         console.log(data);
       },
@@ -66,11 +54,11 @@ export class ArticleService {
   }
 
   addBlogPost(blogpost): void {
-    if (!this.isAuthorised()) {
-      this.redirectToLogin();
-    }
+    // if (!this.isAuthorised()) {
+    //   this.redirectToLogin();
+    // }
 
-    this.http.post(this.API_URL_BLOGPOSTS, blogpost, this.httpOptions).subscribe(
+    this.http.post(this.API_URL_BLOGPOSTS, blogpost).subscribe(
       data => {
         console.log(data);
       },
@@ -101,12 +89,14 @@ export class ArticleService {
   }
 
   fetchArticles(type: string, page: string) {
+
     const url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;
-    return this.http.get<{ results: Article[], next: string, previous: string }>(url, this.httpOptions);
+    return this.http.get<{ results: Article[], next: string, previous: string }>(url);
+
   }
 
   fetchArticleDetails(id) {
-    return this.http.get<Article>(this.API_URL_ARTICLE_DETAILS + id, this.httpOptions).pipe(tap(res => {
+    return this.http.get<Article>(this.API_URL_ARTICLE_DETAILS + id).pipe(tap(res => {
       return res;
     }));
   }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -7,13 +7,11 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./navigation.component.css', '../../app.component.css']
 })
 export class NavigationComponent implements OnInit {
-  isArticlesPage: boolean;
+  isLibrary: boolean = false;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private router: ActivatedRoute) {
   }
 
-  ngOnInit() {
-    this.isArticlesPage = !['library', 'liked', 'disliked'].includes(this.route.params['page']);
-  }
+  ngOnInit() {  }
 
 }
