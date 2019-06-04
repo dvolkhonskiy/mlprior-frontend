@@ -23,7 +23,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuardService} from './auth-guard.service';
 import { TrendsComponent } from './dashboard/trends/trends.component';
-import {DxChartModule, DxSelectBoxModule} from 'devextreme-angular';
+import {DxChartModule, DxSelectBoxModule, DxRangeSelectorModule, DxTextAreaModule} from 'devextreme-angular';
 import {DashboardDataService} from './dashboard/dashboard-data.service';
 import { CategoriesComponent } from './dashboard/categories/categories.component';
 
@@ -56,7 +56,9 @@ import { CategoriesComponent } from './dashboard/categories/categories.component
     NgbModule,
     ReactiveFormsModule,
     DxChartModule,
-    DxSelectBoxModule
+    DxSelectBoxModule,
+    DxRangeSelectorModule,
+    DxTextAreaModule
   ],
   providers: [AuthService, ArticleService, APIService, AuthGuardService, DashboardDataService],
   bootstrap: [AppComponent]

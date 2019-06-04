@@ -1,26 +1,63 @@
-<dx-chart
-  id="chart"
-  [dataSource]="countriesInfo">
-  <dxi-series valueField="hydro" name="Hydro-electric"></dxi-series>
-  <dxi-series valueField="oil" name="Oil"></dxi-series>
-  <dxi-series valueField="gas" name="Natural gas"></dxi-series>
-  <dxi-series valueField="coal" name="Coal"></dxi-series>
-  <dxi-series valueField="nuclear" name="Nuclear"></dxi-series>
-  <dxo-common-series-settings
-    argumentField="country"
-    type="fullStackedBar">
-  </dxo-common-series-settings>
-  <dxo-legend
-    verticalAlignment="top"
-    horizontalAlignment="center"
-    itemTextPosition="right">
-  </dxo-legend>
-  <dxo-title text="Energy Consumption in 2004">
-    <dxo-subtitle text="(Millions of Tons, Oil Equivalent)"></dxo-subtitle>
-  </dxo-title>
-  <dxo-export [enabled]="false"></dxo-export>
-  <dxo-tooltip
-    [enabled]="true"
-    [customizeTooltip]="customizeTooltip">
-  </dxo-tooltip>
-</dx-chart>
+<div id="chart-demo">
+  <div class="options">
+    <div class="option">
+      <span>Resolution</span>
+      <dx-select-box
+        [dataSource]="resolution_keys"
+        [(value)]="res_idx">
+      </dx-select-box>
+    </div>
+  </div>
+  <dx-chart palette="violet"
+    [dataSource]="categoryInfo">
+    <dxo-common-series-settings type="bar"
+                                argumentField="date"
+                                valueField="value">
+      <dxo-aggregation [enabled]="true" method="sum"></dxo-aggregation>
+    </dxo-common-series-settings>
+    <dxo-series-template nameField="key"></dxo-series-template>
+    <dxo-margin [bottom]="20" [left]="10"></dxo-margin>
+    <dxo-common-axis-settings>
+      <dxo-grid [visible]="true"></dxo-grid>
+    </dxo-common-axis-settings>
+    <dxo-legend location="top"
+      verticalAlignment="top"
+      horizontalAlignment="center">
+    </dxo-legend>
+    <dxo-argument-axis
+        argumentType="datetime"
+        [visualRange]="visualRange"
+        minlength="month">
+      <dxo-min-visual-range-length [months]="resolutions[res_idx]"></dxo-min-visual-range-length>
+      <dxo-tick-interval [months]="resolutions[res_idx]"></dxo-tick-interval>
+      <dxo-aggregation-interval [months]="resolutions[res_idx]"></dxo-aggregation-interval>
+    </dxo-argument-axis>
+    <dxo-export [enabled]="false"></dxo-export>
+    <dxo-tooltip [enabled]="true"></dxo-tooltip>
+  </dx-chart>
+  <dx-range-selector
+      [dataSource]="categoryInfo"
+      [(value)]="visualRange">
+    <dxo-size [height]="120"></dxo-size>
+    <dxo-margin [left]="10"></dxo-margin>
+    <dxo-scale
+      valueType="datetime"
+      minRange="month">
+      <dxo-aggregation-interval [months]="resolutions[res_idx]"></dxo-aggregation-interval>
+      <dxo-tick-interval [months]="resolutions[res_idx]"></dxo-tick-interval>
+    </dxo-scale>
+    <dxo-behavior callValueChanged="onMoving"></dxo-behavior>
+    <dxo-chart palette="violet">
+      <dxo-common-series-settings
+        argumentField="date"
+        valueField="value"
+        type="bar">
+        <dxo-aggregation [enabled]="true" method="sum"></dxo-aggregation>
+        <dxo-aggregation-interval [months]="resolutions[res_idx]"></dxo-aggregation-interval>
+      </dxo-common-series-settings>
+      <dxo-series-template
+        nameField="key">
+      </dxo-series-template>
+    </dxo-chart>
+  </dx-range-selector>
+</div>

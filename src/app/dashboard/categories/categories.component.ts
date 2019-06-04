@@ -5,7 +5,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { DxChartModule } from 'devextreme-angular';
 
-import { CountryInfo, DashboardDataService } from '../dashboard-data.service';
+import { DashboardDataService } from '../dashboard-data.service';
+import {APIService} from "../../api.service";
 
 @Component({
   selector: 'app-categories',
@@ -15,19 +16,18 @@ import { CountryInfo, DashboardDataService } from '../dashboard-data.service';
     DashboardDataService
   ]
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
 
+  resolution_keys: string[] = ["Month", "Quarter", "Half", "Year"];
+  resolutions = { "Month": 1, "Quarter": 3, "Half": 6, "Year": 12};
+  res_idx = "Year";
+  categoryInfo;
 
-  countriesInfo: CountryInfo[];
-
-  constructor(service: DashboardDataService) {
-    this.countriesInfo = service.getCountriesInfo();
+  constructor(public apiService: APIService, private service: DashboardDataService) {
   }
 
-  customizeTooltip(arg: any) {
-    return {
-      text: arg.percentText + ' - ' + arg.valueText
-    };
+  ngOnInit() {
+    this.apiService.getCategories("cs.AI, cs.CV, cs.DS, cs.IR", this);
   }
 
 }

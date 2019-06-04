@@ -9,6 +9,7 @@ export class APIService {
 
   API_URL_STATS = environment.baseUrl + "api/stats";
   API_URL_TREND = environment.baseUrl + "api/visualization/trends";
+  API_URL_CATEG = environment.baseUrl + "api/visualization/categories";
 
   // STATISTICS
   nArticles = 0;
@@ -42,7 +43,7 @@ export class APIService {
 
   }
 
-  getTrends(keywords, res, component): any {
+  getTrends(keywords, component): any {
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -50,13 +51,27 @@ export class APIService {
       })
     };
 
-    let url = this.API_URL_TREND + "?res=" + res + "&keywords=" + keywords;
+    let url = this.API_URL_TREND + "?keywords=" + keywords;
     this.httpClient.get(url, httpOptions).subscribe(
       data => {
-        component.seriesOptions = data['seriesOptions'];
         component.trendInfo = data['data'];
-        component.resolution = data['resolution'];
-        component.resolutionName = data['resolution_name'];
+      },
+      error => console.error('couldn\'t post because', error)
+    );
+  }
+
+  getCategories(categories, component): any {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT ' + this._authService.token
+      })
+    };
+
+    let url = this.API_URL_CATEG + "?categories=" + categories;
+    this.httpClient.get(url, httpOptions).subscribe(
+      data => {
+        component.categoryInfo = data['data'];
       },
       error => console.error('couldn\'t post because', error)
     );
