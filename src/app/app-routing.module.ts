@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {ArticlesComponent} from './articles/articles.component';
 import {LoginComponent} from './auth/login.component';
 import {DetailsComponent} from './articles/details/details.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';

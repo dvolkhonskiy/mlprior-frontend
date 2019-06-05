@@ -5,7 +5,6 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {ArticlesComponent} from './articles/articles.component';
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/common/http';
 import {AuthService} from './auth/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -37,7 +36,6 @@ import { RecommendedComponent } from './articles/recommended/recommended.compone
   declarations: [
     AppComponent,
     DashboardComponent,
-    ArticlesComponent,
     LoginComponent,
     RecommendedNavigationComponent,
     DetailsComponent,

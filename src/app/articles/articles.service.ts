@@ -80,8 +80,10 @@ export class ArticleService implements OnInit {
     article.in_lib = !article.in_lib;
   }
 
-  likeDislike(article, likeDislike): void {
-    // this.redirectIfNotAuthenticated();
+  likeDislike(article, likeDislike, isAuthenticated): void {
+    if (!isAuthenticated) {
+      return;
+    }
     this.updateArticle(article, {
       like_dislike: likeDislike
     });
@@ -96,10 +98,8 @@ export class ArticleService implements OnInit {
   }
 
   fetchArticles(type: string, page: string) {
-
     const url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;
-    return this.http.get<{ results: Article[], next: string, previous: string }>(url);
-
+    return this.http.get<{ results: Article[], next?: string, previous: string }>(url);
   }
 
   fetchArticleDetails(id) {

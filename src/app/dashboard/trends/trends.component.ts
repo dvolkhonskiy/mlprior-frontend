@@ -23,6 +23,7 @@ export class TrendsComponent implements OnInit {
   resIdx = "Year";
   trendInfo;
   visualRange;
+  isLoading = true;
 
 
   constructor(public apiService: APIService, private service: DashboardDataService) {
@@ -32,8 +33,12 @@ export class TrendsComponent implements OnInit {
     this.apiService.getTrends('A, The, Of, In, On, Into').subscribe(
       data => {
         this.trendInfo = data['data'];
+        this.isLoading = false;
       },
-      error => console.error('couldn\'t post because', error)
+      error =>  {
+        console.log(error);
+        this.isLoading = false;
+      }
     );
   }
 

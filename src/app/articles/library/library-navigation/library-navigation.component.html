@@ -2,17 +2,17 @@
   <div class="col-md-6 ml-auto mr-auto">
     <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
       <div class="btn-group">
-        <a routerLink="/library/saved" class="btn btn-white" routerLinkActive="btn-primary" role="button">
-          <i class="material-icons" style="color: #4e73df;">bookmark</i>
+        <a routerLink="/library/saved" class="btn btn-white" routerLinkActive="btn-primary" role="button" #rla_saved="routerLinkActive">
+          <i class="material-icons {{rla_saved.isActive ? 'icon-white' : 'icon-primary'}}">bookmark</i>
           <span routerLinkActive="text-dark"> Library</span>
         </a>
-        <a routerLink="/library/liked" class="btn btn-white" routerLinkActive="btn-primary" role="button">
-          <i class="material-icons" style="color: #4e73df;">thumb_up</i>
+        <a routerLink="/library/liked" class="btn btn-white" routerLinkActive="btn-primary" role="button" #rla_liked="routerLinkActive">
+          <i class="material-icons {{rla_liked.isActive ? 'icon-white' : 'icon-primary'}}">thumb_up</i>
           <span routerLinkActive="text-dark"> Liked</span>
           <div class="ripple-container"></div>
         </a>
-        <a routerLink="/library/disliked" class="btn btn-white" routerLinkActive="btn-primary" role="button">
-          <i class="material-icons" style="color: #4e73df;">thumb_down</i>
+        <a routerLink="/library/disliked" class="btn btn-white" routerLinkActive="btn-primary" role="button" #rla_disliked="routerLinkActive">
+          <i class="material-icons {{rla_disliked.isActive ? 'icon-white' : 'icon-primary'}}">thumb_down</i>
           <span routerLinkActive="text-dark"> Disliked</span>
         </a>
       </div>

@@ -40,7 +40,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
         this.articleService.fetchArticles(this.type, this.nextPage).subscribe(
           data => {
             this.articles = this.articles.concat(data.results);
-            this.nextPage = data.next;
+            this.nextPage = data.next ? data.next : null;
           },
           error => {
             this.error = error.message;
@@ -62,6 +62,9 @@ export class RecommendedComponent implements OnInit, OnDestroy {
 
   onScroll() {
     console.log('scrolled!!');
+    if (!this.nextPage) {
+      return;
+    }
     this.articleService.fetchArticles(this.type, this.nextPage).subscribe(
       data => {
         this.articles = this.articles.concat(data.results);

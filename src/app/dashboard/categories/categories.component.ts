@@ -24,6 +24,8 @@ export class CategoriesComponent implements OnInit {
   categoryInfo;
   visualRange;
 
+  isLoading = true;
+
   constructor(public apiService: APIService, private service: DashboardDataService) {
   }
 
@@ -31,8 +33,12 @@ export class CategoriesComponent implements OnInit {
     this.apiService.getCategories("cs.AI, cs.CV, cs.DS, cs.IR").subscribe(
       data => {
         this.categoryInfo = data['data'];
+        this.isLoading = false;
       },
-      error => console.error('couldn\'t post because', error)
+      error => {
+        console.error('couldn\'t post because', error);
+        this.isLoading = false;
+      }
     );
   }
 

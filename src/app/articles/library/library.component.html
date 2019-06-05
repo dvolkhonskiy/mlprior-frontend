@@ -63,7 +63,7 @@
               <span class="text">Save to Library</span>
             </button>
             <button class="btn btn-default btn-round donotsave" *ngIf="article.in_lib"
-                    (click)="articleService.addRemoveFromLib(article)">
+                    (click)="articleService.addRemoveFromLib(article)" >
             <span class="icon">
             <i class="material-icons">bookmark</i>
             </span>
@@ -76,18 +76,18 @@
 
           <div class="col-md-2">
 
-            <button class="btn btn-primary btn-round btn-fab likebutton">
+            <button class="btn btn-primary btn-round btn-fab likebutton" >
               <i class="fas fa-thumbs-up fa-sm" *ngIf="article.like_dislike == true"
-                 (click)="articleService.likeDislike(article, null)"></i>
+                 (click)="articleService.likeDislike(article, null, true)"></i>
               <i class="far fa-thumbs-up fa-sm" *ngIf="article.like_dislike != true"
-                 (click)="articleService.likeDislike(article, true)"></i>
+                 (click)="articleService.likeDislike(article, true, true)"></i>
             </button>
 
             <button class="btn btn-primary btn-round btn-fab dislikebutton">
               <i class="fas fa-thumbs-down fa-sm" *ngIf="article.like_dislike == false"
-                 (click)="articleService.likeDislike(article, null)"></i>
+                 (click)="articleService.likeDislike(article, null, true)"></i>
               <i class="far fa-thumbs-down fa-sm" *ngIf="article.like_dislike != false"
-                 (click)="articleService.likeDislike(article, false)"></i>
+                 (click)="articleService.likeDislike(article, false, true)"></i>
             </button>
           </div>
         </div>
