@@ -3,11 +3,6 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 col-md-8 col-sm-8 ml-auto mr-auto mt-auto ">
-        <!--<form class="_user" method="post">-->
-
-        <div class="alert alert-danger" *ngIf="error">
-          <p>{{ error }}</p>
-        </div>
         <div *ngIf="isLoading" style="text-align: center;">
           <app-loading-spinner></app-loading-spinner>
         </div>

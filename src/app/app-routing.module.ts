@@ -7,6 +7,7 @@ import {DetailsComponent} from './articles/details/details.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from './auth/auth-guard.service';
 import {LibraryComponent} from './articles/library/library.component';
+import {RecommendedComponent} from './articles/recommended/recommended.component';
 
 const routes: Routes = [
   // {path: '', component:LandingComponent},
@@ -16,15 +17,15 @@ const routes: Routes = [
     children: [
       {
         path: 'recommended',
-        component: ArticlesComponent,
+        component: RecommendedComponent,
       },
       {
         path: 'recent',
-        component: ArticlesComponent,
+        component: RecommendedComponent,
       },
       {
         path: 'popular',
-        component: ArticlesComponent,
+        component: RecommendedComponent,
       }
     ]
   },

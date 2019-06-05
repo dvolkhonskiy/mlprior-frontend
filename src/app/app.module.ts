@@ -1,7 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {RouterModule, Routes} from '@angular/router';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -13,7 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './auth/login.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ArticleService} from './articles/articles.service';
-import {NavigationComponent} from './articles/navigation/navigation.component';
+import {RecommendedNavigationComponent} from './articles/recommended/recommended-navigation/recommended-navigation.component';
 import {APIService} from './api.service';
 import {DetailsComponent} from './articles/details/details.component';
 import {BlogpostsComponent} from './articles/details/blogposts/blogposts.component';
@@ -29,6 +28,7 @@ import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
 import { LibraryComponent } from './articles/library/library.component';
 import { LibraryNavigationComponent } from './articles/library/library-navigation/library-navigation.component';
+import { RecommendedComponent } from './articles/recommended/recommended.component';
 
 // import { LandingComponent } from './landing/landing.component';
 
@@ -39,7 +39,7 @@ import { LibraryNavigationComponent } from './articles/library/library-navigatio
     DashboardComponent,
     ArticlesComponent,
     LoginComponent,
-    NavigationComponent,
+    RecommendedNavigationComponent,
     DetailsComponent,
     BlogpostsComponent,
     GithubsComponent,
@@ -50,7 +50,8 @@ import { LibraryNavigationComponent } from './articles/library/library-navigatio
     // LandingComponent
     LoadingSpinnerComponent,
     LibraryComponent,
-    LibraryNavigationComponent
+    LibraryNavigationComponent,
+    RecommendedComponent
   ],
   imports: [
     BrowserModule,
