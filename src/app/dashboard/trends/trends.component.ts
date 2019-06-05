@@ -22,6 +22,7 @@ export class TrendsComponent implements OnInit {
   resolutions = { "Month": 1, "Quarter": 3, "Half": 6, "Year": 12};
   resIdx = "Year";
   trendInfo;
+  visualRange;
 
 
   constructor(public apiService: APIService, private service: DashboardDataService) {
