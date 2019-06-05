@@ -17,9 +17,7 @@ export class APIService {
   nBlogPosts = 0;
   nGitHubs = 0;
 
-  constructor(private httpClient: HttpClient, private router: Router, private _authService: AuthService) {
-  }
-
+  constructor(private httpClient: HttpClient, private router: Router, private _authService: AuthService) {  }
 
   getStats(): any {
 
@@ -35,24 +33,14 @@ export class APIService {
 
   }
 
-  getTrends(keywords, component): any {
+  getTrends(keywords): any {
 
     let url = this.API_URL_TREND + "?keywords=" + keywords;
-    this.httpClient.get(url).subscribe(
-      data => {
-        component.trendInfo = data['data'];
-      },
-      error => console.error('couldn\'t post because', error)
-    );
+    return this.httpClient.get(url);
   }
 
-  getCategories(categories, component): any {
+  getCategories(categories) {
     let url = this.API_URL_CATEG + "?categories=" + categories;
-    this.httpClient.get(url).subscribe(
-      data => {
-        component.categoryInfo = data['data'];
-      },
-      error => console.error('couldn\'t post because', error)
-    );
+    return this.httpClient.get(url);
   }
 }

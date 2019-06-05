@@ -2,8 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ArticlesComponent} from './articles/articles.component';
-import {SignupComponent} from './auth/signup/signup.component';
-import {LoginComponent} from './auth/login/login.component';
+import {LoginComponent} from './auth/login.component';
 import {DetailsComponent} from './articles/details/details.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from './auth/auth-guard.service';
@@ -54,7 +53,6 @@ const routes: Routes = [
   // {path: 'articles/disliked', component: ArticlesComponent, canActivate: [AuthGuard]},
   // {path: 'articles/:page', component: ArticlesComponent},
   {path: 'articles/details/:id', component: DetailsComponent},
-  {path: 'signUp', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

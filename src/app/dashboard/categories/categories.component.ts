@@ -18,16 +18,21 @@ import {APIService} from "../../api.service";
 })
 export class CategoriesComponent implements OnInit {
 
-  resolution_keys: string[] = ["Month", "Quarter", "Half", "Year"];
+  resolutionKeys: string[] = ["Month", "Quarter", "Half", "Year"];
   resolutions = { "Month": 1, "Quarter": 3, "Half": 6, "Year": 12};
-  res_idx = "Year";
+  resIdx = "Year";
   categoryInfo;
 
   constructor(public apiService: APIService, private service: DashboardDataService) {
   }
 
   ngOnInit() {
-    this.apiService.getCategories("cs.AI, cs.CV, cs.DS, cs.IR", this);
+    this.apiService.getCategories("cs.AI, cs.CV, cs.DS, cs.IR").subscribe(
+      data => {
+        this.categoryInfo = data['data'];
+      },
+      error => console.error('couldn\'t post because', error)
+    );
   }
 
 }

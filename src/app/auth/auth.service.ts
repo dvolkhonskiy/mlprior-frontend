@@ -11,8 +11,8 @@ interface UserResponse {
   token: string;
 }
 
-interface AuthResponseData {
-  "user": UserResponse;
+export interface AuthResponseData {
+  user: UserResponse;
 }
 
 @Injectable()
@@ -20,14 +20,21 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
 
   private API_URL_LOGIN = environment.baseUrl + 'api/auth/login';
-  private API_URL_SIGN_UP = environment.baseUrl + 'api/auth/signUp';
+  private API_URL_SIGN_UP = environment.baseUrl + 'api/auth/signup';
+
+  public redirectUrl: string;
+  private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(email: string, password: string) {
-    let data = { user: { email: email, password: password}};
+    let data = {"user": {"email": email, "password":  password}};
+    console.log(data);
     return this.http.post<AuthResponseData>(this.API_URL_SIGN_UP, data).pipe(
-      tap( resData => { this.handleAuthentication(resData.user.email, resData.user.token); } )
+      tap(
+        resData => {
+          this.handleAuthentication(resData.user.email, resData.user.token);
+        })
     );
   }
 
@@ -58,20 +65,30 @@ export class AuthService {
 
     if (loadedUser.token) {
       this.user.next(loadedUser);
+      const expirationDuration =
+        new Date(userData._tokenExpirationDate).getTime() -
+        new Date().getTime();
+      this.autoLogout(expirationDuration);
     }
   }
 
   private handleAuthentication(email: string, token: string) {
-    const expirationDate = this.getTokenExpirationDate(token);
-    console.log(email, token, expirationDate);
-    const newUser = new User(email, token, expirationDate);
+    const expiresIn = this.getTokenExpirationDate(token);
+    console.log(email, token, expiresIn);
+    const newUser = new User(email, token, new Date(expiresIn));
     this.user.next(newUser);
+    const expirationDuration =
+      new Date(newUser.expirationDate).getTime() -
+      new Date().getTime();
+    this.autoLogout(expirationDuration);
     localStorage.setItem('userData', JSON.stringify(newUser));
   }
 
   logout() {
+    console.log('Logout');
     this.user.next(null);
     this.router.navigate(['/dashboard']);
+    localStorage.removeItem('userData');
   }
 
   getTokenExpirationDate(token: string) {
@@ -79,7 +96,14 @@ export class AuthService {
     const token_decoded = JSON.parse(window.atob(token_parts[1]));
     console.log('expires');
     console.log(token_decoded);
-    return new Date(token_decoded.exp * 1000);
+    return token_decoded.exp * 1000;
+  }
+
+  autoLogout(expirationDuration: number) {
+
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, expirationDuration);
   }
 
   // public updateData(token) {

@@ -9,9 +9,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/common/http';
 import {AuthService} from './auth/auth.service';
-import {SignupComponent} from './auth/signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {LoginComponent} from './auth/login/login.component';
+import {LoginComponent} from './auth/login.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ArticleService} from './articles/articles.service';
 import {NavigationComponent} from './articles/navigation/navigation.component';
@@ -39,7 +38,6 @@ import { LibraryNavigationComponent } from './articles/library/library-navigatio
     AppComponent,
     DashboardComponent,
     ArticlesComponent,
-    SignupComponent,
     LoginComponent,
     NavigationComponent,
     DetailsComponent,

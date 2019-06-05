@@ -6,7 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-library',
-  templateUrl: './library.component.html',
+  templateUrl: '../articles.component.html',
   styleUrls: ['./library.component.css', '../../app.component.css']
 })
 export class LibraryComponent implements OnInit {

@@ -3,8 +3,8 @@
     <div class="option">
       <span>Resolution</span>
       <dx-select-box
-        [dataSource]="resolution_keys"
-        [(value)]="res_idx">
+        [dataSource]="resolutionKeys"
+        [(value)]="resIdx">
       </dx-select-box>
     </div>
   </div>
@@ -28,9 +28,9 @@
         argumentType="datetime"
         [visualRange]="visualRange"
         minlength="month">
-      <dxo-min-visual-range-length [months]="resolutions[res_idx]"></dxo-min-visual-range-length>
-      <dxo-tick-interval [months]="resolutions[res_idx]"></dxo-tick-interval>
-      <dxo-aggregation-interval [months]="resolutions[res_idx]"></dxo-aggregation-interval>
+      <dxo-min-visual-range-length [months]="resolutions[resIdx]"></dxo-min-visual-range-length>
+      <dxo-tick-interval [months]="resolutions[resIdx]"></dxo-tick-interval>
+      <dxo-aggregation-interval [months]="resolutions[resIdx]"></dxo-aggregation-interval>
     </dxo-argument-axis>
     <dxo-export [enabled]="false"></dxo-export>
     <dxo-tooltip [enabled]="true"></dxo-tooltip>
@@ -43,8 +43,8 @@
     <dxo-scale
       valueType="datetime"
       minRange="month">
-      <dxo-aggregation-interval [months]="resolutions[res_idx]"></dxo-aggregation-interval>
-      <dxo-tick-interval [months]="resolutions[res_idx]"></dxo-tick-interval>
+      <dxo-aggregation-interval [months]="resolutions[resIdx]"></dxo-aggregation-interval>
+      <dxo-tick-interval [months]="resolutions[resIdx]"></dxo-tick-interval>
     </dxo-scale>
     <dxo-behavior callValueChanged="onMoving"></dxo-behavior>
     <dxo-chart palette="violet">
@@ -53,7 +53,7 @@
         valueField="value"
         type="bar">
         <dxo-aggregation [enabled]="true" method="sum"></dxo-aggregation>
-        <dxo-aggregation-interval [months]="resolutions[res_idx]"></dxo-aggregation-interval>
+        <dxo-aggregation-interval [months]="resolutions[resIdx]"></dxo-aggregation-interval>
       </dxo-common-series-settings>
       <dxo-series-template
         nameField="key">

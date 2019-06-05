@@ -23,6 +23,8 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Promise<boolean | UrlTree>
     | Observable<boolean | UrlTree> {
+
+
     return this.authService.user.pipe(
       take(1),
       map(user => {
@@ -30,13 +32,9 @@ export class AuthGuard implements CanActivate {
         if (isAuth) {
           return true;
         }
+        this.authService.redirectUrl = router.url;
         return this.router.createUrlTree(['/login']);
       })
-      // tap(isAuth => {
-      //   if (!isAuth) {
-      //     this.router.navigate(['/auth']);
-      //   }
-      // })
     );
   }
 }

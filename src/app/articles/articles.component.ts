@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ArticleService} from './articles.service';
 import {Article} from './article.model';
+import {Subscription} from 'rxjs';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-articles',
@@ -10,16 +12,27 @@ import {Article} from './article.model';
   styleUrls: ['./articles.component.css', '../app.component.css'],
   providers: []
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit, OnDestroy {
   articles: Article[] = [];
   nextPage = '';
   error = null;
   type = 'recommended';
 
-  constructor(public articleService: ArticleService, public route: ActivatedRoute) {
+  isAuthenticated = false;
+  private userSub: Subscription;
+
+  constructor(public articleService: ArticleService, public route: ActivatedRoute, private authService: AuthService) {
   }
 
   ngOnInit() {
+    this.userSub = this.authService.user.subscribe(
+      user => {
+        console.log('user');
+        console.log(!!user);
+        this.isAuthenticated = !!user;
+      }
+    );
+
     this.route.url.subscribe(
       url =>  {
         const path = url[0].path;
@@ -35,6 +48,10 @@ export class ArticlesComponent implements OnInit {
         );
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
   }
 
   resetArticles(type): void {

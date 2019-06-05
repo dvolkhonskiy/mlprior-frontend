@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxChartModule, DxSelectBoxModule, DxRangeSelectorModule } from 'devextreme-angular';
 import { DashboardDataService } from '../dashboard-data.service';
-import {APIService} from "../../api.service";
+import {APIService} from '../../api.service';
 
 @Component({
   selector: 'app-trends',
@@ -18,9 +18,9 @@ import {APIService} from "../../api.service";
 
 export class TrendsComponent implements OnInit {
 
-  resolution_keys: string[] = ["Month", "Quarter", "Half", "Year"];
+  resolutionKeys: string[] = ["Month", "Quarter", "Half", "Year"];
   resolutions = { "Month": 1, "Quarter": 3, "Half": 6, "Year": 12};
-  res_idx = "Year";
+  resIdx = "Year";
   trendInfo;
 
 
@@ -28,7 +28,12 @@ export class TrendsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getTrends('A, The, Of, In, On, Into', this);
+    this.apiService.getTrends('A, The, Of, In, On, Into').subscribe(
+      data => {
+        this.trendInfo = data['data'];
+      },
+      error => console.error('couldn\'t post because', error)
+    );
   }
 
 }
