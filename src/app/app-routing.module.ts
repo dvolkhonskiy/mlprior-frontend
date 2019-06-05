@@ -7,9 +7,10 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AuthGuard} from './auth/auth-guard.service';
 import {LibraryComponent} from './articles/library/library.component';
 import {RecommendedComponent} from './articles/recommended/recommended.component';
+import {LandingComponent} from './landing/landing.component';
 
 const routes: Routes = [
-  // {path: '', component:LandingComponent},
+  {path: '', component:LandingComponent},
   {path: 'dashboard', component: DashboardComponent},
   {
     path: 'articles',

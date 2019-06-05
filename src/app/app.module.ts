@@ -28,6 +28,7 @@ import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.
 import { LibraryComponent } from './articles/library/library.component';
 import { LibraryNavigationComponent } from './articles/library/library-navigation/library-navigation.component';
 import { RecommendedComponent } from './articles/recommended/recommended.component';
+import { LandingComponent } from './landing/landing.component';
 
 // import { LandingComponent } from './landing/landing.component';
 
@@ -49,7 +50,8 @@ import { RecommendedComponent } from './articles/recommended/recommended.compone
     LoadingSpinnerComponent,
     LibraryComponent,
     LibraryNavigationComponent,
-    RecommendedComponent
+    RecommendedComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

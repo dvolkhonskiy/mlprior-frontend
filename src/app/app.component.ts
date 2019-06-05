@@ -11,16 +11,20 @@ import {AuthService} from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'mlprior-frontend';
+  isLanding = true;
 
   constructor(private router: Router, private authService: AuthService) {  }
 
   ngOnInit() {
+
+
     this.authService.autoLogin();
 
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
+      this.isLanding = evt.url === '/';
       window.scrollTo(0, 0);
     });
   }
