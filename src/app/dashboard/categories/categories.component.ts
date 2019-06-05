@@ -30,7 +30,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getCategories("cs.AI, cs.CV, cs.DS, cs.IR").subscribe(
+    this.apiService.getCategories("").subscribe(
       data => {
         this.categoryInfo = data['data'];
         this.isLoading = false;

@@ -34,12 +34,19 @@ export class APIService {
   }
 
   getTrends(keywords): any {
+    if (keywords == "") {
+      return this.httpClient.get(this.API_URL_TREND);
+    }
 
     let url = this.API_URL_TREND + "?keywords=" + keywords;
     return this.httpClient.get(url);
   }
 
   getCategories(categories) {
+    if (categories == "") {
+      return this.httpClient.get(this.API_URL_CATEG);
+    }
+
     let url = this.API_URL_CATEG + "?categories=" + categories;
     return this.httpClient.get(url);
   }
