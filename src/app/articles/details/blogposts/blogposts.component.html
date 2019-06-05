@@ -6,9 +6,9 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <h4 class="card-title">Blog posts <a style="color: #4e73df !important;" data-toggle="popover"
-                                             data-trigger="hover"
-                                             data-content="Blogposts, that are related to the article. We appreciate if you add one more..."><i
+        <h4 class="card-title">Blog posts <a style="color: #4e73df !important;"
+                                             ngbPopover="Blogposts, that are related to the article. We appreciate if you add one more..."
+                                             triggers="mouseenter:mouseleave"><i
           class="fas fa-question"></i></a></h4>
 
       </div>
@@ -32,10 +32,7 @@
     <div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed">
       <div class="col-sm-12">
         <form [formGroup]="newBlogPostForm" id="blogPostForm" (submit)="addBlogPost()">
-          {{details.article.id}}
           <!--<input value="{{ details.article.id }}"  formControlName="article_id" placeholder="article_id" class='form-control' hidden>-->
-
-
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
