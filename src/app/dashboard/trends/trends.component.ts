@@ -30,7 +30,7 @@ export class TrendsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getTrends('Supervised, Unsupervised, Reinforcement').subscribe(
+    this.apiService.getTrends('').subscribe(
       data => {
         this.trendInfo = data['data'];
         this.isLoading = false;
