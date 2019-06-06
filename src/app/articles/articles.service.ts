@@ -19,8 +19,7 @@ export class ArticleService implements OnInit {
   API_URL_ARTICLE_DETAILS = environment.baseUrl + 'api/articles/details/';
   API_URL_ARTICLE_LIBRARY = environment.baseUrl + 'api/articles/saved/';
   API_URL_BLOGPOSTS = environment.baseUrl + 'api/blogposts/';
-
-
+  API_URL_GITHUBS = environment.baseUrl + 'api/githubs/';
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -60,9 +59,25 @@ export class ArticleService implements OnInit {
     );
   }
 
-  addBlogPost(blogpost): void {
-    // this.redirectIfNotAuthenticated();
-    this.http.post(this.API_URL_BLOGPOSTS, blogpost).subscribe(
+  addBlogPost(title: string, url: string, articleId: string) {
+    const blogpost = {
+      title: title,
+      url: url,
+      article_id: articleId
+    };
+    return this.http.post(this.API_URL_BLOGPOSTS, blogpost);
+  }
+
+  addGitHub(url: string, articleId: string) {
+    const github = {
+      url: url,
+      article_id: articleId
+    };
+    return this.http.post(this.API_URL_GITHUBS, github);
+  }
+
+  updateGitHub(github, update) {
+    this.http.put(this.API_URL_GITHUBS + github.id + '/', update).subscribe(
       data => {
         console.log(data);
       },
@@ -70,6 +85,13 @@ export class ArticleService implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  changeGitHubLike(github, isLike): void {
+    // this.redirectIfNotAuthenticated();
+    this.updateGitHub(github, {
+      is_like: isLike
+    });
   }
 
   addRemoveFromLib(article): void {

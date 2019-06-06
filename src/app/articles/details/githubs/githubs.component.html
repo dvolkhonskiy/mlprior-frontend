@@ -1,3 +1,97 @@
-<p>
-  githubs works!
-</p>
+
+<div class="card shadow mb-4">
+  <div class="card-header card-header-info card-header-icon">
+
+    <div class="card-icon" style="font-size: 30px;">
+      <i class="fab fa-github"></i>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="card-title">GitHub Repositories<a style="color: #4e73df !important;"
+                                                     ngbPopover="Github repositories, that are related to the article. We appreciate if you add one more... Just link..."
+                                                     triggers="mouseenter:mouseleave"><i class="fas fa-question"></i></a></h4>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-10">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-primary btn-round btn-fab note" type="button"
+                type="button" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed">
+      <div class="col-sm-12">
+        <form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addGitHub()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">URL</label>
+                <input type="url" placeholder="http://example.com" formControlName="url" class='form-control'/>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer justify-content-center">
+            <button class="btn btn-primary btn-user btn-block" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <span *ngIf="!created" class="text-danger">
+    The GitHub repository is already attached...
+    </span>
+    </div>
+
+    <div id="accordion" role="tablist">
+      <div class="card-collapse" *ngFor="let github of details.article.githubs">
+        <div class="card-header" role="tab" id="headingOne">
+          <div class="row">
+            <div class="col-md-6">
+              <a data-toggle="collapse" href="#collapse-{{ github.id }}" aria-expanded="false" attr.aria-controls = "collapse-{{ github.id }}" class="collapsed">
+                <i class="material-icons">keyboard_arrow_down</i>
+                {{ github.title}}
+              </a>
+            </div>
+            <div class="col-md-3">
+              {{ github.n_stars }}
+              <i class="fas fa-star" style="color: #4e73df;"></i>
+            </div>
+            <div class="col-md-3">
+              <div class="rating-and-like">
+                <span id="github-rating-{{ github.id }}">{{ github.rating }}</span>
+                <button type="button" rel="tooltip" title="" (click)="changGitHubLike(github)" class="btn btn-primary btn-link" data-original-title="Edit Task">
+                  <i class="fas fa-heart blogpostlike" *ngIf="github.is_like"></i>
+                  <i class="far fa-heart blogpostlike" *ngIf="!github.is_like"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="collapse-{{ github.id }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
+          <div class="card-body">
+            <img src="../../../../assets/img/githubs/frameworks/pytorch_logo.png" height="40px" *ngIf="github.framework == 'PyTorch'">
+            <img src="../../../../assets/img/githubs/frameworks/tf_logo.png" height="40px" *ngIf="github.framework == 'TensorFlow'">
+            <img src="../../../../assets/img/githubs/frameworks/theano_logo.png" height="40px" *ngIf="github.framework == 'Theano'">
+            <div class="progress">
+              <div class="progress-bar random-background" *ngFor="let item of github.languages | keyvalue" role="progressbar" [style.width]="item.value + '%'"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'background-color': getRandomColor()}">{{ item.key }} {{ item.value }}%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+  <!--style="width: {{item.value}}%;"-->
+</div>
