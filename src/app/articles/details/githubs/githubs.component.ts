@@ -10,6 +10,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class GithubsComponent implements OnInit {
   isCollapsed = true;
+  isLoading = false;
   created = true;
   newGitHubForm = new FormGroup({
     url: new FormControl()
@@ -22,14 +23,18 @@ export class GithubsComponent implements OnInit {
   }
 
   addGitHub() {
+    this.isLoading = true;
     const github = this.newGitHubForm.value;
     this.articleService.addGitHub(github.url, this.details.article.id).subscribe(
       data => {
         // this.updateBlogPosts();
         this.newGitHubForm.reset();
+        this.details.fetchArticle();
+        this.isLoading = false;
       },
       error => {
         console.error(error);
+        this.isLoading = false;
       }
     );
   }

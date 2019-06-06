@@ -28,8 +28,8 @@
       </div>
     </div>
 
-
-    <div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed">
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+    <div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading">
       <div class="col-sm-12">
         <form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addGitHub()">
           <div class="row">
@@ -70,8 +70,8 @@
               <div class="rating-and-like">
                 <span id="github-rating-{{ github.id }}">{{ github.rating }}</span>
                 <button type="button" rel="tooltip" title="" (click)="changGitHubLike(github)" class="btn btn-primary btn-link" data-original-title="Edit Task">
-                  <i class="fas fa-heart blogpostlike" *ngIf="github.is_like"></i>
-                  <i class="far fa-heart blogpostlike" *ngIf="!github.is_like"></i>
+                  <i class="fas fa-heart" *ngIf="github.is_like"></i>
+                  <i class="far fa-heart" *ngIf="!github.is_like"></i>
                 </button>
               </div>
             </div>
@@ -83,7 +83,7 @@
             <img src="../../../../assets/img/githubs/frameworks/tf_logo.png" height="40px" *ngIf="github.framework == 'TensorFlow'">
             <img src="../../../../assets/img/githubs/frameworks/theano_logo.png" height="40px" *ngIf="github.framework == 'Theano'">
             <div class="progress">
-              <div class="progress-bar random-background" *ngFor="let item of github.languages | keyvalue" role="progressbar" [style.width]="item.value + '%'"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'background-color': getRandomColor()}">{{ item.key }} {{ item.value }}%</div>
+              <div class="progress-bar random-background" *ngFor="let item of github.languages | keyvalue" role="progressbar" [style.width]="item.value + '%'"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" >{{ item.key }} {{ item.value }}%</div>
             </div>
           </div>
         </div>
@@ -94,4 +94,5 @@
 </div>
 
   <!--style="width: {{item.value}}%;"-->
+  <!--[ngStyle]="{'background-color': getRandomColor()}"-->
 </div>

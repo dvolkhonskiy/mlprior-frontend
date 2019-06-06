@@ -14,8 +14,23 @@ import {Article} from '../article.model';
 export class DetailsComponent implements OnInit {
 
   article: Article;
+  id: string;
 
   constructor(private httpClient: HttpClient, private articleService: ArticleService, private route: ActivatedRoute) {
+  }
+
+  fetchArticle() {
+    this.route.params.subscribe(
+      params => {
+        this.id = params.id;
+      }
+    );
+    this.articleService.fetchArticleDetails(this.id).subscribe(
+      data => {
+        this.article = data;
+      },
+      error => console.error('couldn\'t post because', error)
+    );
   }
 
   ngOnInit() {
