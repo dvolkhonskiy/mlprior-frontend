@@ -26,4 +26,5 @@ export interface Article {
   in_lib: string;
   like_dislike: boolean;
   authors: ArticleAuthor[];
+  has_neighbors: boolean;
 }

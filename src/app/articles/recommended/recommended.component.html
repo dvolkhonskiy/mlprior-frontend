@@ -10,8 +10,10 @@
       <div class="card-header py-3">
         <div class="row">
           <div class="col-sm-10">
-            <a [routerLink]="['/articles', 'details', article.id]"><h3 class="card-title"
-                                                                       style="">{{ article.title }}</h3></a>
+            <div class="text-gray" *ngIf="!article.has_neighbors">Processing...</div>
+            <a [routerLink]="['/articles', 'details', article.id]">
+              <h3 class="card-title" style="">{{ article.title }}</h3></a>
+
           </div>
           <div class="col-sm-2 text-danger">
             <div style="float: left">
@@ -69,8 +71,17 @@
             </span>
               <span class="text">Saved</span>
             </button>
+            <div class="note-button">
+            <span class="note-badge d-none" id="note-badge-{{ article.id }}"> </span>
+            <button class="btn btn-warning btn-round note" type="button" attr.aria-controls="collapseUtilities"
+                    aria-expanded="false" data-toggle="collapse" attr.data-target="#note-collapse-{{ article.id }}">
+                    <span class="icon">
+                        <i class="material-icons">comment</i>
+                    </span>
+                          <span class="text">Note</span>
+            </button>
+          </div>
 
-            <!--{% include 'articles/buttons/button_note.html' %}-->
 
           </div>
 
@@ -90,6 +101,14 @@
                  (click)="articleService.likeDislike(article, false, isAuthenticated)"></i>
             </button>
           </div>
+        </div>
+        <p>
+
+        <div class="collapse article-note" id="note-collapse-{{ article.id }}">
+          <textarea class="form-control note-area note-form" id="note-{{ article.id }}"
+                    placeholder="You type, we save..."
+                    attr.data-article-id="{{ article.id }}" rows="3"
+                    [(ngModel)]="article.note" (input)="onNoteChange($event)">{{ article.note }}</textarea>
         </div>
       </div>
     </div>
