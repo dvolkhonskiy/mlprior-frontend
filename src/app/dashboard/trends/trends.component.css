@@ -102,3 +102,8 @@
   -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
   transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
 }
+
+
+.example-chip-list {
+  width: 100%;
+}

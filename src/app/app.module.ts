@@ -29,6 +29,20 @@ import { LibraryComponent } from './articles/library/library.component';
 import { LibraryNavigationComponent } from './articles/library/library-navigation/library-navigation.component';
 import { RecommendedComponent } from './articles/recommended/recommended.component';
 import { LandingComponent } from './landing/landing.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule ,
+  MatStepperModule,
+  MatInputModule,
+  MatFormFieldModule
+} from '@angular/material';
 
 // import { LandingComponent } from './landing/landing.component';
 
@@ -64,7 +78,13 @@ import { LandingComponent } from './landing/landing.component';
     DxChartModule,
     DxSelectBoxModule,
     DxRangeSelectorModule,
-    DxTextAreaModule
+    DxTextAreaModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [
     ArticleService,

@@ -1,0 +1,11 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: auto;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-around;
+  align-items: center;
+}
+
+

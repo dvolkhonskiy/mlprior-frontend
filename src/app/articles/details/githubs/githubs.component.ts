@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DetailsComponent} from '../details.component';
 import {ArticleService} from '../../articles.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-githubs',
@@ -15,6 +16,8 @@ export class GithubsComponent implements OnInit {
   newGitHubForm = new FormGroup({
     url: new FormControl()
   });
+
+  panelOpenState = false;
 
   constructor(public details: DetailsComponent, public articleService: ArticleService) {
   }
