@@ -70,7 +70,16 @@
               <span class="text">Saved</span>
             </button>
 
-            <!--{% include 'articles/buttons/button_note.html' %}-->
+            <div class="note-button">
+              <span class="note-badge" id="note-badge-{{ article.id }}" *ngIf="note.value != ''"> </span>
+              <button class="btn btn-warning btn-round note" type="button" attr.aria-controls="collapseUtilities"
+                      aria-expanded="false" data-toggle="collapse" attr.data-target="#note-collapse-{{ article.id }}">
+                    <span class="icon">
+                        <i class="material-icons">comment</i>
+                    </span>
+                <span class="text">Note</span>
+              </button>
+            </div>
 
           </div>
 
@@ -90,6 +99,13 @@
                  (click)="articleService.likeDislike(article, false, true)"></i>
             </button>
           </div>
+        </div>
+
+        <div class="collapse article-note" id="note-collapse-{{ article.id }}">
+          <textarea #note class="form-control note-area note-form" id="note-{{ article.id }}"
+                    placeholder="You type, we save..."
+                    attr.data-article-id="{{ article.id }}" rows="3"
+                    [(ngModel)]="article.note" (input)="updateNote(note.value, article)">{{ article.note }}</textarea>
         </div>
       </div>
     </div>

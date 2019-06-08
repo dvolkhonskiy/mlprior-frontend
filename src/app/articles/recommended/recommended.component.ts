@@ -5,6 +5,7 @@ import {ArticleService} from '../articles.service';
 import {Article} from '../article.model';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../auth/auth.service';
+import {not} from 'rxjs/internal-compatibility';
 
 @Component({
   selector: 'app-articles',
@@ -48,6 +49,10 @@ export class RecommendedComponent implements OnInit, OnDestroy {
         );
       }
     );
+  }
+
+  updateNote(note, article) {
+    this.articleService.updateArticle(article, {note: note});
   }
 
   ngOnDestroy(): void {

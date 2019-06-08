@@ -39,6 +39,10 @@ export class LibraryComponent implements OnInit {
     );
   }
 
+  updateNote(note, article) {
+    this.articleService.updateArticle(article, {note: note});
+  }
+
   resetArticles(type): void {
     this.articles = [];
     this.nextPage = '';

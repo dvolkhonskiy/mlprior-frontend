@@ -40,7 +40,6 @@ export class AuthService {
 
   login(email: string, password: string) {
     let data = {"user": {"email": email, "password":  password}};
-    console.log(data);
     return this.http.post<AuthResponseData>(this.API_URL_LOGIN, data).pipe(
       tap(
         resData => {
@@ -60,7 +59,6 @@ export class AuthService {
       return;
     }
 
-    console.log(userData);
     const loadedUser = new User(userData.email, userData._token, new Date(userData._tokenExpirationDate));
 
     if (loadedUser.token) {
@@ -74,7 +72,6 @@ export class AuthService {
 
   private handleAuthentication(email: string, token: string) {
     const expiresIn = this.getTokenExpirationDate(token);
-    console.log(email, token, expiresIn);
     const newUser = new User(email, token, new Date(expiresIn));
     this.user.next(newUser);
     const expirationDuration =
@@ -85,7 +82,6 @@ export class AuthService {
   }
 
   logout() {
-    console.log('Logout');
     this.user.next(null);
     this.router.navigate(['/dashboard']);
     localStorage.removeItem('userData');
@@ -94,8 +90,6 @@ export class AuthService {
   getTokenExpirationDate(token: string) {
     const token_parts = token.split(/\./);
     const token_decoded = JSON.parse(window.atob(token_parts[1]));
-    console.log('expires');
-    console.log(token_decoded);
     return token_decoded.exp * 1000;
   }
 

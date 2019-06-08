@@ -72,9 +72,9 @@
               <span class="text">Saved</span>
             </button>
             <div class="note-button">
-            <span class="note-badge d-none" id="note-badge-{{ article.id }}"> </span>
+            <span class="note-badge" id="note-badge-{{ article.id }}" *ngIf="note.value != ''"> </span>
             <button class="btn btn-warning btn-round note" type="button" attr.aria-controls="collapseUtilities"
-                    aria-expanded="false" data-toggle="collapse" attr.data-target="#note-collapse-{{ article.id }}">
+                    aria-expanded="false" data-toggle="collapse" attr.data-target="#note-collapse-{{ article.id }}"  [disabled]="!isAuthenticated">
                     <span class="icon">
                         <i class="material-icons">comment</i>
                     </span>
@@ -105,10 +105,10 @@
         <p>
 
         <div class="collapse article-note" id="note-collapse-{{ article.id }}">
-          <textarea class="form-control note-area note-form" id="note-{{ article.id }}"
+          <textarea #note class="form-control note-area note-form" id="note-{{ article.id }}"
                     placeholder="You type, we save..."
                     attr.data-article-id="{{ article.id }}" rows="3"
-                    [(ngModel)]="article.note" (input)="onNoteChange($event)">{{ article.note }}</textarea>
+                    [(ngModel)]="article.note" (input)="updateNote(note.value, article)">{{ article.note }}</textarea>
         </div>
       </div>
     </div>

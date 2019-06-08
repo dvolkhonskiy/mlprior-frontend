@@ -33,6 +33,10 @@ export class DetailsComponent implements OnInit {
     );
   }
 
+  updateNote(note, article) {
+    this.articleService.updateArticle(article, {note: note});
+  }
+
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
