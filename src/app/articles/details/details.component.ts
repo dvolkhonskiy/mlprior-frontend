@@ -4,6 +4,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {ArticleService} from '../articles.service';
 import {Article} from '../article.model';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -15,8 +16,10 @@ export class DetailsComponent implements OnInit {
 
   article: Article;
   id: string;
+  isAuthenticated = false;
+  userSub: Subscription;
 
-  constructor(private httpClient: HttpClient, private articleService: ArticleService, private route: ActivatedRoute) {
+  constructor(private httpClient: HttpClient, private articleService: ArticleService, private route: ActivatedRoute, private authService: AuthService) {
   }
 
   fetchArticle() {
@@ -38,6 +41,13 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userSub = this.authService.user.subscribe(
+      user => {
+        this.isAuthenticated = !!user;
+      }
+    );
+
+
     this.route.params.subscribe(
       (params: Params) => {
         this.articleService.fetchArticleDetails(params.id).subscribe(
