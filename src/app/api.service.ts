@@ -20,17 +20,7 @@ export class APIService {
   constructor(private httpClient: HttpClient, private router: Router, private _authService: AuthService) {  }
 
   getStats(): any {
-
-    this.httpClient.get(this.API_URL_STATS).subscribe(
-      data => {
-        this.nArticles = data['n_articles'];
-        this.nArticlesInLib = data['n_articles_in_lib'];
-        this.nBlogPosts = data['n_blog_posts'];
-        this.nGitHubs = data['n_githubs'];
-      },
-      error => console.error('couldn\'t post because', error)
-    );
-
+    return this.httpClient.get(this.API_URL_STATS);
   }
 
   getTrends(keywords): any {

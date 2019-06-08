@@ -9,15 +9,24 @@ import {ActivatedRoute, Params, Route} from '@angular/router';
   providers: []
 })
 export class DashboardComponent implements OnInit {
-
+  nArticles = 0;
+  nArticlesInLib = 0;
+  nBlogPosts = 0;
+  nGitHubs = 0;
 
   constructor(public apiService: APIService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    const data = this.apiService.getStats();
-    console.log(data);
-
+    this.apiService.getStats().subscribe(
+      data => {
+        this.nArticles = data['n_articles'];
+        this.nArticlesInLib = data['n_articles_in_lib'];
+        this.nBlogPosts = data['n_blog_posts'];
+        this.nGitHubs = data['n_githubs'];
+      },
+      error => console.error('couldn\'t post because', error)
+    );
   }
 
 }

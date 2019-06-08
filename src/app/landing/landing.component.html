@@ -7,7 +7,7 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <button class="btn btn-primary" routerLink="/dashboard">
+          <button class="btn btn-primary" routerLink="/articles/recent">
             <i class="material-icons">input</i> Enter
           </button>
         </li>
@@ -76,18 +76,14 @@
           <div class="col-lg-4 col-md-10 ml-auto">
             <h3 class="title">Storing and recommending research articles
             </h3>
-            <h4 class="description">We store, analyze and recommend more than 100000 AI research papers... Log in to use our powerful recomndation system</h4>
+            <h4 class="description">We store, analyze and recommend <strong>{{nArticles}} AI research papers</strong>... Log in to use our powerful recomndation system</h4>
             <div class="btn-wrapper">
               <a routerLink="/login" class="btn btn-primary">Login Page</a>
               <a routerLink="/signup" class="btn btn-white">Register Page</a>
             </div>
           </div>
           <div class="col-lg-7 col-md-12 ml-auto">
-            <div class="transform-perspective-right">
-              <div class="card bg-secondary shadow border-0">
-                <img src="../../assets/img/landing/articles_screenshot.jpg" class="img-fluid">
-              </div>
-            </div>
+            <img src="../../assets/img/landing/articles.svg" style="max-height: 350px;" class="img-fluid">
           </div>
         </div>
       </div>
@@ -118,10 +114,10 @@
           <div class="col-lg-4 col-md-10 ml-auto">
             <h3 class="title">Blogposts and GitHub
             </h3>
-            <h4 class="description">Quickly find Blog Posts and GitHub Repositories related to scientific papers</h4>
+            <h4 class="description">Quickly find Blog Posts and GitHub Repositories related to scientific papers. We store <strong>{{nBlogPosts}} Blog Posts</strong> ans <strong>{{nGitHubs}} GitHub Repositories</strong></h4>
           </div>
           <div class="col-lg-7 col-md-12 ml-auto">
-            <img src="../../assets/img/landing/blogposts.svg'" style="max-height: 350px;" class="img-fluid">
+            <img src="../../assets/img/landing/blogposts.svg" style="max-height: 350px;" class="img-fluid">
           </div>
         </div>
       </div>
