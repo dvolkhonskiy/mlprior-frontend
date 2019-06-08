@@ -11,12 +11,6 @@ export class APIService {
   API_URL_TREND = environment.baseUrl + "api/visualization/trends";
   API_URL_CATEG = environment.baseUrl + "api/visualization/categories";
 
-  // STATISTICS
-  nArticles = 0;
-  nArticlesInLib = 0;
-  nBlogPosts = 0;
-  nGitHubs = 0;
-
   constructor(private httpClient: HttpClient, private router: Router, private _authService: AuthService) {  }
 
   getStats(): any {

@@ -4,7 +4,7 @@ import {APIService} from '../api.service';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['../../assets/css/material-kit.css', './landing.component.css']
+  styleUrls: ['../../assets/css/material-kit.css',  './landing.component.css']
 })
 export class LandingComponent implements OnInit {
 

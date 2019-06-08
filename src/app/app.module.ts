@@ -43,9 +43,6 @@ import {
   MatInputModule,
   MatFormFieldModule
 } from '@angular/material';
-import {MatBadgeModule} from '@angular/material/badge';
-
-// import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -85,8 +82,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatAutocompleteModule,
     MatChipsModule,
     MatFormFieldModule,
-    MatIconModule,
-    MatBadgeModule
+    MatIconModule
   ],
   providers: [
     ArticleService,
