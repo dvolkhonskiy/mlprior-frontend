@@ -14615,9 +14615,9 @@ textarea {
   padding: 70px 0 30px;
 }
 
-.info .icon {
-  color: #999999;
-}
+/*.info .icon {*/
+  /*color: #999999;*/
+/*}*/
 
 .info .icon>i {
   font-size: 3.85rem;
