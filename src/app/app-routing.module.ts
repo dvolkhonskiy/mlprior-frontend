@@ -8,6 +8,7 @@ import {AuthGuard} from './auth/auth-guard.service';
 import {LibraryComponent} from './articles/library/library.component';
 import {RecommendedComponent} from './articles/recommended/recommended.component';
 import {LandingComponent} from './landing/landing.component';
+import {FeedbackComponent} from './feedback/feedback.component';
 
 const routes: Routes = [
   {path: '', component:LandingComponent},
@@ -52,7 +53,7 @@ const routes: Routes = [
   // {path: 'articles/library', component: ArticlesComponent, canActivate: [AuthGuard]},
   // {path: 'articles/liked', component: ArticlesComponent, canActivate: [AuthGuard]},
   // {path: 'articles/disliked', component: ArticlesComponent, canActivate: [AuthGuard]},
-  // {path: 'articles/:page', component: ArticlesComponent},
+  {path: 'feedback', component: FeedbackComponent},
   {path: 'articles/details/:id', component: DetailsComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: PageNotFoundComponent}

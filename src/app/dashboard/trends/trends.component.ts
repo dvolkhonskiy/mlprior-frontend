@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxChartModule, DxSelectBoxModule, DxRangeSelectorModule } from 'devextreme-angular';
 import { DashboardDataService } from '../dashboard-data.service';
-import {APIService} from '../../api.service';
+import {APIService} from '../../shared/api.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';

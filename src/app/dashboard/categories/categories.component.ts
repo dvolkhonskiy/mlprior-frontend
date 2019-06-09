@@ -6,7 +6,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { DxChartModule } from 'devextreme-angular';
 
 import { DashboardDataService } from '../dashboard-data.service';
-import {APIService} from "../../api.service";
+import {APIService} from "../../shared/api.service";
 
 @Component({
   selector: 'app-categories',

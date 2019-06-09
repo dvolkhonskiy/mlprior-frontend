@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {APIService} from '../api.service';
+import {APIService} from '../shared/api.service';
 
 @Component({
   selector: 'app-landing',

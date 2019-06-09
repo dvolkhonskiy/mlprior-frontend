@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-header card-header-primary">
+    <h4 class="card-title">Feature request</h4>
+    <p class="card-category">Tell us what features you want to see in our service</p>
+  </div>
+  <div class="card-body">
+
+    <form #feedbackForm="ngForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="bmd-label-floating"><strong>Your Name</strong></label>
+            <input type="text"
+                   id="name"
+                   class="form-control"
+                   ngModel
+                   name="name"
+                   required
+                   placeholder="My name is ML p(r)ior! What is you name?">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="bmd-label-floating"><strong>Your Email</strong></label>
+            <input type="email"
+                   id="email"
+                   class="form-control"
+                   ngModel
+                   name="email"
+                   required
+                   placeholder="Email...">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleMessage" class="bmd-label-floating"><strong>Your Message</strong></label>
+        <textarea type="text"
+               id="text"
+               class="form-control"
+               ngModel
+               name="text"
+               required
+                  placeholder="Type here..."></textarea>
+      </div>
+      <!--{{ form.errors }}-->
+      <div class="row">
+        <div class="col-md-4 ml-auto mr-auto text-center">
+          <button class="btn btn-primary btn-raised" (click)="onSubmit(feedbackForm)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <p></p>
+      <div class="row" *ngIf="isSuccess">
+        <div class="col-md-4 ml-auto mr-auto text-center">
+          Your message was successfully sent. Thank you friend!
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

@@ -12,7 +12,7 @@ import {LoginComponent} from './auth/login.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ArticleService} from './articles/articles.service';
 import {RecommendedNavigationComponent} from './articles/recommended/recommended-navigation/recommended-navigation.component';
-import {APIService} from './api.service';
+import {APIService} from './shared/api.service';
 import {DetailsComponent} from './articles/details/details.component';
 import {BlogpostsComponent} from './articles/details/blogposts/blogposts.component';
 import {GithubsComponent} from './articles/details/githubs/githubs.component';
@@ -43,7 +43,7 @@ import {
   MatInputModule,
   MatFormFieldModule
 } from '@angular/material';
-
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,8 @@ import {
     LibraryComponent,
     LibraryNavigationComponent,
     RecommendedComponent,
-    LandingComponent
+    LandingComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
