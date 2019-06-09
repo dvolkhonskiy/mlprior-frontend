@@ -19,6 +19,7 @@ const routes: Routes = [
       {
         path: 'recommended',
         component: RecommendedComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'recent',
