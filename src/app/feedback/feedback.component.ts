@@ -25,8 +25,6 @@ export class FeedbackComponent implements OnInit {
     const name = form.value.name;
     const message = form.value.text;
 
-    let authObs: Observable<AuthResponseData>;
-
     this.apiService.sendFeedback(message, name, email, 2).subscribe(
       data => {
         this.isSuccess = true;
