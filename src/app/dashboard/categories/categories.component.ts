@@ -21,7 +21,7 @@ export class CategoriesComponent implements OnInit {
 
   resolutionKeys: string[] = ['Month', 'Quarter', 'Half', 'Year'];
   resolutions = { Month: 1, Quarter: 3, Half: 6, Year: 12};
-  resIdx = 'Year';
+  resIdx = 'Quarter';
   categoryInfo;
   visualRange;
 
@@ -135,13 +135,14 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categories.setValue([
+    const defaultCategories = [
       'Artificial Intelligence',
       'Computer Vision and Pattern Recognition',
       'Data Structures and Algorithms',
       'Social and Information Networks'
-    ]);
-    this.fetchCategories('');
+    ];
+    this.categories.setValue(defaultCategories);
+    this.fetchCategories(defaultCategories);
 
     this.categories.valueChanges.subscribe(
       value => {
