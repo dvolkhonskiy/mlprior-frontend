@@ -85,9 +85,9 @@ export class TrendsComponent implements OnInit {
   @ViewChild('fruitInput', {read: false}) fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {read: false}) matAutocomplete: MatAutocomplete;
 
-  resolutionKeys: string[] = ['Month', 'Quarter', 'Half', 'Year'];
-  resolutions = { Month: 1, Quarter: 3, Half: 6, Year: 12};
-  resIdx = 'Quarter';
+  resolutionKeys: string[] = ["Month", "Quarter", "Half", "Year"];
+  resolutions = { "Month": 1, "Quarter": 3, "Half": 6, "Year": 12};
+  resIdx = "Quarter";
   trendInfo;
   visualRange;
   isLoading = true;
