@@ -65,7 +65,7 @@ export class TrendsComponent implements OnInit {
     this.isLoading = true;
     this.apiService.getTrends(keywords).subscribe(
       data => {
-        this.trendInfo = data['data'];
+        this.trendInfo = data.data;
         this.isLoading = false;
       },
       error =>  {

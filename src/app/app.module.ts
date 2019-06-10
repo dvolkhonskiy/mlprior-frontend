@@ -30,6 +30,7 @@ import { LibraryNavigationComponent } from './articles/library/library-navigatio
 import { RecommendedComponent } from './articles/recommended/recommended.component';
 import { LandingComponent } from './landing/landing.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
@@ -44,6 +45,8 @@ import {
   MatFormFieldModule
 } from '@angular/material';
 import { FeedbackComponent } from './feedback/feedback.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -79,11 +82,14 @@ import { FeedbackComponent } from './feedback/feedback.component';
     DxRangeSelectorModule,
     DxTextAreaModule,
     BrowserAnimationsModule,
+    NoopAnimationsModule,
     MatExpansionModule,
     MatAutocompleteModule,
     MatChipsModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [
     ArticleService,
