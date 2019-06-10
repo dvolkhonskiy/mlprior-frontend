@@ -67,7 +67,6 @@ export class CategoriesComponent implements OnInit {
   'Social and Information Networks',
   'Systems and Control'];
   
-  
   mapping = {
     'Artificial Intelligence': 'cs.AI',
     'Hardware Architecture': 'cs.AR',
@@ -136,6 +135,12 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.categories.setValue([
+      'Artificial Intelligence',
+      'Computer Vision and Pattern Recognition',
+      'Data Structures and Algorithms',
+      'Social and Information Networks'
+    ]);
     this.fetchCategories('');
 
     this.categories.valueChanges.subscribe(
