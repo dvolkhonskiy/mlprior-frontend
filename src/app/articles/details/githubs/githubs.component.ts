@@ -13,6 +13,7 @@ export class GithubsComponent implements OnInit {
   isCollapsed = true;
   isLoading = false;
   created = true;
+  error = '';
   newGitHubForm = new FormGroup({
     url: new FormControl()
   });
@@ -34,6 +35,7 @@ export class GithubsComponent implements OnInit {
         this.newGitHubForm.reset();
         this.details.fetchArticle();
         this.isLoading = false;
+        this.error = data['error'];
       },
       error => {
         console.error(error);

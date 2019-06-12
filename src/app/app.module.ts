@@ -49,6 +49,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ArticleCardComponent } from './articles/article-card/article-card.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { ArticleCardComponent } from './articles/article-card/article-card.compo
     MatSelectModule,
     MatCheckboxModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     ArticleService,
