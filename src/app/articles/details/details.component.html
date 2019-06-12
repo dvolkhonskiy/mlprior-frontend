@@ -102,4 +102,18 @@
       <app-githubs></app-githubs>
     </div>
   </div>
+
+  <h1 class="h3 mb-4 text-gray-800">Related Articles</h1>
+
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="0"
+    [infiniteScrollThrottle]="0"
+    (scrolled)="onScroll()"
+  >
+  <div *ngFor="let relatedArticle of relatedArticles">
+    <app-article-card [article]="relatedArticle" [isAuthenticated]="isAuthenticated"></app-article-card>
+  </div>
+  </div>
+
 </div>

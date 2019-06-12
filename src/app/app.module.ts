@@ -48,6 +48,7 @@ import {
 import { FeedbackComponent } from './feedback/feedback.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ArticleCardComponent } from './articles/article-card/article-card.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     LibraryNavigationComponent,
     RecommendedComponent,
     LandingComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,

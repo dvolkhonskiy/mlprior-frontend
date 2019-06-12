@@ -33,6 +33,7 @@
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "jszip": "^3.2.1",
+    "material-design-icons": "^3.0.1",
     "ngx-infinite-scroll": "^7.1.0",
     "popper.js": "^1.14.3",
     "rxjs": "^6.0.0",

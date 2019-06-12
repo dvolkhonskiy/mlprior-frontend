@@ -15,9 +15,15 @@ import {Subscription} from 'rxjs';
 export class DetailsComponent implements OnInit {
 
   article: Article;
+  relatedArticles: Article[] = [];
   id: string;
   isAuthenticated = false;
   userSub: Subscription;
+
+  type = 'related';
+
+  nextPage = '';
+  error = null;
 
   constructor(private httpClient: HttpClient, private articleService: ArticleService, private route: ActivatedRoute, private authService: AuthService) {
   }
@@ -53,9 +59,48 @@ export class DetailsComponent implements OnInit {
         this.articleService.fetchArticleDetails(params.id).subscribe(
           data => {
             this.article = data;
+            this.resetArticles();
+            this.articleService.fetchArticles(this.type, this.nextPage, {id: this.article.id}).subscribe(
+              relatedData => {
+                this.relatedArticles = this.relatedArticles.concat(relatedData.results);
+                this.nextPage = relatedData.next ? relatedData.next : null;
+              },
+              error => {
+                this.error = error.message;
+              }
+            );
           },
           error => console.error('couldn\'t post because', error)
         );
+      }
+    );
+
+
+    // this.route.url.subscribe(
+    //   url =>  {
+    //
+    //   }
+    // );
+  }
+
+  resetArticles(): void {
+    this.relatedArticles = [];
+    this.nextPage = '';
+  }
+
+  onScroll() {
+    console.log('scrolled!!');
+    console.log(this.nextPage);
+    if (!this.nextPage) {
+      return;
+    }
+    this.articleService.fetchArticles(this.type, this.nextPage, {id: this.article.id}).subscribe(
+      data => {
+        this.relatedArticles = this.relatedArticles.concat(data.results);
+        this.nextPage = data.next;
+      },
+      error => {
+        this.error = error.message;
       }
     );
   }

@@ -119,8 +119,14 @@ export class ArticleService implements OnInit {
     });
   }
 
-  fetchArticles(type: string, page: string) {
-    const url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;
+  fetchArticles(type: string, page: string, params: any) {
+    let url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;
+    for (const p in params) {
+      console.log(params[p]);
+      url += '&' + p + '=' + params[p];
+    }
+
+    console.log(url);
     return this.http.get<{ results: Article[], next?: string, previous: string }>(url);
   }
 

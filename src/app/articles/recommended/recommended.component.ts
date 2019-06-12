@@ -36,7 +36,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
       url =>  {
         const path = url[0].path;
         this.resetArticles(path);
-        this.articleService.fetchArticles(this.type, this.nextPage).subscribe(
+        this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
           data => {
             this.articles = this.articles.concat(data.results);
             this.nextPage = data.next ? data.next : null;
@@ -68,7 +68,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
     if (!this.nextPage) {
       return;
     }
-    this.articleService.fetchArticles(this.type, this.nextPage).subscribe(
+    this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
       data => {
         this.articles = this.articles.concat(data.results);
         this.nextPage = data.next;

@@ -24,7 +24,7 @@ export class LibraryComponent implements OnInit {
         const path = url[0].path;
         console.log(path);
         this.resetArticles(path);
-        this.articleService.fetchArticles(this.type, this.nextPage).subscribe(
+        this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
           data => {
             this.articles = this.articles.concat(data.results);
             this.nextPage = data.next ? data.next : null;
@@ -54,7 +54,7 @@ export class LibraryComponent implements OnInit {
     if (this.nextPage == null) {
       return;
     }
-    this.articleService.fetchArticles(this.type, this.nextPage).subscribe(
+    this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
       data => {
         this.articles = this.articles.concat(data.results);
         this.nextPage = data.next;
