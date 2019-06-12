@@ -13,6 +13,10 @@ export class ArticleCardComponent implements OnInit {
 
   constructor(private articleService: ArticleService) { }
 
+  updateNote(note, article) {
+    this.articleService.updateArticle(article, {note: note});
+  }
+
   ngOnInit() {
   }
 
