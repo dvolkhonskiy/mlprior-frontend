@@ -1,8 +1,8 @@
-<div class="card shadow mb-4">
+<div class="card shadow mb-4"> <!-- [style.opacity]="!article.has_neighbors ? '.8' : '1.0'"> -->
   <div class="card-header py-3">
     <div class="row">
       <div class="col-sm-10">
-        <div class="text-gray" *ngIf="!article.has_neighbors">Processing...</div>
+        <div class="" *ngIf="!article.has_neighbors">Processing...</div>
         <a [routerLink]="['/articles', 'details', article.id]">
           <h3 class="card-title" style="">{{ article.title }}</h3></a>
 
