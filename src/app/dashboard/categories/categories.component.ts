@@ -23,7 +23,7 @@ export class CategoriesComponent implements OnInit {
   resolutions = { Month: 1, Quarter: 3, Half: 6, Year: 12};
   resIdx = 'Quarter';
   categoryInfo;
-  visualRange;
+  visualRange: Date[] = [new Date(2010, 1, 1), new Date(Date.now())];
 
   categories = new FormControl();
   categoriesList: string[] = ['Artificial Intelligence',
