@@ -71,7 +71,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     RecommendedComponent,
     LandingComponent,
     FeedbackComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
   ],
   imports: [
     BrowserModule,

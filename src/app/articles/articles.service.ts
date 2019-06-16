@@ -20,6 +20,7 @@ export class ArticleService implements OnInit {
   API_URL_ARTICLE_LIBRARY = environment.baseUrl + 'api/articles/saved/';
   API_URL_BLOGPOSTS = environment.baseUrl + 'api/blogposts/';
   API_URL_GITHUBS = environment.baseUrl + 'api/githubs/';
+  API_URL_SEARCH = environment.baseUrl + 'api/search';
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -35,6 +36,9 @@ export class ArticleService implements OnInit {
   //   }
   // }
 
+  search(query) {
+    return this.http.get<Article[]>(this.API_URL_SEARCH + '?q=' + query);
+  }
 
   updateArticle(article, update): void {
     // this.redirectIfNotAuthenticated();

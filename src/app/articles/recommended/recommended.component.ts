@@ -4,8 +4,10 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ArticleService} from '../articles.service';
 import {Article} from '../article.model';
 import {Subscription} from 'rxjs';
+import { filter, switchMap, debounceTime, catchError } from 'rxjs/operators';
 import {AuthService} from '../../auth/auth.service';
 import {not} from 'rxjs/internal-compatibility';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-articles',
@@ -19,10 +21,13 @@ export class RecommendedComponent implements OnInit, OnDestroy {
   error = null;
   type = 'recommended';
 
+  searchForm: FormControl = new FormControl();
+  isSearchMode = false;
+
   isAuthenticated = false;
   private userSub: Subscription;
 
-  constructor(public articleService: ArticleService, public route: ActivatedRoute, private authService: AuthService) {
+  constructor(public articleService: ArticleService, public route: ActivatedRoute, private router: Router, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -47,6 +52,31 @@ export class RecommendedComponent implements OnInit, OnDestroy {
         );
       }
     );
+
+    this.searchForm.valueChanges
+      .pipe(
+        // Фильтруем если введено меньше двух символов
+        filter(value => value.length > 2),
+        // Ставим задержку одну секунду
+        debounceTime(1000),
+        // Запрашиваем данные пользователя
+        switchMap(value => {
+            if (!this.isSearchMode) {
+              this.nextPage = '';
+            }
+            this.isSearchMode = true;
+            this.resetArticles('search');
+            return this.articleService.fetchArticles('search', this.nextPage, {q: value});
+          }
+          )
+      )
+      // Получение данных
+      .subscribe(articles => {
+        this.resetArticles('search');
+        console.log(articles);
+        this.articles = articles.results;
+        this.nextPage = articles.next;
+      });
   }
 
   updateNote(note, article) {
