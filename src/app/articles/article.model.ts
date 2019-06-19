@@ -12,13 +12,29 @@ export interface ArticleAuthor {
 }
 
 
+export interface ArticleResourceInfo {
+  title?: string;
+  description?: string;
+}
+
+
+export interface ArticleResource {
+  id: string;
+  url: string;
+  rating: number;
+  type: string;
+  is_like: boolean;
+  info: ArticleResourceInfo;
+}
+
+
 export interface Article {
   id: string;
   title: string;
   abstract: string;
   url: string;
-  blog_posts?: BlogPost[];
-  githubs?: GitHub[];
+  blog_posts?: ArticleResource[];
+  githubs?: ArticleResource[];
   date: Date;
   category: string;
   arxiv_id: string;

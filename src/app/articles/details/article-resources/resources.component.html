@@ -1,0 +1,273 @@
+
+
+<div class="row justify-content-between">
+  <div class="col-4">
+    <h3 class="text-gray-800">Resources</h3>
+  </div>
+  <!--<div class="col-4">-->
+    <!--<button mat-raised-button class="primary-icon" style="margin-bottom: 10px;" (click)="isCollapsed = !isCollapsed"-->
+            <!--[attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">Add Resource-->
+    <!--</button>-->
+  <!--</div>-->
+</div>
+
+<div class="col-md-12" style="margin-bottom: 10px;">
+  <mat-card class="example-card">
+    <!--<mat-card-header>-->
+      <!--Add resource-->
+    <!--</mat-card-header>-->
+    <mat-card-content>
+      <form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addGitHub()">
+        <mat-form-field style="width: 100%;">
+          <input matInput type="url" placeholder="Resource URL" formControlName="url" class='form-control'/>
+        </mat-form-field>
+        <p>
+          <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<!--<div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading" style="margin-bottom: 10px;">-->
+  <!--<mat-card class="example-card">-->
+    <!--<mat-card-content>-->
+      <!--<mat-tab-group>-->
+        <!--<mat-tab label="GitHub Repository">-->
+          <!--<div class="col-sm-12">-->
+            <!--<form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addResource()">-->
+              <!--<mat-form-field>-->
+                    <!--<input matInput type="url" placeholder="GitHub repository URL" formControlName="url" class='form-control'/>-->
+              <!--</mat-form-field>-->
+              <!--<p>-->
+                <!--<button class="btn btn-primary" type="submit">Submit</button>-->
+            <!--</form>-->
+          <!--</div>-->
+        <!--</mat-tab>-->
+
+        <!--<mat-tab label="Blog Post">-->
+          <!--<form [formGroup]="newBlogPostForm" id="blogPostForm" (submit)="addBlogPost()">-->
+
+            <!--<div class="col-md-3">-->
+            <!--<mat-form-field>-->
+              <!--<input matInput type="url" placeholder="Blog Post Title" formControlName="url" class='form-control'/>-->
+            <!--</mat-form-field>-->
+            <!--</div>-->
+            <!--<div class="col-md-3">-->
+            <!--<mat-form-field>-->
+              <!--<input matInput type="url" placeholder="Blog Post URL" formControlName="url" class='form-control'/>-->
+            <!--</mat-form-field>-->
+            <!--</div>-->
+            <!--<p>-->
+              <!--<button class="btn btn-primary" type="submit">Submit</button>-->
+          <!--</form>-->
+
+        <!--</mat-tab>-->
+      <!--</mat-tab-group>-->
+
+
+      <!--<span *ngIf="error" class="text-danger">-->
+    <!--{{error}}-->
+    <!--</span>-->
+    <!--</mat-card-content>-->
+    <!--<mat-card-actions>-->
+
+    <!--</mat-card-actions>-->
+  <!--</mat-card>-->
+<!--</div>-->
+
+
+<div class="col-md-12" style="margin-bottom: 10px;" *ngFor="let resource of details.resources">
+
+  <app-github-card [github]="resource" *ngIf="resource.type == 'github' && resource.info"></app-github-card>
+
+  <app-resource-card [resource]="resource" *ngIf="resource.type == 'resource' && resource.info"></app-resource-card>
+
+  <mat-card class="example-card" *ngIf="!resource.info">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image">
+        <i class="fab fa-github"></i>
+      </div>
+      <div class="col-md-8">
+        <mat-card-title class="text-black-50"><a href="{{ resource.url }}">{{ resource.url }}</a></mat-card-title>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+
+
+
+<!--<div class="card shadow mb-4">-->
+  <!--<div class="card-header card-header-info card-header-icon">-->
+
+    <!--<div class="card-icon" style="font-size: 30px;">-->
+      <!--<i class="fab fa-github"></i>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-12">-->
+        <!--<h4 class="card-title">GitHub Repositories<a style="color: #4e73df !important;"-->
+                                                     <!--ngbPopover="Github repositories, that are related to the article. We appreciate if you add one more... Just link..."-->
+                                                     <!--triggers="mouseenter:mouseleave"><i-->
+          <!--class="fas fa-question"></i></a></h4>-->
+
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</div>-->
+  <!--<div class="card-body">-->
+  <!--<div class="row">-->
+  <!--<div class="col-sm-10">-->
+  <!--</div>-->
+  <!--<div class="col-sm-2">-->
+  <!--<button class="btn btn-primary btn-round btn-fab note" type="button"-->
+  <!--type="button" (click)="isCollapsed = !isCollapsed"-->
+  <!--[attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">-->
+  <!--<i class="fas fa-plus"></i>-->
+  <!--</button>-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>-->
+  <!--<div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading">-->
+  <!--<div class="col-sm-12">-->
+  <!--<form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addResource()">-->
+  <!--<div class="row">-->
+  <!--<div class="col-md-12">-->
+  <!--<div class="form-group">-->
+  <!--<label class="bmd-label-floating">URL</label>-->
+  <!--<input type="url" placeholder="http://example.com" formControlName="url" class='form-control'/>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="card-footer justify-content-center">-->
+  <!--<button class="btn btn-primary btn-user btn-block" type="submit">Submit</button>-->
+  <!--</div>-->
+  <!--</form>-->
+  <!--</div>-->
+
+  <!--<span *ngIf="error" class="text-danger">-->
+  <!--{{error}}-->
+  <!--</span>-->
+  <!--</div>-->
+
+
+  <!--&lt;!&ndash;<mat-accordion>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-expansion-panel>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-expansion-panel-header>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-panel-title>&ndash;&gt;-->
+  <!--&lt;!&ndash;Personal data&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-panel-title>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-panel-description>&ndash;&gt;-->
+  <!--&lt;!&ndash;Type your name and age&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-panel-description>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-expansion-panel-header>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+  <!--&lt;!&ndash;<input matInput placeholder="First name">&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+  <!--&lt;!&ndash;<input matInput placeholder="Age">&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-expansion-panel>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-expansion-panel (opened)="panelOpenState = true"&ndash;&gt;-->
+  <!--&lt;!&ndash;(closed)="panelOpenState = false">&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-expansion-panel-header>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-panel-title>&ndash;&gt;-->
+  <!--&lt;!&ndash;Self aware panel&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-panel-title>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-panel-description>&ndash;&gt;-->
+  <!--&lt;!&ndash;Currently I am {{panelOpenState ? 'open' : 'closed'}}&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-panel-description>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-expansion-panel-header>&ndash;&gt;-->
+  <!--&lt;!&ndash;<p>I'm visible because I am open</p>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-expansion-panel>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-accordion>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<mat-accordion class="example-headers-align">&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-expansion-panel *ngFor="let github of details.article.article-resources">&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-expansion-panel-header>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-panel-title>&ndash;&gt;-->
+  <!--&lt;!&ndash;<a href="{{github.url}}">{{ github.title}}</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-panel-title>&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-panel-description>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div class="col-md-8">&ndash;&gt;-->
+  <!--&lt;!&ndash;{{ github.n_stars }} <i class="fas fa-star" style="color: #4e73df;"></i>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div class="col-md-4">&ndash;&gt;-->
+  <!--&lt;!&ndash;<span id="github-rating-{{ github.id }}">{{ github.rating }}</span>&ndash;&gt;-->
+  <!--&lt;!&ndash;<button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-icon>favorite</mat-icon>&ndash;&gt;-->
+  <!--&lt;!&ndash;</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;&lt;!&ndash;<button type="button" rel="tooltip" title="" (click)="changResourceLike(github)" class="btn btn-primary btn-link" data-original-title="Edit Task">&ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;&lt;!&ndash;<i class="fas fa-heart" *ngIf="github.is_like"></i>&ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;&lt;!&ndash;<i class="far fa-heart" *ngIf="!github.is_like"></i>&ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;&lt;!&ndash;</button>&ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;</mat-panel-description>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-expansion-panel-header>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<img src="../../../../assets/img/article-resources/frameworks/{{github.framework}}.jpg" height="40px" *ngIf="github.framework">&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div class="row progress">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="progress-bar random-background" *ngFor="let item of github.languages | keyvalue" role="progressbar" [style.width]="item.value + '%'"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" >{{ item.key }} {{ item.value }}%</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-expansion-panel>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-accordion>&ndash;&gt;-->
+
+
+  <!--&lt;!&ndash;<div id="accordion" role="tablist">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="card-collapse" *ngFor="let github of details.article.article-resources">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="card-header" role="tab" id="headingOne">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="col-md-6">&ndash;&gt;-->
+  <!--&lt;!&ndash;<a data-toggle="collapse" href="#collapse-{{ github.id }}" aria-expanded="false" attr.aria-controls = "collapse-{{ github.id }}" class="collapsed">&ndash;&gt;-->
+  <!--&lt;!&ndash;<i class="material-icons">keyboard_arrow_down</i>&ndash;&gt;-->
+  <!--&lt;!&ndash;{{ github.title}}&ndash;&gt;-->
+  <!--&lt;!&ndash;</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="col-md-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;{{ github.n_stars }}&ndash;&gt;-->
+  <!--&lt;!&ndash;<i class="fas fa-star" style="color: #4e73df;"></i>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="col-md-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="rating-and-like">&ndash;&gt;-->
+  <!--&lt;!&ndash;<span id="github-rating-{{ github.id }}">{{ github.rating }}</span>&ndash;&gt;-->
+  <!--&lt;!&ndash;<button type="button" rel="tooltip" title="" (click)="changResourceLike(github)" class="btn btn-primary btn-link" data-original-title="Edit Task">&ndash;&gt;-->
+  <!--&lt;!&ndash;<i class="fas fa-heart" *ngIf="github.is_like"></i>&ndash;&gt;-->
+  <!--&lt;!&ndash;<i class="far fa-heart" *ngIf="!github.is_like"></i>&ndash;&gt;-->
+  <!--&lt;!&ndash;</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div id="collapse-{{ github.id }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="card-body">&ndash;&gt;-->
+  <!--&lt;!&ndash;<img src="../../../../assets/img/article-resources/frameworks/pytorch_logo.png" height="40px" *ngIf="github.framework == 'PyTorch'">&ndash;&gt;-->
+  <!--&lt;!&ndash;<img src="../../../../assets/img/article-resources/frameworks/tf_logo.png" height="40px" *ngIf="github.framework == 'TensorFlow'">&ndash;&gt;-->
+  <!--&lt;!&ndash;<img src="../../../../assets/img/article-resources/frameworks/theano_logo.png" height="40px" *ngIf="github.framework == 'Theano'">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="progress">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="progress-bar random-background" *ngFor="let item of github.languages | keyvalue" role="progressbar" [style.width]="item.value + '%'"  aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" >{{ item.key }} {{ item.value }}%</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--</div>-->
+
+  <!--style="width: {{item.value}}%;"-->
+  <!--[ngStyle]="{'background-color': getRandomColor()}"-->
+<!--</div>-->

@@ -1,0 +1,24 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image">
+      <i class="fab fa-medium"></i>
+    </div>
+    <div class="col-md-12">
+      <mat-card-title class="text-black-50"><a href="{{ resource.url }}">{{ resource.info.title}}</a></mat-card-title>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+  {{resource.info.description}}
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="row">
+      <div class="col-md-2 offset-sm-1">
+        <span id="github-rating-{{ resource.id }}">{{ resource.rating }}</span>
+        <button mat-icon-button [ngClass]="resource.is_like ? 'primary-icon' : 'grey-icon' "
+                (click)="resources.changResourceLike(resource)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>

@@ -72,7 +72,7 @@ export class ArticleService implements OnInit {
     return this.http.post(this.API_URL_BLOGPOSTS, blogpost);
   }
 
-  addGitHub(url: string, articleId: string) {
+  addResource(url: string, articleId: string) {
     const github = {
       url: url,
       article_id: articleId

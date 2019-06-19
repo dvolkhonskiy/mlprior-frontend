@@ -3,13 +3,15 @@ import {DetailsComponent} from '../details.component';
 import {ArticleService} from '../../articles.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {ArticleResource} from '../../article.model';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-githubs',
-  templateUrl: './githubs.component.html',
-  styleUrls: ['./githubs.component.css', '../../../app.component.css']
+  templateUrl: './resources.component.html',
+  styleUrls: ['./resources.component.css', '../../../app.component.css']
 })
-export class GithubsComponent implements OnInit {
+export class ResourcesComponent implements OnInit {
   isCollapsed = true;
   isLoading = false;
   created = true;
@@ -29,13 +31,14 @@ export class GithubsComponent implements OnInit {
   addGitHub() {
     this.isLoading = true;
     const github = this.newGitHubForm.value;
-    this.articleService.addGitHub(github.url, this.details.article.id).subscribe(
+    this.articleService.addResource(github.url, this.details.article.id).subscribe(
       data => {
         // this.updateBlogPosts();
         this.newGitHubForm.reset();
         this.details.fetchArticle();
         this.isLoading = false;
         this.error = data['error'];
+        setTimeout(() => { this.details.fetchArticle(); }, 10000);
       },
       error => {
         console.error(error);
@@ -44,9 +47,15 @@ export class GithubsComponent implements OnInit {
     );
   }
 
-  changGitHubLike(github) {
-    this.articleService.changeGitHubLike(github, !github.is_like);
-    github.is_like = !github.is_like;
+  changResourceLike(resource: ArticleResource) {
+    if (resource.type === 'github') {
+      this.articleService.changeGitHubLike(resource, !resource.is_like);
+    } else {
+      this.articleService.changeBlogPostLike(resource, !resource.is_like);
+    }
+
+    resource.is_like = !resource.is_like;
+    resource.rating += resource.is_like ? 1 : -1;
   }
 
   getRandomColor() {

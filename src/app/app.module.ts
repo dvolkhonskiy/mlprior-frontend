@@ -15,7 +15,7 @@ import {RecommendedNavigationComponent} from './articles/recommended/recommended
 import {APIService} from './shared/api.service';
 import {DetailsComponent} from './articles/details/details.component';
 import {BlogpostsComponent} from './articles/details/blogposts/blogposts.component';
-import {GithubsComponent} from './articles/details/githubs/githubs.component';
+import {ResourcesComponent} from './articles/details/article-resources/resources.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { TrendsComponent } from './dashboard/trends/trends.component';
@@ -29,27 +29,12 @@ import { LibraryComponent } from './articles/library/library.component';
 import { LibraryNavigationComponent } from './articles/library/library-navigation/library-navigation.component';
 import { RecommendedComponent } from './articles/recommended/recommended.component';
 import { LandingComponent } from './landing/landing.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatCardModule} from '@angular/material/card';
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule ,
-  MatStepperModule,
-  MatInputModule,
-  MatFormFieldModule
-} from '@angular/material';
-import { FeedbackComponent } from './feedback/feedback.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { ArticleCardComponent } from './articles/article-card/article-card.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MaterialAngularModule} from './material-angular/material-angular.module';
+import {FeedbackComponent} from './feedback/feedback.component';
+import {ArticleCardComponent} from './articles/article-card/article-card.component';
+import { GithubCardComponent } from './articles/details/article-resources/github-card/github-card.component';
+import { ResourceCardComponent } from './articles/details/article-resources/resource-card/resource-card.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +44,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     RecommendedNavigationComponent,
     DetailsComponent,
     BlogpostsComponent,
-    GithubsComponent,
+    ResourcesComponent,
     PageNotFoundComponent,
     TrendsComponent,
     CategoriesComponent,
@@ -72,6 +57,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LandingComponent,
     FeedbackComponent,
     ArticleCardComponent,
+    GithubCardComponent,
+    ResourceCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,18 +72,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DxSelectBoxModule,
     DxRangeSelectorModule,
     DxTextAreaModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    MatExpansionModule,
-    MatAutocompleteModule,
-    MatChipsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatButtonModule,
-    MatProgressSpinnerModule
+    MaterialAngularModule
   ],
   providers: [
     ArticleService,

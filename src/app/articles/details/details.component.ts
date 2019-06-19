@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {ArticleService} from '../articles.service';
-import {Article} from '../article.model';
+import {Article, ArticleResource} from '../article.model';
 import {Subscription} from 'rxjs';
 
 
@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
 
   article: Article;
   relatedArticles: Article[] = [];
+  resources: ArticleResource[];
   id: string;
   isAuthenticated = false;
   userSub: Subscription;
@@ -37,6 +38,9 @@ export class DetailsComponent implements OnInit {
     this.articleService.fetchArticleDetails(this.id).subscribe(
       data => {
         this.article = data;
+        this.resources = data.blog_posts.concat(data.githubs);
+        this.resources = this.resources.sort((a, b) => b.rating - a.rating);
+        console.log(this.resources);
       },
       error => console.error('couldn\'t post because', error)
     );
@@ -59,6 +63,9 @@ export class DetailsComponent implements OnInit {
         this.articleService.fetchArticleDetails(params.id).subscribe(
           data => {
             this.article = data;
+            this.resources = data.blog_posts.concat(data.githubs);
+            this.resources = this.resources.sort((a, b) => b.rating - a.rating);
+            console.log(this.resources);
             this.resetArticles();
             this.articleService.fetchArticles(this.type, this.nextPage, {id: this.article.id}).subscribe(
               relatedData => {
