@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {GitHub} from '../../../article.model';
+import {ArticleResource} from '../../../article.model';
 import {ResourcesComponent} from '../resources.component';
 
 @Component({
@@ -8,8 +8,8 @@ import {ResourcesComponent} from '../resources.component';
   styleUrls: ['./resource-card.component.css']
 })
 export class ResourceCardComponent implements OnInit {
-  @Input() resource: object;
-  constructor(private resources: ResourcesComponent) { }
+  @Input() resource: ArticleResource;
+  constructor(public resources: ResourcesComponent) { }
 
   ngOnInit() {
   }

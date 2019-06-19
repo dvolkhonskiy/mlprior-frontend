@@ -15,6 +15,9 @@ export interface ArticleAuthor {
 export interface ArticleResourceInfo {
   title?: string;
   description?: string;
+  n_stars?: number;
+  framework?: string;
+  topics?: string[];
 }
 
 
