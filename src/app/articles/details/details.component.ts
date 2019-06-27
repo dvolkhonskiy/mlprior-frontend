@@ -5,6 +5,7 @@ import {AuthService} from '../../auth/auth.service';
 import {ArticleService} from '../articles.service';
 import {Article, ArticleResource} from '../article.model';
 import {Subscription} from 'rxjs';
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class DetailsComponent implements OnInit {
   nextPage = '';
   error = null;
 
-  constructor(private httpClient: HttpClient, private articleService: ArticleService, private route: ActivatedRoute, private authService: AuthService) {
+  constructor(private httpClient: HttpClient, private articleService: ArticleService,
+              private route: ActivatedRoute, private authService: AuthService, private titleService: Title) {
   }
 
   fetchArticle() {
@@ -41,6 +43,7 @@ export class DetailsComponent implements OnInit {
         this.resources = data.blog_posts.concat(data.githubs);
         this.resources = this.resources.sort((a, b) => b.rating - a.rating);
         console.log(this.resources);
+        this.titleService.setTitle('ML p(r)ior: ' + this.article.title);
       },
       error => console.error('couldn\'t post because', error)
     );
@@ -81,13 +84,6 @@ export class DetailsComponent implements OnInit {
         );
       }
     );
-
-
-    // this.route.url.subscribe(
-    //   url =>  {
-    //
-    //   }
-    // );
   }
 
   resetArticles(): void {
