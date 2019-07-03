@@ -52,26 +52,17 @@
           </button>
         </div>
         <div class="col-md-2">
-
-          <button class="btn btn-primary btn-round btn-fab likebutton" [disabled]="!isAuthenticated">
-            <i class="fas fa-thumbs-up fa-sm" *ngIf="article.like_dislike == true"
-               (click)="articleService.likeDislike(article, null)"></i>
-            <i class="far fa-thumbs-up fa-sm" *ngIf="article.like_dislike != true"
-               (click)="articleService.likeDislike(article, true)"></i>
-          </button>
-
-          <button class="btn btn-primary btn-round btn-fab dislikebutton" [disabled]="!isAuthenticated">
-            <i class="fas fa-thumbs-down fa-sm" *ngIf="article.like_dislike == false"
-               (click)="articleService.likeDislike(article, null)"></i>
-            <i class="far fa-thumbs-down fa-sm" *ngIf="article.like_dislike != false"
-               (click)="articleService.likeDislike(article, false)"></i>
-          </button>
-
+          <app-articlelike [article]="article" [isAuthenticated]="isAuthenticated"></app-articlelike>
         </div>
         <p>
       </div>
     </div>
   </div>
+
+  <p></p>
+    <!--<app-summary></app-summary>-->
+
+
   <p></p>
   <div class="row">
     <div class="col-md-12">

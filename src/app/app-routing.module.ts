@@ -12,22 +12,25 @@ import {FeedbackComponent} from './feedback/feedback.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' }},
   {
     path: 'articles',
     children: [
       {
         path: 'recommended',
         component: RecommendedComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { title: 'Recommended' }
       },
       {
         path: 'recent',
         component: RecommendedComponent,
+        data: { title: 'Recent' }
       },
       {
         path: 'popular',
         component: RecommendedComponent,
+        data: { title: 'Popular' }
       }
     ]
   },
@@ -37,12 +40,14 @@ const routes: Routes = [
       {
         path: 'saved',
         component: LibraryComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { title: 'Saved' }
       },
       {
         path: 'liked',
         component: LibraryComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: { title: 'Liked' }
       },
       {
         path: 'disliked',
@@ -54,10 +59,10 @@ const routes: Routes = [
   // {path: 'articles/library', component: ArticlesComponent, canActivate: [AuthGuard]},
   // {path: 'articles/liked', component: ArticlesComponent, canActivate: [AuthGuard]},
   // {path: 'articles/disliked', component: ArticlesComponent, canActivate: [AuthGuard]},
-  {path: 'feedback', component: FeedbackComponent},
+  {path: 'feedback', component: FeedbackComponent, data: { title: 'Feedback' }},
   {path: 'articles/details/:id', component: DetailsComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: 'login', component: LoginComponent, data: { title: 'Login' }},
+  {path: '**', component: PageNotFoundComponent, data: { title: 'Page Not Found' }}
 ];
 
 @NgModule({

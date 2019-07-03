@@ -34,6 +34,8 @@ import {FeedbackComponent} from './feedback/feedback.component';
 import {ArticleCardComponent} from './articles/article-card/article-card.component';
 import { GithubCardComponent } from './articles/details/article-resources/github-card/github-card.component';
 import { ResourceCardComponent } from './articles/details/article-resources/resource-card/resource-card.component';
+import { SummaryComponent } from './articles/details/summary/summary.component';
+import {ArticleLikeComponent} from './articles/buttons/article-like/article-like.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { ResourceCardComponent } from './articles/details/article-resources/reso
     ArticleCardComponent,
     GithubCardComponent,
     ResourceCardComponent,
+    SummaryComponent,
+    ArticleLikeComponent
   ],
   imports: [
     BrowserModule,

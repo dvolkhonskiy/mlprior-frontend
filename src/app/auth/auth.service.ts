@@ -27,8 +27,8 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  signUp(email: string, password: string) {
-    let data = {"user": {"email": email, "password":  password}};
+  signUp(firstName: string, secondName: string, email: string, password: string) {
+    let data = {user: {first_name: firstName, second_name: secondName, email: email, password:  password}};
     console.log(data);
     return this.http.post<AuthResponseData>(this.API_URL_SIGN_UP, data).pipe(
       tap(
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    let data = {"user": {"email": email, "password":  password}};
+    let data = {user: {email: email, password:  password}};
     return this.http.post<AuthResponseData>(this.API_URL_LOGIN, data).pipe(
       tap(
         resData => {

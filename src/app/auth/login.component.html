@@ -19,6 +19,42 @@
 
             <p class="card-description text-center">Or Be Classical</p>
 
+            <div class="form-group has-default bmd-form-group" *ngIf="!isLoginMode">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">perm_identity</i>
+                            </span>
+                </div>
+                <input type="text"
+                       id="firstName"
+                       class="form-control"
+                       ngModel
+                       name="firstName"
+                       required
+                       placeholder="You first name...">
+              <span class="text-rose" *ngFor="let error of errors.firstName"><br/>
+                  {{ error }}</span>
+            </div>
+            </div>
+            <div class="form-group has-default bmd-form-group" *ngIf="!isLoginMode">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">perm_identity</i>
+                            </span>
+                </div>
+                <input type="text"
+                       id="secondName"
+                       class="form-control"
+                       ngModel
+                       name="firstName"
+                       required
+                       placeholder="You second name...">
+              </div>
+              <span class="text-rose" *ngFor="let error of errors.secondName"><br/>
+                {{ error }}</span>
+            </div>
             <div class="form-group has-default bmd-form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -35,7 +71,7 @@
                        placeholder="Email...">
               </div>
               <span class="text-rose" *ngFor="let error of errors.email"><br/>
-                  {{ error }}</span>
+                {{ error }}</span>
             </div>
             <div class="form-group has-default bmd-form-group">
               <div class="input-group">

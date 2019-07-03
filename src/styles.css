@@ -3,6 +3,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
+.card-avatar {
+  font-size: 32px;
+}
+
 .note-button {
   position: relative;
   padding-top: 0px;

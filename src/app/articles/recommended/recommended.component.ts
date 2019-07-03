@@ -20,6 +20,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
   nextPage = '';
   error = null;
   type = 'recommended';
+  searchQuery = '';
 
   searchForm: FormControl = new FormControl();
   isSearchMode = false;
@@ -65,6 +66,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
               this.nextPage = '';
             }
             this.isSearchMode = true;
+            this.searchQuery = value;
             this.resetArticles('search');
             return this.articleService.fetchArticles('search', this.nextPage, {q: value});
           }

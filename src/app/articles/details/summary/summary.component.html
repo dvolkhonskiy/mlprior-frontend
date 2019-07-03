@@ -1,0 +1,24 @@
+<mat-card>
+
+  <mat-card-header>
+    <div mat-card-avatar class="header-image">
+      <i class="fas fa-align-left"></i>
+    </div>
+    <mat-card-title>Summary</mat-card-title>
+    <mat-card-subtitle>No need to read the whole article! Read the summary</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+  <mat-action-list>
+    <button mat-list-item  *ngFor="let sentence of summary"  (click)="onClick(sentence)">
+      <mat-icon matListIcon [ngClass]="sentence.isLike ? 'primary-icon' : 'grey-icon' ">favorite</mat-icon> {{sentence.text}}
+    </button>
+  </mat-action-list>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Submit</button>
+  </mat-card-actions>
+
+</mat-card>

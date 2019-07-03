@@ -30,6 +30,12 @@ export interface ArticleResource {
   info: ArticleResourceInfo;
 }
 
+export interface SummarySentence {
+  id: string;
+  text: string;
+  isLike?: boolean;
+}
+
 
 export interface Article {
   id: string;
@@ -46,4 +52,5 @@ export interface Article {
   like_dislike: boolean;
   authors: ArticleAuthor[];
   has_neighbors: boolean;
+  summary?: SummarySentence[];
 }

@@ -40,7 +40,9 @@ export class LoginComponent {
     if (this.isLoginMode) {
       authObs = this.authService.login(email, password);
     } else {
-      authObs = this.authService.signUp(email, password);
+      const firstName = form.value.firstName;
+      const secondName = form.value.secondName;
+      authObs = this.authService.signUp(firstName, secondName, email, password);
     }
 
     authObs.subscribe(

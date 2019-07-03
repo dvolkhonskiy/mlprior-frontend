@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
 import {AuthService} from './auth/auth.service';
+import {Title} from '@angular/platform-browser';
+import {filter, mergeMap, map} from 'rxjs/operators';
 
 // import {AuthService} from './_user.service';
 
@@ -13,7 +15,8 @@ export class AppComponent implements OnInit {
   title = 'mlprior-frontend';
   isLanding = true;
 
-  constructor(private router: Router, private authService: AuthService) {  }
+  constructor(private router: Router, private authService: AuthService, private activatedRoute: ActivatedRoute,
+              private titleService: Title) {  }
 
   ngOnInit() {
 
@@ -27,6 +30,17 @@ export class AppComponent implements OnInit {
       this.isLanding = evt.url === '/';
       window.scrollTo(0, 0);
     });
+
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map((route) => {
+        while (route.firstChild) {route = route.firstChild;}
+        return route;
+      }),
+      filter((route) => route.outlet === 'primary'),
+      mergeMap((route) => route.data)).subscribe((event) => this.titleService.setTitle('ML p(r)ior | ' + event['title']));
+
   }
 
   public isArticles(): boolean {
