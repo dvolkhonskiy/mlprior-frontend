@@ -1,3 +1,5 @@
+
+
 <div class="card shadow mb-4"> <!-- [style.opacity]="!article.has_neighbors ? '.8' : '1.0'"> -->
   <div class="card-header py-3">
     <div class="row">
@@ -34,44 +36,57 @@
     <hr>
     <div class="row form-group">
 
-      <div class="col-sm-10">
+      <div class="col-sm-10 button-row">
 
-        <a [routerLink]="['/articles', 'details', article.id]" class="btn btn-primary btn-round">
-    <span class="icon">
-        <i class="material-icons">info</i>
-    </span>
-          <span class="text">Details</span>
-        </a>
-        <a href="{{ article.url }}" class="btn btn-success btn-round" target="_blank">
-            <span class="icon">
-            <i class="material-icons">unarchive</i>
-            </span>
-          <span class="text">Read on ArXiv</span>
-        </a>
+        <!--<a [routerLink]="['/articles', 'details', article.id]" class="btn btn-primary btn-round">-->
+    <!--<span class="icon">-->
+        <!--<i class="material-icons">info</i>-->
+    <!--</span>-->
+          <!--<span class="text">Details</span>-->
+        <!--</a>-->
+        <button mat-raised-button [routerLink]="['/articles', 'details', article.id]" color="primary" style="font-weight: bold;" class="primary">Details</button>
+        <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;">PDF</a>
 
-        <button class="btn btn-primary btn-round savetolibrary" *ngIf="!article.in_lib"
-                (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated">
-          <span class="icon">
-          <i class="material-icons">bookmark</i>
-          </span>
-          <span class="text">Save to Library</span>
+        <!--<a href="{{ article.url }}" class="btn btn-success btn-round" target="_blank">-->
+            <!--<span class="icon">-->
+            <!--<i class="material-icons">unarchive</i>-->
+            <!--</span>-->
+          <!--<span class="text">Read on ArXiv</span>-->
+        <!--</a>-->
+
+        <button mat-stroked-button *ngIf="!article.in_lib"
+                (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated"><span style="font-weight: bold;">Save to Library</span>
         </button>
-        <button class="btn btn-default btn-round donotsave" *ngIf="article.in_lib"
-                (click)="articleService.addRemoveFromLib(article)" >
-            <span class="icon">
-            <i class="material-icons">bookmark</i>
-            </span>
-          <span class="text">Saved</span>
-        </button>
+
+        <button mat-stroked-button *ngIf="article.in_lib"
+                (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated" style="font-weight: bold;">Saved</button>
+
+        <!--<button class="btn btn-primary btn-round savetolibrary" *ngIf="!article.in_lib"-->
+                <!--(click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated">-->
+          <!--<span class="icon">-->
+          <!--<i class="material-icons">bookmark</i>-->
+          <!--</span>-->
+          <!--<span class="text">Save to Library</span>-->
+        <!--</button>-->
+        <!--<button class="btn btn-default btn-round donotsave" *ngIf="article.in_lib"-->
+                <!--(click)="articleService.addRemoveFromLib(article)" >-->
+            <!--<span class="icon">-->
+            <!--<i class="material-icons">bookmark</i>-->
+            <!--</span>-->
+          <!--<span class="text">Saved</span>-->
+        <!--</button>-->
         <div class="note-button">
           <span class="note-badge" id="note-badge-{{ article.id }}" *ngIf="note.value != ''"> </span>
-          <button class="btn btn-warning btn-round note" type="button" attr.aria-controls="collapseUtilities"
-                  aria-expanded="false" data-toggle="collapse" attr.data-target="#note-collapse-{{ article.id }}"  [disabled]="!isAuthenticated">
-                    <span class="icon">
-                        <i class="material-icons">comment</i>
-                    </span>
-            <span class="text">Note</span>
-          </button>
+          <button mat-stroked-button attr.aria-controls="collapseUtilities"
+                  aria-expanded="false" data-toggle="collapse"
+                  attr.data-target="#note-collapse-{{ article.id }}" [disabled]="!isAuthenticated" style="font-weight: bold;">Note</button>
+          <!--<button class="btn btn-warning btn-round note" type="button" attr.aria-controls="collapseUtilities"-->
+                  <!--aria-expanded="false" data-toggle="collapse" attr.data-target="#note-collapse-{{ article.id }}"  [disabled]="!isAuthenticated">-->
+                    <!--<span class="icon">-->
+                        <!--<i class="material-icons">comment</i>-->
+                    <!--</span>-->
+            <!--<span class="text">Note</span>-->
+          <!--</button>-->
         </div>
 
 

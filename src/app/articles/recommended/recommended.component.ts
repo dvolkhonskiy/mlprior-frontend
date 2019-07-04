@@ -12,7 +12,7 @@ import {FormControl} from '@angular/forms';
 @Component({
   selector: 'app-articles',
   templateUrl: './recommended.component.html',
-  styleUrls: ['./recommended.component.css', '../../app.component.css'],
+  styleUrls: ['./recommended.component.css'],
   providers: []
 })
 export class RecommendedComponent implements OnInit, OnDestroy {

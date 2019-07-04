@@ -28,28 +28,15 @@
       {{ article.abstract }}
       <hr>
       <div class="row form-group">
-        <div class="col-sm-10">
-          <a href="{{ article.url }}" class="btn btn-success btn-round" target="_blank">
-            <span class="icon">
-            <i class="material-icons">unarchive</i>
-            </span>
-            <span class="text">Read on ArXiv</span>
-          </a>
+        <div class="col-sm-10 button-row">
+          <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;">PDF</a>
 
-          <button class="btn btn-primary btn-round savetolibrary" *ngIf="!article.in_lib"
-                  (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated">
-          <span class="icon">
-          <i class="material-icons">bookmark</i>
-          </span>
-            <span class="text">Save to Library</span>
+          <button mat-stroked-button *ngIf="!article.in_lib"
+                  (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated"><span style="font-weight: bold;">Save to Library</span>
           </button>
-          <button class="btn btn-default btn-round donotsave" *ngIf="article.in_lib"
-                  (click)="articleService.addRemoveFromLib(article)">
-            <span class="icon">
-            <i class="material-icons">bookmark</i>
-            </span>
-            <span class="text">Saved</span>
-          </button>
+
+          <button mat-stroked-button *ngIf="article.in_lib"
+                  (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated" style="font-weight: bold;">Saved</button>
         </div>
         <div class="col-md-2">
           <app-articlelike [article]="article" [isAuthenticated]="isAuthenticated"></app-articlelike>

@@ -11,7 +11,7 @@ import {LandingComponent} from './landing/landing.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 
 const routes: Routes = [
-  {path: '', component: LandingComponent},
+  {path: '', component: LandingComponent,  data: { title: 'Simplify your research' }},
   {path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' }},
   {
     path: 'articles',
