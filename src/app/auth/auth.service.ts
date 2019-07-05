@@ -54,11 +54,9 @@ export class AuthService {
     const data = {user: {email: email, first_name: firstName, second_name: secondName}};
     return this.http.put(this.API_URL_USER, data).subscribe(
       data => {
-        console.log('huy');
         console.log(data);
       },
       error1 => {
-        console.log('pixda');
         console.log(error1);
       }
     );
