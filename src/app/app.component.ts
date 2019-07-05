@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
       filter((event) => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
       map((route) => {
-        while (route.firstChild) {route = route.firstChild;}
+        while (route.firstChild) {route = route.firstChild; }
         return route;
       }),
       filter((route) => route.outlet === 'primary'),
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
       || this.router.url.includes('recent')
       || this.router.url.includes('popular')
       || this.router.url.includes('details')
+      || this.router.url.includes('author')
     );
   }
 

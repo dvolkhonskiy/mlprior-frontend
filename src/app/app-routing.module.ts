@@ -9,6 +9,8 @@ import {LibraryComponent} from './articles/library/library.component';
 import {RecommendedComponent} from './articles/recommended/recommended.component';
 import {LandingComponent} from './landing/landing.component';
 import {FeedbackComponent} from './feedback/feedback.component';
+import {ArticleAuthor} from './articles/article.model';
+import {AuthorComponent} from './articles/author/author.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent,  data: { title: 'Simplify your research' }},
@@ -61,6 +63,7 @@ const routes: Routes = [
   // {path: 'articles/disliked', component: ArticlesComponent, canActivate: [AuthGuard]},
   {path: 'feedback', component: FeedbackComponent, data: { title: 'Feedback' }},
   {path: 'articles/details/:id', component: DetailsComponent},
+  {path: 'articles/author/:name', component: AuthorComponent},
   {path: 'login', component: LoginComponent, data: { title: 'Login' }},
   {path: '**', component: PageNotFoundComponent, data: { title: 'Page Not Found' }}
 ];

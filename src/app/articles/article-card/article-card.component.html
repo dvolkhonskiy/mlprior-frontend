@@ -20,7 +20,7 @@
       <div class="col-sm-10">
         <div class="h7 pl-3 pt-2 font-weight-bold text-gray-800">
             <span style="color: #4e73df" *ngFor="let author of article.authors;  let isLast=last">
-              {{ author.name }}{{isLast ? '' : ', '}}
+              <a [routerLink]="['/articles', 'author', author.name]">{{ author.name }}</a>{{isLast ? '' : ', '}}
             </span>
         </div>
       </div>
@@ -38,21 +38,9 @@
 
       <div class="col-sm-10 button-row">
 
-        <!--<a [routerLink]="['/articles', 'details', article.id]" class="btn btn-primary btn-round">-->
-    <!--<span class="icon">-->
-        <!--<i class="material-icons">info</i>-->
-    <!--</span>-->
-          <!--<span class="text">Details</span>-->
-        <!--</a>-->
         <button mat-raised-button [routerLink]="['/articles', 'details', article.id]" color="primary"  class="mlprior-primary-button">Details</button>
         <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;">PDF</a>
 
-        <!--<a href="{{ article.url }}" class="btn btn-success btn-round" target="_blank">-->
-            <!--<span class="icon">-->
-            <!--<i class="material-icons">unarchive</i>-->
-            <!--</span>-->
-          <!--<span class="text">Read on ArXiv</span>-->
-        <!--</a>-->
 
         <button mat-stroked-button *ngIf="!article.in_lib"
                 (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated"><span style="font-weight: bold;">Save to Library</span>
@@ -61,32 +49,11 @@
         <button mat-stroked-button *ngIf="article.in_lib"
                 (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated" style="font-weight: bold;">Saved</button>
 
-        <!--<button class="btn btn-primary btn-round savetolibrary" *ngIf="!article.in_lib"-->
-                <!--(click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated">-->
-          <!--<span class="icon">-->
-          <!--<i class="material-icons">bookmark</i>-->
-          <!--</span>-->
-          <!--<span class="text">Save to Library</span>-->
-        <!--</button>-->
-        <!--<button class="btn btn-default btn-round donotsave" *ngIf="article.in_lib"-->
-                <!--(click)="articleService.addRemoveFromLib(article)" >-->
-            <!--<span class="icon">-->
-            <!--<i class="material-icons">bookmark</i>-->
-            <!--</span>-->
-          <!--<span class="text">Saved</span>-->
-        <!--</button>-->
         <div class="note-button">
           <span class="note-badge" id="note-badge-{{ article.id }}" *ngIf="note.value != ''"> </span>
           <button mat-stroked-button attr.aria-controls="collapseUtilities"
                   aria-expanded="false" data-toggle="collapse"
                   attr.data-target="#note-collapse-{{ article.id }}" [disabled]="!isAuthenticated" style="font-weight: bold;">Note</button>
-          <!--<button class="btn btn-warning btn-round note" type="button" attr.aria-controls="collapseUtilities"-->
-                  <!--aria-expanded="false" data-toggle="collapse" attr.data-target="#note-collapse-{{ article.id }}"  [disabled]="!isAuthenticated">-->
-                    <!--<span class="icon">-->
-                        <!--<i class="material-icons">comment</i>-->
-                    <!--</span>-->
-            <!--<span class="text">Note</span>-->
-          <!--</button>-->
         </div>
 
 

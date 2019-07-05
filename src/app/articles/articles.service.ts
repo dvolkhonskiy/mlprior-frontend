@@ -22,26 +22,17 @@ export class ArticleService implements OnInit {
   API_URL_GITHUBS = environment.baseUrl + 'api/githubs/';
   API_URL_SEARCH = environment.baseUrl + 'api/search';
 
-  constructor(private http: HttpClient, private router: Router) {
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
 
   }
-
-  // redirectIfNotAuthenticated() {
-  //   console.log(this.isAuthenticated);
-  //   if (!this.isAuthenticated) {
-  //     this.router.navigate(['/login']);
-  //   }
-  // }
 
   search(query) {
     return this.http.get<Article[]>(this.API_URL_SEARCH + '?q=' + query);
   }
 
   updateArticle(article, update): void {
-    // this.redirectIfNotAuthenticated();
     this.http.put(this.API_URL_ARTICLE_LIBRARY + article.id + '/', update).subscribe(
       data => {
         console.log(data);
@@ -122,6 +113,11 @@ export class ArticleService implements OnInit {
       is_like: isLike
     });
   }
+
+  // fetchArticleForAuthor(name: string, page: string) {
+  //
+  //   this.http.get({ results: Article[], next?: string, previous: string }, )
+  // }
 
   fetchArticles(type: string, page: string, params: any) {
     let url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;

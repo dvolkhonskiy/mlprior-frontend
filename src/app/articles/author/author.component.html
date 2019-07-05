@@ -1,0 +1,18 @@
+<h3>Articles of {{name}}</h3>
+
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="0"
+  [infiniteScrollThrottle]="0"
+  (scrolled)="onScroll()"
+>
+
+  <div *ngFor="let article of articles">
+    <app-article-card [article]="article" [isAuthenticated]="isAuthenticated"></app-article-card>
+  </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+  <h3>An error occurred!</h3>
+  <p>{{ error }}</p>
+</div>

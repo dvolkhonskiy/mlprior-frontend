@@ -36,6 +36,7 @@ import { GithubCardComponent } from './articles/details/article-resources/github
 import { ResourceCardComponent } from './articles/details/article-resources/resource-card/resource-card.component';
 import { SummaryComponent } from './articles/details/summary/summary.component';
 import {ArticleLikeComponent} from './articles/buttons/article-like/article-like.component';
+import { AuthorComponent } from './articles/author/author.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import {ArticleLikeComponent} from './articles/buttons/article-like/article-like
     GithubCardComponent,
     ResourceCardComponent,
     SummaryComponent,
-    ArticleLikeComponent
+    ArticleLikeComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
