@@ -21,6 +21,7 @@ export class AuthService {
 
   private API_URL_LOGIN = environment.baseUrl + 'api/auth/login';
   private API_URL_SIGN_UP = environment.baseUrl + 'api/auth/signup';
+  private API_URL_USER = environment.baseUrl + 'api/user';
 
   public redirectUrl: string;
   private tokenExpirationTimer: any;
@@ -28,12 +29,13 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(firstName: string, secondName: string, email: string, password: string) {
-    let data = {user: {first_name: firstName, second_name: secondName, email: email, password:  password}};
+    let data = {user: {email: email, password:  password}};
     console.log(data);
     return this.http.post<AuthResponseData>(this.API_URL_SIGN_UP, data).pipe(
       tap(
         resData => {
           this.handleAuthentication(resData.user.email, resData.user.token);
+          this.sendProfileData(email, firstName, secondName);
         })
     );
   }
@@ -45,6 +47,20 @@ export class AuthService {
         resData => {
           this.handleAuthentication(resData.user.email, resData.user.token);
         })
+    );
+  }
+
+  sendProfileData(email: string, firstName: string, secondName: string) {
+    const data = {user: {email: email, first_name: firstName, second_name: secondName}};
+    return this.http.put(this.API_URL_USER, data).subscribe(
+      data => {
+        console.log('huy');
+        console.log(data);
+      },
+      error1 => {
+        console.log('pixda');
+        console.log(error1);
+      }
     );
   }
 
