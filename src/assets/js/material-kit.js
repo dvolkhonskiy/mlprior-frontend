@@ -20,7 +20,7 @@ var big_image;
 $(document).ready(function() {
   BrowserDetect.init();
 
-  // Init Material scripts for buttons ripples, inputs animations etc, more info on the next link https://github.com/FezVrasta/bootstrap-material-design#materialjs
+  // Init Material scripts for reusable ripples, inputs animations etc, more info on the next link https://github.com/FezVrasta/bootstrap-material-design#materialjs
   $('body').bootstrapMaterialDesign();
 
   window_width = $(window).width();

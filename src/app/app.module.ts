@@ -35,8 +35,9 @@ import {ArticleCardComponent} from './articles/article-card/article-card.compone
 import { GithubCardComponent } from './articles/details/article-resources/github-card/github-card.component';
 import { ResourceCardComponent } from './articles/details/article-resources/resource-card/resource-card.component';
 import { SummaryComponent } from './articles/details/summary/summary.component';
-import {ArticleLikeComponent} from './articles/buttons/article-like/article-like.component';
+import {ArticleLikeComponent} from './articles/reusable/article-like/article-like.component';
 import { AuthorComponent } from './articles/author/author.component';
+import { AuthorsListComponent } from './articles/reusable/authors-list/authors-list.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { AuthorComponent } from './articles/author/author.component';
     ResourceCardComponent,
     SummaryComponent,
     ArticleLikeComponent,
-    AuthorComponent
+    AuthorComponent,
+    AuthorsListComponent
   ],
   imports: [
     BrowserModule,

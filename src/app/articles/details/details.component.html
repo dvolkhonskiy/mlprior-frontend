@@ -14,9 +14,7 @@
       <div class="row">
         <div class="col-sm-10">
           <div class="h7 pl-3 pt-2 font-weight-bold text-gray-800">
-            <span style="color: #4e73df" *ngFor="let author of article.authors;  let isLast=last">
-              {{ author.name }}{{isLast ? '' : ', '}}
-            </span>
+            <app-authors-list [article]="article"></app-authors-list>
           </div>
         </div>
         <div class="col-sm-2">

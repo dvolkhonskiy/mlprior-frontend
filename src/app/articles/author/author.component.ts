@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {ArticleService} from '../articles.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-author',
@@ -21,12 +22,18 @@ export class AuthorComponent implements OnInit {
 
   name: string;
 
-  constructor(public articleService: ArticleService, public route: ActivatedRoute, private router: Router, private authService: AuthService) { }
+  constructor(public articleService: ArticleService,
+              public route: ActivatedRoute,
+              private router: Router,
+              private authService: AuthService,
+              private titleService: Title
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
         this.name = params.name;
+        this.titleService.setTitle('ML p(r)ior | ' + this.name);
       }
     );
     this.userSub = this.authService.user.subscribe(
