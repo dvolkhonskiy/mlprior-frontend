@@ -45,8 +45,7 @@
   </div>
 
   <p></p>
-    <app-summary *ngIf="article.summary" [summary]="article.summary"></app-summary>
-
+    <app-summary *ngIf="article.summary.length > 0" [summary]="article.summary"></app-summary>
 
   <p></p>
   <div class="row">
