@@ -32,7 +32,7 @@ export interface ArticleResource {
 
 export interface SummarySentence {
   id: string;
-  text: string;
+  sentence: string;
   isLike?: boolean;
 }
 

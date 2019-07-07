@@ -9,16 +9,46 @@
   </mat-card-header>
 
   <mat-card-content>
+    <!--<table mat-table [dataSource]="summary" class="mat-elevation-z8">-->
+
+      <!--&lt;!&ndash;- Note that these columns can be defined in any order.-->
+            <!--The actual rendered columns are set as a property on the row definition" &ndash;&gt;-->
+
+      <!--&lt;!&ndash; Position Column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="position">-->
+        <!--<th mat-header-cell *matHeaderCellDef> No. </th>-->
+        <!--<td mat-cell *matCellDef="let element"> <mat-icon mat-list-icon [ngClass]="element.isLike ? 'primary-icon' : 'grey-icon'">favorite</mat-icon> </td>-->
+      <!--</ng-container>-->
+
+      <!--&lt;!&ndash; Name Column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="name">-->
+        <!--<th mat-header-cell *matHeaderCellDef> Name </th>-->
+        <!--<td mat-cell *matCellDef="let element"> {{element.sentence}} </td>-->
+      <!--</ng-container>-->
+
+
+
+      <!--<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+      <!--<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+    <!--</table>-->
+
+
   <mat-action-list>
-    <button mat-list-item  *ngFor="let sentence of summary"  (click)="onClick(sentence)">
-      <mat-icon matListIcon [ngClass]="sentence.isLike ? 'primary-icon' : 'grey-icon' ">favorite</mat-icon> {{sentence.text}}
+    <button mat-list-item *ngFor="let sentence of summary" (click)="setLikeToSummarySentence(sentence)" style="display: inline-block;">
+      <!--<div>(click)="setLikeToSummarySentence(sentence)"</div>-->
+      <mat-icon matListIcon [ngClass]="sentence.isLike ? 'primary-icon' : 'grey-icon'">favorite</mat-icon>
+      <span style=" padding-left: 1.25rem; text-align: left; display: inline-block;">{{sentence.sentence}}</span>
     </button>
   </mat-action-list>
+
 
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button color="primary">Submit</button>
+    <p>
+    <span class="text-rose" *ngIf="isFeedbackSent">Thank you for your feedback!</span>
+    </p>
+    <button mat-raised-button color="primary" (click)="sendFeedbackAboutSummary(summary)" [disabled]="isFeedbackSent">Submit feedback</button>
   </mat-card-actions>
 
 </mat-card>

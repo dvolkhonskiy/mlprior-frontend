@@ -38,6 +38,7 @@ import { SummaryComponent } from './articles/details/summary/summary.component';
 import {ArticleLikeComponent} from './articles/reusable/article-like/article-like.component';
 import { AuthorComponent } from './articles/author/author.component';
 import { AuthorsListComponent } from './articles/reusable/authors-list/authors-list.component';
+import { PricingComponent } from './pricing/pricing.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { AuthorsListComponent } from './articles/reusable/authors-list/authors-l
     SummaryComponent,
     ArticleLikeComponent,
     AuthorComponent,
-    AuthorsListComponent
+    AuthorsListComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,

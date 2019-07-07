@@ -5,7 +5,7 @@ import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
 import {tap, map, take, exhaustMap} from 'rxjs/operators';
 
-import {Article, BlogPost, GitHub, ArticleAuthor} from './article.model';
+import {Article, BlogPost, GitHub, ArticleAuthor, SummarySentence} from './article.model';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
 import {Subscription} from 'rxjs';
 
@@ -21,6 +21,7 @@ export class ArticleService implements OnInit {
   API_URL_BLOGPOSTS = environment.baseUrl + 'api/blogposts/';
   API_URL_GITHUBS = environment.baseUrl + 'api/githubs/';
   API_URL_SEARCH = environment.baseUrl + 'api/search';
+  API_URL_SUMMARY_FEEDBACK = environment.baseUrl + 'api/summary/feedback/';
 
   constructor(private http: HttpClient) {}
 
@@ -41,6 +42,11 @@ export class ArticleService implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  sendSummaryFeedback(sentence, id, isLike) {
+    const data = {sentence: sentence, is_like: isLike};
+    return this.http.put(this.API_URL_SUMMARY_FEEDBACK + id + '/', data);
   }
 
   updateBlogPost(blogpost, update): void {

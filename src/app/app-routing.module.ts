@@ -11,9 +11,11 @@ import {LandingComponent} from './landing/landing.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ArticleAuthor} from './articles/article.model';
 import {AuthorComponent} from './articles/author/author.component';
+import {PricingComponent} from './pricing/pricing.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent,  data: { title: 'Simplify your research' }},
+  {path: 'pricing', component: PricingComponent, data: {title: 'Pricing'}},
   {path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' }},
   {
     path: 'articles',

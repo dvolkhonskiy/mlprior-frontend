@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ArticleResource, SummarySentence} from '../../article.model';
+import {forkJoin} from 'rxjs';
+import {ArticleService} from '../../articles.service';
+import {error} from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-summary',
@@ -7,11 +10,32 @@ import {ArticleResource, SummarySentence} from '../../article.model';
   styleUrls: ['./summary.component.css', '../../../app.component.css']
 })
 export class SummaryComponent implements OnInit {
-  @Input() summary: SummarySentence[] = [{text: 'lol', id: '1', isLike: true }, {text: 'kek', id: '1'}, {text: 'pip', id: '1'}];
-  constructor() { }
+  @Input() summary: SummarySentence[];
+  isFeedbackSent = false;
+  error = '';
+  constructor(private articleService: ArticleService) { }
 
-  onClick(sentence) {
+  setLikeToSummarySentence(sentence) {
     sentence.isLike = !sentence.isLike;
+  }
+
+  sendFeedbackAboutSummary(summary) {
+    console.log('Sending feedback');
+    console.log(summary);
+
+    const kek = summary.map(sentence => {
+      return this.articleService.sendSummaryFeedback(sentence.sentence, sentence.id, sentence.isLike);
+    });
+
+    forkJoin(kek).subscribe(
+      data => {
+        this.isFeedbackSent = true;
+
+      },
+      error1 => {
+        this.error = error1;
+      }
+    );
   }
 
   ngOnInit() {
