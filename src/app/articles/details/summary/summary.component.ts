@@ -23,10 +23,7 @@ export class SummaryComponent implements OnInit {
 
   showSummary() {
     this.collapsed = !this.collapsed;
-    this.trackingService.trackOpenSummary().subscribe(
-      data =>  console.log(data),
-      error1 => console.error(error1)
-    );
+    this.trackingService.trackOpenSummary();
   }
 
   sendFeedbackAboutSummary(summary) {

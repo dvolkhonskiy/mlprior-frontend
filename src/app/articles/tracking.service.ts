@@ -9,18 +9,21 @@ export class TrackingService {
   constructor(private http: HttpClient) { }
 
   trackAction(action: string) {
-    return this.http.post(this.API_URL_TRACK, {action: action});
+    this.http.post(this.API_URL_TRACK, {action: action}).subscribe(
+      data =>  console.log(data),
+      error1 => console.error(error1)
+    );
   }
 
   trackOpenSummary() {
-    return this.trackAction('SHOW article.summary');
+    this.trackAction('SHOW article.summary');
   }
 
   trackOpenPDF() {
-    return this.trackAction('OUT article.pdf');
+    this.trackAction('OUT article.pdf');
   }
 
   trackOpenRelated() {
-    return this.trackAction('SHOW article.related');
+    this.trackAction('SHOW article.related');
   }
 }
