@@ -48,7 +48,7 @@
     <app-summary *ngIf="article.summary.length > 0" [summary]="article.summary"></app-summary>
 
   <p></p>
-  <div class="row">
+  <div class="row" *ngIf="isAuthenticated">
     <div class="col-md-12">
       <div class="card shadow mb-4">
         <div class="card-header card-header-warning card-header-icon">
@@ -64,7 +64,7 @@
                <textarea #note class="form-control note-area note-form" id="note-{{ article.id }}"
                          placeholder="You type, we save..."
                          attr.data-article-id="{{ article.id }}" rows="3"
-                         [(ngModel)]="article.note" (input)="updateNote(note.value, article)" [disabled]="!isAuthenticated">{{ article.note }}</textarea>
+                         [(ngModel)]="article.note" (input)="updateNote(note.value, article)">{{ article.note }}</textarea>
         </div>
       </div>
     </div>

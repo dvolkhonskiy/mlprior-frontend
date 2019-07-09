@@ -13,10 +13,19 @@ export class SummaryComponent implements OnInit {
   @Input() summary: SummarySentence[];
   isFeedbackSent = false;
   error = '';
+  collapsed = true;
   constructor(private articleService: ArticleService) { }
 
   setLikeToSummarySentence(sentence) {
     sentence.isLike = !sentence.isLike;
+  }
+
+  showSummary() {
+    this.collapsed = !this.collapsed;
+    this.articleService.trackOpenSummary().subscribe(
+      data =>  console.log(data),
+      error1 => console.error(error1)
+    );
   }
 
   sendFeedbackAboutSummary(summary) {

@@ -24,6 +24,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
 
   searchForm: FormControl = new FormControl();
   isSearchMode = false;
+  isSearchLoading = false;
 
   isAuthenticated = false;
   private userSub: Subscription;
@@ -66,6 +67,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
               this.nextPage = '';
             }
             this.isSearchMode = true;
+            this.isSearchLoading = true;
             this.searchQuery = value;
             this.resetArticles('search');
             return this.articleService.fetchArticles('search', this.nextPage, {q: value});
@@ -78,6 +80,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
         console.log(articles);
         this.articles = articles.results;
         this.nextPage = articles.next;
+        this.isSearchLoading = false;
       });
   }
 
