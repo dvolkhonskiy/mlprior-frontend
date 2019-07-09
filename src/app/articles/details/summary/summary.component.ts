@@ -3,6 +3,7 @@ import {ArticleResource, SummarySentence} from '../../article.model';
 import {forkJoin} from 'rxjs';
 import {ArticleService} from '../../articles.service';
 import {error} from '@angular/compiler/src/util';
+import {TrackingService} from '../../tracking.service';
 
 @Component({
   selector: 'app-summary',
@@ -14,7 +15,7 @@ export class SummaryComponent implements OnInit {
   isFeedbackSent = false;
   error = '';
   collapsed = true;
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService, private trackingService: TrackingService) { }
 
   setLikeToSummarySentence(sentence) {
     sentence.isLike = !sentence.isLike;
@@ -22,7 +23,7 @@ export class SummaryComponent implements OnInit {
 
   showSummary() {
     this.collapsed = !this.collapsed;
-    this.articleService.trackOpenSummary().subscribe(
+    this.trackingService.trackOpenSummary().subscribe(
       data =>  console.log(data),
       error1 => console.error(error1)
     );

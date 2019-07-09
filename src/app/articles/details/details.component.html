@@ -27,7 +27,7 @@
       <hr>
       <div class="row form-group">
         <div class="col-sm-10 button-row">
-          <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;">PDF</a>
+          <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;" (click)="trackingService.trackOpenPDF()">PDF</a>
 
           <button mat-stroked-button *ngIf="!article.in_lib"
                   (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated"><span style="font-weight: bold;">Save to Library</span>
@@ -76,6 +76,10 @@
     <!--<app-githubs></app-githubs>-->
   <!--</div>-->
 
+  <button mat-raised-button color="primary"  class="mlprior-primary-button align-content-center" (click)="onShowRelated()" [disabled]="showRelated">Show Related Articles</button>
+
+
+  <div *ngIf="showRelated">
   <h1 class="h3 mb-4 text-gray-800">Related Articles</h1>
 
   <div
@@ -86,6 +90,7 @@
   >
   <div *ngFor="let relatedArticle of relatedArticles">
     <app-article-card [article]="relatedArticle" [isAuthenticated]="isAuthenticated"></app-article-card>
+  </div>
   </div>
   </div>
 

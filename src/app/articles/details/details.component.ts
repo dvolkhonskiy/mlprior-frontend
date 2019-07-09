@@ -6,6 +6,7 @@ import {ArticleService} from '../articles.service';
 import {Article, ArticleResource} from '../article.model';
 import {Subscription} from 'rxjs';
 import {Title} from '@angular/platform-browser';
+import {TrackingService} from '../tracking.service';
 
 
 @Component({
@@ -23,12 +24,19 @@ export class DetailsComponent implements OnInit {
   userSub: Subscription;
 
   type = 'related';
+  showRelated = false;
 
   nextPage = '';
   error = null;
 
   constructor(private httpClient: HttpClient, private articleService: ArticleService,
-              private route: ActivatedRoute, private authService: AuthService, private titleService: Title) {
+              private route: ActivatedRoute, private authService: AuthService, private titleService: Title,
+              private trackingService: TrackingService) {
+  }
+
+  onShowRelated() {
+    this.showRelated = true;
+    this.trackingService.trackOpenRelated();
   }
 
   fetchArticle() {

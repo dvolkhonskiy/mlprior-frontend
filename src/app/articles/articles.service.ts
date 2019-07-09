@@ -23,7 +23,7 @@ export class ArticleService implements OnInit {
   API_URL_SEARCH = environment.baseUrl + 'api/search';
   API_URL_SUMMARY_FEEDBACK = environment.baseUrl + 'api/summary/feedback/';
 
-  API_URL_TRACK = environment.baseUrl + 'api/mplog';
+
 
   constructor(private http: HttpClient) {}
 
@@ -31,10 +31,7 @@ export class ArticleService implements OnInit {
 
   }
 
-  trackOpenSummary() {
-    const body = {action: 'SHOW article.summary'};
-    return this.http.post(this.API_URL_TRACK, body);
-  }
+
 
   search(query) {
     return this.http.get<Article[]>(this.API_URL_SEARCH + '?q=' + query);
