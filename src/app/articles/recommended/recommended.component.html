@@ -18,9 +18,12 @@
     </mat-card-content>
   </mat-card>
 
-<h3 *ngIf="isSearchMode && articles.length != 0 || isSearchLoading">Search results for "{{searchQuery}}"</h3>
-<mat-spinner *ngIf="isSearchLoading"></mat-spinner>
-<h3 *ngIf="isSearchMode && !isSearchLoading && articles.length == 0">No results for "{{searchQuery}}"</h3>
+<div class="row" style="margin-top: 30px;">
+<h3 *ngIf="isSearchMode && (articles.length != 0 || isLoading)">Search results for "{{searchQuery}}"</h3>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+<h3 *ngIf="isSearchMode && !isLoading && articles.length == 0">No results for "{{searchQuery}}"</h3>
+</div>
+
 
 <div
   infiniteScroll
