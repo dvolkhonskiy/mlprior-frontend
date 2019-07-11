@@ -93,6 +93,8 @@ export class DetailsComponent implements OnInit {
         );
       }
     );
+
+    this.onScroll();
   }
 
   resetArticles(): void {

@@ -76,12 +76,16 @@
     <!--<app-githubs></app-githubs>-->
   <!--</div>-->
 
-  <button mat-raised-button color="primary"  class="mlprior-primary-button align-content-center" (click)="onShowRelated()" [disabled]="showRelated">Show Related Articles</button>
 
 
-  <div *ngIf="showRelated">
-  <h1 class="h3 mb-4 text-gray-800">Related Articles</h1>
+  <h1 class="h3 mb-4 text-gray-800" *ngIf="relatedArticles.length > 0">Related Articles</h1>
 
+  <div *ngIf="!showRelated && relatedArticles.length > 0">
+    <app-article-card [article]="relatedArticles[0]" [isAuthenticated]="isAuthenticated"></app-article-card>
+    <button mat-raised-button color="primary"  class="mlprior-primary-button align-content-center" (click)="onShowRelated()">Show more...</button>
+  </div>
+
+  <div *ngIf="showRelated && relatedArticles.length > 0">
   <div
     infiniteScroll
     [infiniteScrollDistance]="0"

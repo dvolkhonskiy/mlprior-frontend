@@ -4,15 +4,15 @@
     <div mat-card-avatar class="header-image">
       <i class="fas fa-align-left"></i>
     </div>
-    <mat-card-title>Summary</mat-card-title>
-    <mat-card-subtitle>No need to read the whole article! Read the summary</mat-card-subtitle>
-
-    <button mat-raised-button color="primary"  class="mlprior-primary-button align-content-center" (click)="showSummary()" *ngIf="collapsed">Show Summary</button>
+    <mat-card-title>Highlights - Most important sentences from the article</mat-card-title>
+    <!--<h5 class="text-rose">Most important sentences from the article</h5>-->
   </mat-card-header>
 
-  <mat-card-content *ngIf="!collapsed">
-    <h5 class="text-rose">Help us improve our service, select relevant sentences!</h5>
-  <mat-action-list>
+
+
+  <mat-card-content >
+    <!--<h5 class="text-rose">Help us improve our service, select relevant sentences!</h5>-->
+  <mat-action-list *ngIf="!collapsed">
     <p *ngFor="let sentence of summary">
     <button mat-list-item  (click)="setLikeToSummarySentence(sentence)" style="display: inline-block;">
       <!--<div>(click)="setLikeToSummarySentence(sentence)"</div>-->
@@ -21,6 +21,16 @@
     </button>
     </p>
   </mat-action-list>
+    <mat-action-list *ngIf="collapsed">
+      <p>
+        <button mat-list-item  (click)="setLikeToSummarySentence(summary[0].sentence)" style="display: inline-block;">
+          <!--<div>(click)="setLikeToSummarySentence(sentence)"</div>-->
+          <mat-icon matListIcon [ngClass]="summary[0].isLike ? 'primary-icon' : 'grey-icon'">favorite</mat-icon>
+          <span style=" padding-left: 1.25rem; text-align: left; display: inline-block; height: auto;">{{summary[0].sentence}}</span>
+        </button>
+      </p>
+      <button mat-raised-button color="primary"  class="mlprior-primary-button align-content-center" (click)="showSummary()" *ngIf="collapsed">Show more...</button>
+    </mat-action-list>
 
   </mat-card-content>
 
