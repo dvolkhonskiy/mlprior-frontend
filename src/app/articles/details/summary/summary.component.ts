@@ -14,7 +14,7 @@ export class SummaryComponent implements OnInit {
   @Input() summary: SummarySentence[];
   isFeedbackSent = false;
   error = '';
-  collapsed = true;
+  @Input() collapsed: boolean;
   constructor(private articleService: ArticleService, private trackingService: TrackingService) { }
 
   setLikeToSummarySentence(sentence) {

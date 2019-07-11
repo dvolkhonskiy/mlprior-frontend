@@ -100,6 +100,7 @@ export class DetailsComponent implements OnInit {
   resetArticles(): void {
     this.relatedArticles = [];
     this.nextPage = '';
+    this.showRelated = false;
   }
 
   onScroll() {
