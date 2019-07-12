@@ -72,7 +72,7 @@ import {TrackingService} from './articles/tracking.service';
     PricingComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
