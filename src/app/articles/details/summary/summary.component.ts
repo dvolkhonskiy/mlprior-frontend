@@ -3,7 +3,7 @@ import {ArticleResource, SummarySentence} from '../../article.model';
 import {forkJoin} from 'rxjs';
 import {ArticleService} from '../../articles.service';
 import {error} from '@angular/compiler/src/util';
-import {TrackingService} from '../../tracking.service';
+import {TrackingService} from '../../../shared/tracking.service';
 
 @Component({
   selector: 'app-summary',

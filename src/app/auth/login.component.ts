@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService, AuthResponseData } from './auth.service';
+import {TrackingService} from '../shared/tracking.service';
 
 @Component({
   selector: 'app-signin',
@@ -19,7 +20,11 @@ export class LoginComponent {
   isLoading = false;
   public errors: any = [];
 
-  constructor(public authService: AuthService, private router: Router) {  }
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    private trackingService: TrackingService
+  ) {  }
 
 
   onSwitchMode() {
@@ -39,10 +44,12 @@ export class LoginComponent {
 
     if (this.isLoginMode) {
       authObs = this.authService.login(email, password);
+      this.trackingService.trackLogIn();
     } else {
       const firstName = form.value.firstName;
       const secondName = form.value.secondName;
       authObs = this.authService.signUp(firstName, secondName, email, password);
+      this.trackingService.trackSignUp();
     }
 
     authObs.subscribe(

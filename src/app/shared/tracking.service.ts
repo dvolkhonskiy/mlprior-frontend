@@ -9,7 +9,7 @@ export class TrackingService {
   constructor(private http: HttpClient) { }
 
   trackAction(action: string) {
-    this.http.post(this.API_URL_TRACK, {action: action}).subscribe(
+    this.http.post(this.API_URL_TRACK, {action}).subscribe(
       data =>  console.log(data),
       error1 => console.error(error1)
     );
@@ -25,5 +25,21 @@ export class TrackingService {
 
   trackOpenRelated() {
     this.trackAction('SHOW article.related');
+  }
+
+  trackSignUp() {
+    this.trackAction('SIGNUP');
+  }
+
+  trackLogIn() {
+    this.trackAction('LOGIN');
+  }
+
+  trackLogOut() {
+    this.trackAction('LOGOUT');
+  }
+
+  trackSearch() {
+    this.trackAction('SEARCH');
   }
 }

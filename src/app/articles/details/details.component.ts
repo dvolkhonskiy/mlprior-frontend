@@ -6,7 +6,7 @@ import {ArticleService} from '../articles.service';
 import {Article, ArticleResource} from '../article.model';
 import {Subscription} from 'rxjs';
 import {Title} from '@angular/platform-browser';
-import {TrackingService} from '../tracking.service';
+import {TrackingService} from '../../shared/tracking.service';
 
 
 @Component({

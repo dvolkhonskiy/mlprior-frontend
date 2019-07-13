@@ -5,6 +5,7 @@ import {BehaviorSubject} from 'rxjs';
 import {User} from './user.model';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {TrackingService} from '../shared/tracking.service';
 
 interface UserResponse {
   email: string;
@@ -26,7 +27,7 @@ export class AuthService {
   public redirectUrl: string;
   private tokenExpirationTimer: any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private trackingService: TrackingService) { }
 
   signUp(firstName: string, secondName: string, email: string, password: string) {
     let data = {user: {email: email, password:  password}};
@@ -99,6 +100,7 @@ export class AuthService {
     this.user.next(null);
     this.router.navigate(['/dashboard']);
     localStorage.removeItem('userData');
+    this.trackingService.trackLogOut();
   }
 
   getTokenExpirationDate(token: string) {

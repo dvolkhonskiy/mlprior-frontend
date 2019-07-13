@@ -39,7 +39,7 @@ import {ArticleLikeComponent} from './articles/reusable/article-like/article-lik
 import { AuthorComponent } from './articles/author/author.component';
 import { AuthorsListComponent } from './articles/reusable/authors-list/authors-list.component';
 import { PricingComponent } from './pricing/pricing.component';
-import {TrackingService} from './articles/tracking.service';
+import {TrackingService} from './shared/tracking.service';
 
 
 @NgModule({

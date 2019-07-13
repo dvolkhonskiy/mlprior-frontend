@@ -8,6 +8,7 @@ import { filter, switchMap, debounceTime, catchError } from 'rxjs/operators';
 import {AuthService} from '../../auth/auth.service';
 import {not} from 'rxjs/internal-compatibility';
 import {FormControl} from '@angular/forms';
+import {TrackingService} from '../../shared/tracking.service';
 
 @Component({
   selector: 'app-articles',
@@ -29,8 +30,13 @@ export class RecommendedComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
 
-  constructor(public articleService: ArticleService, public route: ActivatedRoute, private router: Router, private authService: AuthService) {
-  }
+  constructor(
+    public articleService: ArticleService,
+    public route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService,
+    private trackingService: TrackingService
+  ) {}
 
   ngOnInit() {
     this.userSub = this.authService.user.subscribe(
@@ -71,6 +77,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
             this.isLoading = true;
             this.searchQuery = value;
             this.resetArticles('search');
+            this.trackingService.trackSearch();
             return this.articleService.fetchArticles('search', this.nextPage, {q: value});
           }
           )
