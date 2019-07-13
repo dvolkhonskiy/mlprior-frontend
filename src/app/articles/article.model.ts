@@ -53,5 +53,5 @@ export interface Article {
   like_dislike: boolean;
   authors: ArticleAuthor[];
   has_neighbors: boolean;
-  summary?: SummarySentence[];
+  summary_sentences?: SummarySentence[];
 }

@@ -21,7 +21,7 @@ export class ArticleService implements OnInit {
   API_URL_BLOGPOSTS = environment.baseUrl + 'api/blogposts/';
   API_URL_GITHUBS = environment.baseUrl + 'api/githubs/';
   API_URL_SEARCH = environment.baseUrl + 'api/search';
-  API_URL_SUMMARY_FEEDBACK = environment.baseUrl + 'api/summary/feedback/';
+  API_URL_SUMMARY_FEEDBACK = environment.baseUrl + 'api/summary_sentences/feedback/';
 
 
 

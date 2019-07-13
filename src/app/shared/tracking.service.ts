@@ -42,4 +42,8 @@ export class TrackingService {
   trackSearch() {
     this.trackAction('SEARCH');
   }
+
+  trackOpenHighlights() {
+    this.trackAction('OPEN article.summary');
+  }
 }

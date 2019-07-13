@@ -37,6 +37,11 @@
       <div class="col-sm-10 button-row">
 
         <button mat-raised-button [routerLink]="['/articles', 'details', article.id]" color="primary"  class="mlprior-primary-button">Details</button>
+        <div class="note-button">
+          <a mat-stroked-button attr.aria-controls="collapseUtilities"
+                  aria-expanded="false" data-toggle="collapse"
+                  attr.data-target="#summary-collapse-{{ article.id }}" style="font-weight: bold;" (click)="onSummaryOpen()">Highlights</a>
+        </div>
         <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;" target="_blank">PDF</a>
 
 
@@ -70,4 +75,8 @@
                     [(ngModel)]="article.note" (input)="updateNote(note.value, article)">{{ article.note }}</textarea>
     </div>
   </div>
+</div>
+
+<div class="collapse article-note" id="summary-collapse-{{ article.id }}">
+  <app-summary [summary]="article.summary_sentences" [collapsed]="false"></app-summary>
 </div>
