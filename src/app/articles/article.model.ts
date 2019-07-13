@@ -34,6 +34,7 @@ export interface SummarySentence {
   id: string;
   sentence: string;
   isLike?: boolean;
+  nLikes: number;
 }
 
 

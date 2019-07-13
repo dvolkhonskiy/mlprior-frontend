@@ -17,8 +17,9 @@ export class SummaryComponent implements OnInit {
   @Input() collapsed: boolean;
   constructor(private articleService: ArticleService, private trackingService: TrackingService) { }
 
-  setLikeToSummarySentence(sentence) {
+  setLikeToSummarySentence(sentence: SummarySentence) {
     sentence.isLike = !sentence.isLike;
+    sentence.nLikes += sentence.isLike ? 1 : -1;
   }
 
   showSummary() {

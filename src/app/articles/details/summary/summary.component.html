@@ -16,6 +16,7 @@
     <p *ngFor="let sentence of summary">
     <button mat-list-item  (click)="setLikeToSummarySentence(sentence)" style="display: inline-block;">
       <!--<div>(click)="setLikeToSummarySentence(sentence)"</div>-->
+      <span>{{sentence.nLikes}}</span>
       <mat-icon matListIcon [ngClass]="sentence.isLike ? 'primary-icon' : 'grey-icon'">favorite</mat-icon>
       <span style=" padding-left: 1.25rem; text-align: left; display: inline-block; height: auto;">{{sentence.sentence}}</span>
     </button>
@@ -23,8 +24,9 @@
   </mat-action-list>
     <mat-action-list *ngIf="collapsed">
       <p>
-        <button mat-list-item  (click)="setLikeToSummarySentence(summary[0].sentence)" style="display: inline-block;">
+        <button mat-list-item  (click)="setLikeToSummarySentence(summary[0])" style="display: inline-block;">
           <!--<div>(click)="setLikeToSummarySentence(sentence)"</div>-->
+          <span>{{summary[0].nLikes}}</span>
           <mat-icon matListIcon [ngClass]="summary[0].isLike ? 'primary-icon' : 'grey-icon'">favorite</mat-icon>
           <span style=" padding-left: 1.25rem; text-align: left; display: inline-block; height: auto;">{{summary[0].sentence}}</span>
         </button>
