@@ -1,13 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {APIService} from '../shared/api.service';
 import {NgForm} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {AuthResponseData} from '../auth/auth.service';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['../../assets/css/material-kit.css',  './landing.component.css']
+  styleUrls: [
+    // '../../assets/css/style.css',
+    // './landing.component.css',
+
+
+    '../../assets/landing/css/bootstrap.min.css',
+    '../../assets/landing/css/slicknav.css',
+    '../../assets/landing/css/owl.carousel.min.css',
+    '../../assets/landing/css/owl.theme.css',
+
+    '../../assets/landing/css/magnific-popup.css',
+    '../../assets/landing/css/nivo-lightbox.css',
+    '../../assets/landing/css/animate.css',
+    '../../assets/landing/css/main.css',
+    '../../assets/landing/css/responsive.css',
+  ],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class LandingComponent implements OnInit {
 
@@ -27,6 +41,34 @@ export class LandingComponent implements OnInit {
       },
       error => console.error('couldn\'t post because', error)
     );
+    // this.loadScript('../../assets/landing/js/jquery-min.js');
+    // this.loadScript('../../assets/landing/js/popper.min.js');
+    // this.loadScript('../../assets/landing/js/bootstrap.min.js');
+    // this.loadScript('../../assets/landing/js/owl.carousel.min.js');
+    // this.loadScript('../../assets/landing/js/jquery.mixitup.js');
+    // this.loadScript('../../assets/landing/js/wow.js');
+    // this.loadScript('../../assets/landing/js/jquery.nav.js');
+    // this.loadScript('../../assets/landing/js/scrolling-nav.js');
+    // this.loadScript('../../assets/landing/js/jquery.easing.min.js');
+    // this.loadScript('../../assets/landing/js/jquery.counterup.min.js');
+    // this.loadScript('../../assets/landing/js/nivo-lightbox.js');
+    // this.loadScript('../../assets/landing/js/jquery.magnific-popup.min.js');
+    // this.loadScript('../../assets/landing/js/waypoints.min.js');
+    // this.loadScript('../../assets/landing/js/jquery.slicknav.js');
+    // this.loadScript('../../assets/landing/js/landing.js');
+    // this.loadScript('../../assets/landing/js/form-validator.min.js');
+    // this.loadScript('../../assets/landing/js/contact-form-script.min.js');
+
+  }
+
+  public loadScript(url: string) {
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = url;
+    script.async = false;
+    script.defer = true;
+    body.appendChild(script);
   }
 
 
