@@ -302,7 +302,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/articles/recent">
+            <a class="nav-link" routerLink="/articles/popular">
               Articles
             </a>
           </li>
@@ -325,7 +325,7 @@
           <div class="contents text-center">
             <h2 class="head-title wow fadeInUp">First personal assistant for researchers</h2>
             <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
-              <a routerLink="/dashboard" class="btn btn-common">Explore</a>
+              <a routerLink="/articles/popular" class="btn btn-common">Explore</a>
             </div>
           </div>
           <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
@@ -404,7 +404,7 @@
             <i class="fas fa-th-list"></i>
           </div>
           <div class="services-content">
-            <h3><a href="#">ArXiv articles</a></h3>
+            <h3><a routerLink="/articles/popular">ArXiv articles</a></h3>
             <p>We have already indexed {{nArticles}} ArXiv papers from Computer Science...</p>
           </div>
         </div>
@@ -416,7 +416,7 @@
             <i class="fas fa-bookmark"></i>
           </div>
           <div class="services-content">
-            <h3><a href="#">Personal Library</a></h3>
+            <h3><a routerLink="/login">Personal Library</a></h3>
             <p>Save interesting papers to your personal library. Take notes</p>
           </div>
         </div>
@@ -428,7 +428,7 @@
             <i class="fab fa-medium"></i>
           </div>
           <div class="services-content">
-            <h3><a href="#">Blog Posts</a></h3>
+            <h3><a routerLink="/login">Blog Posts</a></h3>
             <p>We regularly attach blog posts to scientific papers</p>
           </div>
         </div>
@@ -440,7 +440,7 @@
             <i class="fab fa-github"></i>
           </div>
           <div class="services-content">
-            <h3><a href="#">GitHub repositories</a></h3>
+            <h3><a routerLink="/login">GitHub repositories</a></h3>
             <p>We have already attached {{nGitHubs}} GitHub repositories to corresponding papers</p>
           </div>
         </div>
@@ -452,7 +452,7 @@
             <i class="material-icons">widgets</i>
           </div>
           <div class="services-content">
-            <h3><a href="#">Recommendation system</a></h3>
+            <h3><a routerLink="/login">Recommendation system</a></h3>
             <p>Use our recommendation system in order to filter out non-relevant articles</p>
           </div>
         </div>
@@ -464,7 +464,7 @@
             <i class="material-icons">subtitles</i>
           </div>
           <div class="services-content">
-            <h3><a href="#">AI highlighting</a></h3>
+            <h3><a routerLink="/articles/popular">AI highlighting</a></h3>
             <p>For each paper we created the summary: 5 most important sentences from the article.</p>
           </div>
         </div>
