@@ -79,22 +79,22 @@ export class DetailsComponent implements OnInit {
             this.resources = this.resources.sort((a, b) => b.rating - a.rating);
             console.log(this.resources);
             this.resetArticles();
-            this.articleService.fetchArticles(this.type, this.nextPage, {id: this.article.id}).subscribe(
-              relatedData => {
-                this.relatedArticles = this.relatedArticles.concat(relatedData.results);
-                this.nextPage = relatedData.next ? relatedData.next : null;
-              },
-              error => {
-                this.error = error.message;
-              }
-            );
+            // this.articleService.fetchArticles(this.type, this.nextPage, {articleId: this.article.articleId}).subscribe(
+            //   relatedData => {
+            //     this.relatedArticles = this.relatedArticles.concat(relatedData.results);
+            //     this.nextPage = relatedData.next ? relatedData.next : null;
+            //   },
+            //   error => {
+            //     this.error = error.message;
+            //   }
+            // );
           },
           error => console.error('couldn\'t post because', error)
         );
       }
     );
 
-    this.onScroll();
+    // this.onScroll();
   }
 
   resetArticles(): void {
@@ -103,20 +103,20 @@ export class DetailsComponent implements OnInit {
     this.showRelated = false;
   }
 
-  onScroll() {
-    console.log('scrolled!!');
-    console.log(this.nextPage);
-    if (!this.nextPage) {
-      return;
-    }
-    this.articleService.fetchArticles(this.type, this.nextPage, {id: this.article.id}).subscribe(
-      data => {
-        this.relatedArticles = this.relatedArticles.concat(data.results);
-        this.nextPage = data.next;
-      },
-      error => {
-        this.error = error.message;
-      }
-    );
-  }
+  // onScroll() {
+  //   console.log('scrolled!!');
+  //   console.log(this.nextPage);
+  //   if (!this.nextPage) {
+  //     return;
+  //   }
+  //   this.articleService.fetchArticles(this.type, this.nextPage, {articleId: this.article.articleId}).subscribe(
+  //     data => {
+  //       this.relatedArticles = this.relatedArticles.concat(data.results);
+  //       this.nextPage = data.next;
+  //     },
+  //     error => {
+  //       this.error = error.message;
+  //     }
+  //   );
+  // }
 }

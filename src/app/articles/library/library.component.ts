@@ -24,17 +24,17 @@ export class LibraryComponent implements OnInit {
         const path = url[0].path;
         console.log(path);
         this.resetArticles(path);
-        this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
-          data => {
-            this.articles = this.articles.concat(data.results);
-            this.nextPage = data.next ? data.next : null;
-
-            console.log(data);
-          },
-          error => {
-            this.error = error.message;
-          }
-        );
+        // this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
+        //   data => {
+        //     this.articles = this.articles.concat(data.results);
+        //     this.nextPage = data.next ? data.next : null;
+        //
+        //     console.log(data);
+        //   },
+        //   error => {
+        //     this.error = error.message;
+        //   }
+        // );
       }
     );
   }
@@ -49,21 +49,21 @@ export class LibraryComponent implements OnInit {
     this.type = type;
   }
 
-  onScroll() {
-    console.log('scrolled!!');
-    if (this.nextPage == null) {
-      return;
-    }
-    this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
-      data => {
-        this.articles = this.articles.concat(data.results);
-        this.nextPage = data.next;
-      },
-      error => {
-        this.error = error.message;
-      }
-    );
-  }
+  // onScroll() {
+  //   console.log('scrolled!!');
+  //   if (this.nextPage == null) {
+  //     return;
+  //   }
+  //   this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
+  //     data => {
+  //       this.articles = this.articles.concat(data.results);
+  //       this.nextPage = data.next;
+  //     },
+  //     error => {
+  //       this.error = error.message;
+  //     }
+  //   );
+  // }
 
 
 }

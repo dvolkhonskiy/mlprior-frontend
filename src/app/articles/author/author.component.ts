@@ -42,31 +42,31 @@ export class AuthorComponent implements OnInit {
       }
     );
 
-    this.articleService.fetchArticles(this.type, this.nextPage, {name: this.name}).subscribe(
-      data => {
-        this.articles = this.articles.concat(data.results);
-        this.nextPage = data.next ? data.next : null;
-      },
-      error => {
-        this.error = error.message;
-      }
-    );
+    // this.articleService.fetchArticles(this.type, this.nextPage, {name: this.name}).subscribe(
+    //   data => {
+    //     this.articles = this.articles.concat(data.results);
+    //     this.nextPage = data.next ? data.next : null;
+    //   },
+    //   error => {
+    //     this.error = error.message;
+    //   }
+    // );
   }
 
-  onScroll() {
-    console.log('scrolled!!');
-    if (!this.nextPage) {
-      return;
-    }
-    this.articleService.fetchArticles(this.type, this.nextPage, {name: this.name}).subscribe(
-      data => {
-        this.articles = this.articles.concat(data.results);
-        this.nextPage = data.next;
-      },
-      error => {
-        this.error = error.message;
-      }
-    );
-  }
+  // onScroll() {
+  //   console.log('scrolled!!');
+  //   if (!this.nextPage) {
+  //     return;
+  //   }
+  //   this.articleService.fetchArticles(this.type, this.nextPage, {name: this.name}).subscribe(
+  //     data => {
+  //       this.articles = this.articles.concat(data.results);
+  //       this.nextPage = data.next;
+  //     },
+  //     error => {
+  //       this.error = error.message;
+  //     }
+  //   );
+  // }
 
 }

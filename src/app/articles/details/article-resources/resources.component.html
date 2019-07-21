@@ -29,13 +29,13 @@
 </div>
 
 
-<!--<div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading" style="margin-bottom: 10px;">-->
+<!--<div class="collapse" articleId="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading" style="margin-bottom: 10px;">-->
   <!--<mat-card class="example-card">-->
     <!--<mat-card-content>-->
       <!--<mat-tab-group>-->
         <!--<mat-tab label="GitHub Repository">-->
           <!--<div class="col-sm-12">-->
-            <!--<form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addResource()">-->
+            <!--<form [formGroup]="newGitHubForm" articleId="gitHubForm" (submit)="addResource()">-->
               <!--<mat-form-field>-->
                     <!--<input matInput type="url" placeholder="GitHub repository URL" formControlName="url" class='form-control'/>-->
               <!--</mat-form-field>-->
@@ -46,7 +46,7 @@
         <!--</mat-tab>-->
 
         <!--<mat-tab label="Blog Post">-->
-          <!--<form [formGroup]="newBlogPostForm" id="blogPostForm" (submit)="addBlogPost()">-->
+          <!--<form [formGroup]="newBlogPostForm" articleId="blogPostForm" (submit)="addBlogPost()">-->
 
             <!--<div class="col-md-3">-->
             <!--<mat-form-field>-->
@@ -135,9 +135,9 @@
   <!--</div>-->
 
   <!--<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>-->
-  <!--<div class="collapse" id="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading">-->
+  <!--<div class="collapse" articleId="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading">-->
   <!--<div class="col-sm-12">-->
-  <!--<form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addResource()">-->
+  <!--<form [formGroup]="newGitHubForm" articleId="gitHubForm" (submit)="addResource()">-->
   <!--<div class="row">-->
   <!--<div class="col-md-12">-->
   <!--<div class="form-group">-->
@@ -205,7 +205,7 @@
   <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
   <!--&lt;!&ndash;<div class="col-md-4">&ndash;&gt;-->
-  <!--&lt;!&ndash;<span id="github-rating-{{ github.id }}">{{ github.rating }}</span>&ndash;&gt;-->
+  <!--&lt;!&ndash;<span articleId="github-rating-{{ github.articleId }}">{{ github.rating }}</span>&ndash;&gt;-->
   <!--&lt;!&ndash;<button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">&ndash;&gt;-->
   <!--&lt;!&ndash;<mat-icon>favorite</mat-icon>&ndash;&gt;-->
   <!--&lt;!&ndash;</button>&ndash;&gt;-->
@@ -227,12 +227,12 @@
   <!--&lt;!&ndash;</mat-accordion>&ndash;&gt;-->
 
 
-  <!--&lt;!&ndash;<div id="accordion" role="tablist">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div articleId="accordion" role="tablist">&ndash;&gt;-->
   <!--&lt;!&ndash;<div class="card-collapse" *ngFor="let github of details.article.article-resources">&ndash;&gt;-->
-  <!--&lt;!&ndash;<div class="card-header" role="tab" id="headingOne">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="card-header" role="tab" articleId="headingOne">&ndash;&gt;-->
   <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
   <!--&lt;!&ndash;<div class="col-md-6">&ndash;&gt;-->
-  <!--&lt;!&ndash;<a data-toggle="collapse" href="#collapse-{{ github.id }}" aria-expanded="false" attr.aria-controls = "collapse-{{ github.id }}" class="collapsed">&ndash;&gt;-->
+  <!--&lt;!&ndash;<a data-toggle="collapse" href="#collapse-{{ github.articleId }}" aria-expanded="false" attr.aria-controls = "collapse-{{ github.articleId }}" class="collapsed">&ndash;&gt;-->
   <!--&lt;!&ndash;<i class="material-icons">keyboard_arrow_down</i>&ndash;&gt;-->
   <!--&lt;!&ndash;{{ github.title}}&ndash;&gt;-->
   <!--&lt;!&ndash;</a>&ndash;&gt;-->
@@ -243,7 +243,7 @@
   <!--&lt;!&ndash;</div>&ndash;&gt;-->
   <!--&lt;!&ndash;<div class="col-md-3">&ndash;&gt;-->
   <!--&lt;!&ndash;<div class="rating-and-like">&ndash;&gt;-->
-  <!--&lt;!&ndash;<span id="github-rating-{{ github.id }}">{{ github.rating }}</span>&ndash;&gt;-->
+  <!--&lt;!&ndash;<span articleId="github-rating-{{ github.articleId }}">{{ github.rating }}</span>&ndash;&gt;-->
   <!--&lt;!&ndash;<button type="button" rel="tooltip" title="" (click)="changResourceLike(github)" class="btn btn-primary btn-link" data-original-title="Edit Task">&ndash;&gt;-->
   <!--&lt;!&ndash;<i class="fas fa-heart" *ngIf="github.is_like"></i>&ndash;&gt;-->
   <!--&lt;!&ndash;<i class="far fa-heart" *ngIf="!github.is_like"></i>&ndash;&gt;-->
@@ -252,7 +252,7 @@
   <!--&lt;!&ndash;</div>&ndash;&gt;-->
   <!--&lt;!&ndash;</div>&ndash;&gt;-->
   <!--&lt;!&ndash;</div>&ndash;&gt;-->
-  <!--&lt;!&ndash;<div id="collapse-{{ github.id }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div articleId="collapse-{{ github.articleId }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">&ndash;&gt;-->
   <!--&lt;!&ndash;<div class="card-body">&ndash;&gt;-->
   <!--&lt;!&ndash;<img src="../../../../assets/img/article-resources/frameworks/pytorch_logo.png" height="40px" *ngIf="github.framework == 'PyTorch'">&ndash;&gt;-->
   <!--&lt;!&ndash;<img src="../../../../assets/img/article-resources/frameworks/tf_logo.png" height="40px" *ngIf="github.framework == 'TensorFlow'">&ndash;&gt;-->

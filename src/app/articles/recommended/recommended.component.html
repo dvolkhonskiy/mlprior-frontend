@@ -20,24 +20,27 @@
 
 <div class="row" style="margin-top: 30px;">
 <h3 *ngIf="isSearchMode && (articles.length != 0 || isLoading)">Search results for "{{searchQuery}}"</h3>
-  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
 <h3 *ngIf="isSearchMode && !isLoading && articles.length == 0">No results for "{{searchQuery}}"</h3>
 </div>
 
 
-<div
-  infiniteScroll
-  [infiniteScrollDistance]="0"
-  [infiniteScrollThrottle]="0"
-  (scrolled)="onScroll()"
->
+  <app-articles-list></app-articles-list>
 
-  <div *ngFor="let article of articles">
-    <app-article-card [article]="article" [isAuthenticated]="isAuthenticated"></app-article-card>
-  </div>
-</div>
 
-<div class="alert alert-danger" *ngIf="error">
-  <h3>An error occurred!</h3>
-  <p>{{ error }}</p>
-</div>
+<!--<div-->
+  <!--infiniteScroll-->
+  <!--[infiniteScrollDistance]="0"-->
+  <!--[infiniteScrollThrottle]="0"-->
+  <!--(scrolled)="onScroll()"-->
+<!--&gt;-->
+
+  <!--<div *ngFor="let article of articles">-->
+    <!--<app-article-card [article]="article" [isAuthenticated]="isAuthenticated"></app-article-card>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<div class="alert alert-danger" *ngIf="error">-->
+  <!--<h3>An error occurred!</h3>-->
+  <!--<p>{{ error }}</p>-->
+<!--</div>-->

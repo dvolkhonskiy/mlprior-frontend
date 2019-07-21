@@ -31,7 +31,7 @@ import { RecommendedComponent } from './articles/recommended/recommended.compone
 import { LandingComponent } from './landing/landing.component';
 import {MaterialAngularModule} from './material-angular/material-angular.module';
 import {FeedbackComponent} from './feedback/feedback.component';
-import {ArticleCardComponent} from './articles/article-card/article-card.component';
+import {ArticleCardComponent} from './articles/reusable/article-card/article-card.component';
 import { GithubCardComponent } from './articles/details/article-resources/github-card/github-card.component';
 import { ResourceCardComponent } from './articles/details/article-resources/resource-card/resource-card.component';
 import { SummaryComponent } from './articles/details/summary/summary.component';
@@ -40,6 +40,7 @@ import { AuthorComponent } from './articles/author/author.component';
 import { AuthorsListComponent } from './articles/reusable/authors-list/authors-list.component';
 import { PricingComponent } from './pricing/pricing.component';
 import {TrackingService} from './shared/tracking.service';
+import { ArticlesListComponent } from './articles/reusable/articles-list/articles-list.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import {TrackingService} from './shared/tracking.service';
     ArticleLikeComponent,
     AuthorComponent,
     AuthorsListComponent,
-    PricingComponent
+    PricingComponent,
+    ArticlesListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

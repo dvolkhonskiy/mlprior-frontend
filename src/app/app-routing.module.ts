@@ -35,7 +35,9 @@ const routes: Routes = [
         path: 'popular',
         component: RecommendedComponent,
         data: { title: 'Popular' }
-      }
+      },
+      {path: 'author/:name', component: AuthorComponent},
+      {path: 'details/:id', component: DetailsComponent},
     ]
   },
   {
@@ -64,8 +66,6 @@ const routes: Routes = [
   // {path: 'articles/liked', component: ArticlesComponent, canActivate: [AuthGuard]},
   // {path: 'articles/disliked', component: ArticlesComponent, canActivate: [AuthGuard]},
   {path: 'feedback', component: FeedbackComponent, data: { title: 'Feedback' }},
-  {path: 'articles/details/:id', component: DetailsComponent},
-  {path: 'articles/author/:name', component: AuthorComponent},
   {path: 'login', component: LoginComponent, data: { title: 'Login' }},
   {path: '**', component: PageNotFoundComponent, data: { title: 'Page Not Found' }}
 ];

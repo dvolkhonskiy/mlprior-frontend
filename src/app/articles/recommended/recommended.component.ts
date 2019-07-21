@@ -20,7 +20,7 @@ export class RecommendedComponent implements OnInit, OnDestroy {
   articles: Article[] = [];
   nextPage = '';
   error = null;
-  type = 'recommended';
+  type = 'popular';
   searchQuery = '';
 
   searchForm: FormControl = new FormControl();
@@ -45,22 +45,22 @@ export class RecommendedComponent implements OnInit, OnDestroy {
       }
     );
 
-    this.route.url.subscribe(
-      url =>  {
-        const path = url[0].path;
-        this.resetArticles(path);
-        this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
-          data => {
-            this.articles = this.articles.concat(data.results);
-            this.nextPage = data.next ? data.next : null;
-            this.isLoading = false;
-          },
-          error => {
-            this.error = error.message;
-          }
-        );
-      }
-    );
+    // this.route.url.subscribe(
+    //   url =>  {
+    //     const path = url[0].path;
+    //     this.resetArticles(path);
+    //     this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
+    //       data => {
+    //         this.articles = this.articles.concat(data.results);
+    //         this.nextPage = data.next ? data.next : null;
+    //         this.isLoading = false;
+    //       },
+    //       error => {
+    //         this.error = error.message;
+    //       }
+    //     );
+    //   }
+    // );
 
     this.searchForm.valueChanges
       .pipe(
@@ -76,50 +76,27 @@ export class RecommendedComponent implements OnInit, OnDestroy {
             this.isSearchMode = true;
             this.isLoading = true;
             this.searchQuery = value;
-            this.resetArticles('search');
+            // this.resetArticles('search');
             this.trackingService.trackSearch();
-            return this.articleService.fetchArticles('search', this.nextPage, {q: value});
+            return this.articleService.fetchArticles('search',
+               1, {
+              q: value
+            });
           }
           )
       )
       // Получение данных
       .subscribe(articles => {
-        this.resetArticles('search');
+        // this.resetArticles('search');
         console.log(articles);
-        this.articles = articles.results;
-        this.nextPage = articles.next;
+        // this.articles = articles.results;
+        // this.nextPage = articles.next;
         this.isLoading = false;
       });
   }
 
-  updateNote(note, article) {
-    this.articleService.updateArticle(article, {note: note});
-  }
-
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
-  }
-
-  resetArticles(type): void {
-    this.articles = [];
-    this.nextPage = '';
-    this.type = type;
-  }
-
-  onScroll() {
-    console.log('scrolled!!');
-    if (!this.nextPage) {
-      return;
-    }
-    this.articleService.fetchArticles(this.type, this.nextPage, {}).subscribe(
-      data => {
-        this.articles = this.articles.concat(data.results);
-        this.nextPage = data.next;
-      },
-      error => {
-        this.error = error.message;
-      }
-    );
   }
 
 }

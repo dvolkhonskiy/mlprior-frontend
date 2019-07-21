@@ -5,7 +5,7 @@ import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
 import {tap, map, take, exhaustMap} from 'rxjs/operators';
 
-import {Article, BlogPost, GitHub, ArticleAuthor, SummarySentence} from './article.model';
+import {Article, BlogPost, GitHub, ArticleAuthor, SummarySentence, ArticleList} from './article.model';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
 import {Subscription} from 'rxjs';
 
@@ -129,15 +129,26 @@ export class ArticleService implements OnInit {
   //   this.http.get({ results: Article[], next?: string, previous: string }, )
   // }
 
-  fetchArticles(type: string, page: string, params: any) {
-    let url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;
-    for (const p in params) {
-      console.log(params[p]);
-      url += '&' + p + '=' + params[p];
-    }
+  fetchArticles(type: string, page: number, params?: {
+    name?: string
+    q?: string
+  }) {
+    // let url = page === '' ? this.API_URL_ARTICLES_LIST + type + '?page=1' : page;
+    //
+    //
+    // for (const p in params) {
+    //   console.log(params[p]);
+    //   url += '&' + p + '=' + params[p];
+    // }
+    //
+    // console.log(url);
 
-    console.log(url);
-    return this.http.get<{ results: Article[], next?: string, previous: string }>(url);
+
+    const httpParams = new HttpParams({ fromObject: params })
+      .set('type', type)
+      .set('page', '' + page);
+
+    return this.http.get<ArticleList>(this.API_URL_ARTICLES_LIST, {params: httpParams});
   }
 
   fetchArticleDetails(id) {

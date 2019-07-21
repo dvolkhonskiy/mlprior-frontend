@@ -55,3 +55,21 @@ export interface Article {
   has_neighbors: boolean;
   summary_sentences?: SummarySentence[];
 }
+
+
+export interface ArticleList {
+  results: Article[];
+  next?: string;
+  previous: string;
+  error?: string;
+}
+
+export interface ArticleQueryParams {
+  name?: string;
+  q?: string;
+  id?: string;
+  startYear?: string;
+  endYear?: string;
+  sortBy?: string;
+  categories?: string;
+}

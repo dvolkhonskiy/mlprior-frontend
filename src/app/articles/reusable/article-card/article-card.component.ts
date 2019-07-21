@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {Article} from '../article.model';
-import {ArticleService} from '../articles.service';
+import {Article} from '../../article.model';
+import {ArticleService} from '../../articles.service';
 import {FocusMonitor} from '@angular/cdk/a11y';
-import {TrackingService} from '../../shared/tracking.service';
+import {TrackingService} from '../../../shared/tracking.service';
 
 @Component({
   selector: 'app-article-card',

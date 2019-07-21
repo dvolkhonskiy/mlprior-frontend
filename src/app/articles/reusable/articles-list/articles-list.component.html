@@ -1,0 +1,84 @@
+
+<mat-card>
+  <!--<mat-card-header>-->
+    <!--<div mat-card-avatar><i class="material-icons card-avatar">build</i></div>-->
+    <!--<mat-card-title>Parameters</mat-card-title>-->
+  <!--</mat-card-header>-->
+  <mat-card-content>
+
+    <div class="row">
+
+    <div class="sort-select col-lg-2">
+      <mat-form-field style="width: min-content">
+      <mat-label>Start year</mat-label>
+      <mat-select [(value)]="startYear" (selectionChange)="onFilter()">
+        <mat-option *ngFor="let year of availableYears" [value]="year">
+          {{year}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div class="sort-select col-lg-2">
+    <mat-form-field>
+    <mat-label>End year</mat-label>
+    <mat-select [(value)]="endYear" (selectionChange)="onFilter()">
+      <mat-option *ngFor="let year of availableYears" [value]="year">
+        {{year}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+    </div>
+
+      <div class="sort-select col-lg-2">
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select [formControl]="categoriesForm" multiple>
+            <mat-option *ngFor="let cat of categoriesList" [value]="cat.value">
+              {{cat.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    <!--<div class="col-lg-2 sort-select">-->
+    <!--<i class="material-icons sort-icon">sort</i>-->
+    <!--<mat-form-field>-->
+      <!--<mat-label>Sort by</mat-label>-->
+      <!--<mat-select [(value)]="sortBy" (selectionChange)="onFilter()">-->
+        <!--<mat-option *ngFor="let sortOption of availableSort" [value]="sortOption.value">-->
+          <!--{{sortOption.viewValue}}-->
+        <!--</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-form-field>-->
+    <!--</div>-->
+    </div>
+
+  </mat-card-content>
+</mat-card>
+
+
+
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div *ngIf="articles.length == 0 && !isLoading">
+  <h3>No articles found...</h3>
+</div>
+
+
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()"
+>
+
+  <div *ngFor="let article of articles">
+    <app-article-card [article]="article" [isAuthenticated]="isAuthenticated"></app-article-card>
+  </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+  <h3>An error occurred!</h3>
+  <p>{{ error }}</p>
+</div>
