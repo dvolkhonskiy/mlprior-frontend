@@ -38,6 +38,8 @@ export class ArticlesListComponent implements OnInit {
   categoriesForm = new FormControl();
   categories = '';
 
+  searchQuery = '';
+
   categoriesList = [
     {viewValue: 'Artificial Intelligence', value: 'cs.AI'},
     {viewValue: 'Hardware Architecture', value: 'cs.AR'},
@@ -105,6 +107,16 @@ export class ArticlesListComponent implements OnInit {
       }
     );
 
+    this.route.queryParams
+      .subscribe(params => {
+        if (params.q) {
+          this.searchQuery = params.q;
+          this.resetArticles(false);
+          this.isLoading = true;
+          this.loadNextBatch();
+        }
+      });
+
     this.route.url.subscribe(
       url =>  {
         console.log(url);
@@ -158,6 +170,10 @@ export class ArticlesListComponent implements OnInit {
       params.id = this.articleId;
     }
 
+    if (this.type === 'search') {
+      params.q = this.searchQuery;
+    }
+
     params.startYear = '' + this.startYear;
     params.endYear = '' + this.endYear;
 
@@ -172,10 +188,8 @@ export class ArticlesListComponent implements OnInit {
         }
         this.articles = this.articles.concat(data.results);
         this.hasNextPage = data.next != null;
-        console.log(this.hasNextPage);
         this.page += 1;
         this.isLoading = false;
-        console.log(this.articles);
       },
       error => {
         this.error = error.message;
@@ -185,7 +199,6 @@ export class ArticlesListComponent implements OnInit {
   }
 
   onScroll() {
-    console.log('scrolled!!', this.hasNextPage);
     if (!this.hasNextPage) {
       return;
     }

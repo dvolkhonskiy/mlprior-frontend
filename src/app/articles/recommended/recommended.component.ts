@@ -69,30 +69,22 @@ export class RecommendedComponent implements OnInit, OnDestroy {
         // Ставим задержку одну секунду
         debounceTime(1000),
         // Запрашиваем данные пользователя
-        switchMap(value => {
-            if (!this.isSearchMode) {
-              this.nextPage = '';
-            }
-            this.isSearchMode = true;
-            this.isLoading = true;
-            this.searchQuery = value;
-            // this.resetArticles('search');
-            this.trackingService.trackSearch();
-            return this.articleService.fetchArticles('search',
-               1, {
-              q: value
-            });
-          }
-          )
-      )
-      // Получение данных
-      .subscribe(articles => {
+      ).subscribe(value => {
+        this.router.navigate(['/articles', 'search'], {queryParams: {q: value}});
+        // if (!this.isSearchMode) {
+        //   this.nextPage = '';
+        // }
+        // this.isSearchMode = true;
+        // this.isLoading = true;
+        // this.searchQuery = value;
         // this.resetArticles('search');
-        console.log(articles);
-        // this.articles = articles.results;
-        // this.nextPage = articles.next;
-        this.isLoading = false;
-      });
+        this.trackingService.trackSearch();
+        // return this.articleService.fetchArticles('search',
+        //   1, {
+        //     q: value
+        //   });
+      }
+    );
   }
 
   ngOnDestroy(): void {

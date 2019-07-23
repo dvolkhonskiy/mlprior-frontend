@@ -12,6 +12,7 @@ import {FeedbackComponent} from './feedback/feedback.component';
 import {ArticleAuthor} from './articles/article.model';
 import {AuthorComponent} from './articles/author/author.component';
 import {PricingComponent} from './pricing/pricing.component';
+import {SearchComponent} from './articles/search/search.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent,  data: { title: 'Simplify your research' }},
@@ -38,6 +39,7 @@ const routes: Routes = [
       },
       {path: 'author/:name', component: AuthorComponent},
       {path: 'details/:id', component: DetailsComponent},
+      {path: 'search', component: SearchComponent, data: { title: 'Search' }}
     ]
   },
   {

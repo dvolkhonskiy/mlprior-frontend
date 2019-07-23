@@ -1,105 +1,155 @@
 
 
-<div class="row justify-content-between">
-  <div class="col-4">
-    <h3 class="text-gray-800">Resources</h3>
-  </div>
+
+
+<mat-card>
+
+  <mat-card-header>
+    <div mat-card-avatar class="header-image">
+      <i class="fas fa-align-justify"></i>
+    </div>
+    <mat-card-title class="text-dark">Resources - GitHub / Blog Posts / YouTube / Reddit</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content >
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+        <td mat-cell *matCellDef="let resource"> {{resource.url}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="n_stars">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stars </th>
+        <td mat-cell *matCellDef="let resource"> <span></span> </td>
+      </ng-container>
+
+      <!--&lt;!&ndash; Weight Column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="weight">-->
+        <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>-->
+        <!--<td mat-cell *matCellDef="let element"> {{element.weight}} </td>-->
+      <!--</ng-container>-->
+
+      <!--&lt;!&ndash; Symbol Column &ndash;&gt;-->
+      <!--<ng-container matColumnDef="symbol">-->
+        <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>-->
+        <!--<td mat-cell *matCellDef="let element"> {{element.symbol}} </td>-->
+      <!--</ng-container>-->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+
+  <mat-card-actions>
+    cheburek
+  </mat-card-actions>
+
+</mat-card>
+
+
+<!--<div class="row justify-content-between">-->
   <!--<div class="col-4">-->
-    <!--<button mat-raised-button class="primary-icon" style="margin-bottom: 10px;" (click)="isCollapsed = !isCollapsed"-->
-            <!--[attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">Add Resource-->
-    <!--</button>-->
+    <!--<h3 class="text-gray-800">Resources</h3>-->
   <!--</div>-->
-</div>
+  <!--&lt;!&ndash;<div class="col-4">&ndash;&gt;-->
+    <!--&lt;!&ndash;<button mat-raised-button class="primary-icon" style="margin-bottom: 10px;" (click)="isCollapsed = !isCollapsed"&ndash;&gt;-->
+            <!--&lt;!&ndash;[attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">Add Resource&ndash;&gt;-->
+    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
 
-<div class="col-md-12" style="margin-bottom: 10px;">
-  <mat-card class="example-card">
-    <!--<mat-card-header>-->
-      <!--Add resource-->
-    <!--</mat-card-header>-->
-    <mat-card-content>
-      <form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addGitHub()">
-        <mat-form-field style="width: 100%;">
-          <input matInput type="url" placeholder="Resource URL" formControlName="url" class='form-control'/>
-        </mat-form-field>
-        <p>
-          <button class="btn btn-primary" type="submit">Submit</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div>
-
-
-<!--<div class="collapse" articleId="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading" style="margin-bottom: 10px;">-->
+<!--<div class="col-md-12" style="margin-bottom: 10px;">-->
   <!--<mat-card class="example-card">-->
+    <!--&lt;!&ndash;<mat-card-header>&ndash;&gt;-->
+      <!--&lt;!&ndash;Add resource&ndash;&gt;-->
+    <!--&lt;!&ndash;</mat-card-header>&ndash;&gt;-->
     <!--<mat-card-content>-->
-      <!--<mat-tab-group>-->
-        <!--<mat-tab label="GitHub Repository">-->
-          <!--<div class="col-sm-12">-->
-            <!--<form [formGroup]="newGitHubForm" articleId="gitHubForm" (submit)="addResource()">-->
-              <!--<mat-form-field>-->
-                    <!--<input matInput type="url" placeholder="GitHub repository URL" formControlName="url" class='form-control'/>-->
-              <!--</mat-form-field>-->
-              <!--<p>-->
-                <!--<button class="btn btn-primary" type="submit">Submit</button>-->
-            <!--</form>-->
-          <!--</div>-->
-        <!--</mat-tab>-->
-
-        <!--<mat-tab label="Blog Post">-->
-          <!--<form [formGroup]="newBlogPostForm" articleId="blogPostForm" (submit)="addBlogPost()">-->
-
-            <!--<div class="col-md-3">-->
-            <!--<mat-form-field>-->
-              <!--<input matInput type="url" placeholder="Blog Post Title" formControlName="url" class='form-control'/>-->
-            <!--</mat-form-field>-->
-            <!--</div>-->
-            <!--<div class="col-md-3">-->
-            <!--<mat-form-field>-->
-              <!--<input matInput type="url" placeholder="Blog Post URL" formControlName="url" class='form-control'/>-->
-            <!--</mat-form-field>-->
-            <!--</div>-->
-            <!--<p>-->
-              <!--<button class="btn btn-primary" type="submit">Submit</button>-->
-          <!--</form>-->
-
-        <!--</mat-tab>-->
-      <!--</mat-tab-group>-->
-
-
-      <!--<span *ngIf="error" class="text-danger">-->
-    <!--{{error}}-->
-    <!--</span>-->
+      <!--<form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addGitHub()">-->
+        <!--<mat-form-field style="width: 100%;">-->
+          <!--<input matInput type="url" placeholder="Resource URL" formControlName="url" class='form-control'/>-->
+        <!--</mat-form-field>-->
+        <!--<p>-->
+          <!--<button class="btn btn-primary" type="submit">Submit</button>-->
+      <!--</form>-->
     <!--</mat-card-content>-->
-    <!--<mat-card-actions>-->
-
-    <!--</mat-card-actions>-->
   <!--</mat-card>-->
 <!--</div>-->
 
 
-<div class="col-md-12" style="margin-bottom: 10px;" *ngFor="let resource of details.resources">
+<!--&lt;!&ndash;<div class="collapse" articleId="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading" style="margin-bottom: 10px;">&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-card class="example-card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<mat-card-content>&ndash;&gt;-->
+      <!--&lt;!&ndash;<mat-tab-group>&ndash;&gt;-->
+        <!--&lt;!&ndash;<mat-tab label="GitHub Repository">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="col-sm-12">&ndash;&gt;-->
+            <!--&lt;!&ndash;<form [formGroup]="newGitHubForm" articleId="gitHubForm" (submit)="addResource()">&ndash;&gt;-->
+              <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input matInput type="url" placeholder="GitHub repository URL" formControlName="url" class='form-control'/>&ndash;&gt;-->
+              <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
+              <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button class="btn btn-primary" type="submit">Submit</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</form>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</mat-tab>&ndash;&gt;-->
 
-  <app-github-card [github]="resource" *ngIf="resource.type == 'github' && resource.info"></app-github-card>
+        <!--&lt;!&ndash;<mat-tab label="Blog Post">&ndash;&gt;-->
+          <!--&lt;!&ndash;<form [formGroup]="newBlogPostForm" articleId="blogPostForm" (submit)="addBlogPost()">&ndash;&gt;-->
 
-  <app-resource-card [resource]="resource" *ngIf="resource.type == 'resource' && resource.info"></app-resource-card>
+            <!--&lt;!&ndash;<div class="col-md-3">&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+              <!--&lt;!&ndash;<input matInput type="url" placeholder="Blog Post Title" formControlName="url" class='form-control'/>&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-3">&ndash;&gt;-->
+            <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+              <!--&lt;!&ndash;<input matInput type="url" placeholder="Blog Post URL" formControlName="url" class='form-control'/>&ndash;&gt;-->
+            <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<p>&ndash;&gt;-->
+              <!--&lt;!&ndash;<button class="btn btn-primary" type="submit">Submit</button>&ndash;&gt;-->
+          <!--&lt;!&ndash;</form>&ndash;&gt;-->
 
-  <mat-card class="example-card" *ngIf="!resource.info">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image">
-        <i class="fab fa-github"></i>
-      </div>
-      <div class="col-md-8">
-        <mat-card-title class="text-black-50"><a href="{{ resource.url }}">{{ resource.url }}</a></mat-card-title>
-      </div>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </mat-card-content>
-    <mat-card-actions>
-    </mat-card-actions>
-  </mat-card>
+        <!--&lt;!&ndash;</mat-tab>&ndash;&gt;-->
+      <!--&lt;!&ndash;</mat-tab-group>&ndash;&gt;-->
 
-</div>
+
+      <!--&lt;!&ndash;<span *ngIf="error" class="text-danger">&ndash;&gt;-->
+    <!--&lt;!&ndash;{{error}}&ndash;&gt;-->
+    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;</mat-card-content>&ndash;&gt;-->
+    <!--&lt;!&ndash;<mat-card-actions>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;</mat-card-actions>&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-card>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+<!--<div class="col-md-12" style="margin-bottom: 10px;" *ngFor="let resource of details.resources">-->
+
+  <!--<app-github-card [github]="resource" *ngIf="resource.type == 'github' && resource.info"></app-github-card>-->
+
+  <!--<app-resource-card [resource]="resource" *ngIf="resource.type == 'resource' && resource.info"></app-resource-card>-->
+
+  <!--<mat-card class="example-card" *ngIf="!resource.info">-->
+    <!--<mat-card-header>-->
+      <!--<div mat-card-avatar class="header-image">-->
+        <!--<i class="fab fa-github"></i>-->
+      <!--</div>-->
+      <!--<div class="col-md-8">-->
+        <!--<mat-card-title class="text-black-50"><a href="{{ resource.url }}">{{ resource.url }}</a></mat-card-title>-->
+      <!--</div>-->
+    <!--</mat-card-header>-->
+    <!--<mat-card-content>-->
+      <!--<mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
+    <!--</mat-card-content>-->
+    <!--<mat-card-actions>-->
+    <!--</mat-card-actions>-->
+  <!--</mat-card>-->
+
+<!--</div>-->
 
 
 

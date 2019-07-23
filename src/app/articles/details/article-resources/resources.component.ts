@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {DetailsComponent} from '../details.component';
 import {ArticleService} from '../../articles.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {ArticleResource} from '../../article.model';
 import {debounceTime} from 'rxjs/operators';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
-  selector: 'app-githubs',
+  selector: 'app-resources',
   templateUrl: './resources.component.html',
   styleUrls: ['./resources.component.css', '../../../app.component.css']
 })
@@ -20,12 +22,18 @@ export class ResourcesComponent implements OnInit {
     url: new FormControl()
   });
 
+  displayedColumns: string[] = ['title', 'n_stars'];
+  dataSource = new MatTableDataSource(this.details.resources);
+
   panelOpenState = false;
 
   constructor(public details: DetailsComponent, public articleService: ArticleService) {
   }
 
+  @ViewChild(MatSort) sort: MatSort;
+
   ngOnInit() {
+    this.dataSource.sort = this.sort;
   }
 
   addGitHub() {

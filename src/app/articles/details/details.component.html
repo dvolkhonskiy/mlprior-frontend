@@ -45,7 +45,13 @@
   </div>
 
   <p></p>
-    <app-summary *ngIf="article.summary_sentences.length > 0" [summary]="article.summary_sentences" [collapsed]="true"></app-summary>
+  <app-summary *ngIf="article.summary_sentences.length > 0" [summary]="article.summary_sentences" [collapsed]="true"></app-summary>
+
+  <p></p>
+  <!--<div class="col-md-12">-->
+    <app-resources></app-resources>
+  <!--</div>-->
+
 
   <p></p>
   <div class="row" *ngIf="isAuthenticated">
@@ -72,9 +78,7 @@
 
 
 
-  <!--<div class="col-md-12">-->
-    <!--<app-githubs></app-githubs>-->
-  <!--</div>-->
+
 
 
 <div *ngIf="article.has_neighbors">

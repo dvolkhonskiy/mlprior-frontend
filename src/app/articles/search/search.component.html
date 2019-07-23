@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="material-icons card-avatar">search</i></div>
+    <mat-card-title>Search</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="form" method="get">
+      <div class="input-group no-border">
+        <h3></h3>
+        <input id="search" name="q" type="text" [formControl]="searchForm" value="" class="form-control" placeholder="Type here...">
+        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+          <i class="material-icons">search</i>
+          <div class="ripple-container"></div>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<p></p>
+
+<!--<div class="row" style="margin-top: 30px;">-->
+  <!--<h3 *ngIf="articles.length != 0 || isLoading">Search results for "{{searchQuery}}"</h3>-->
+
+  <!--<h3 *ngIf="!isLoading && articles.length == 0">No results for "{{searchQuery}}"</h3>-->
+<!--</div>-->
+
+
+<app-articles-list></app-articles-list>

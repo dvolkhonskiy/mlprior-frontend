@@ -55,6 +55,7 @@ export class AppComponent implements OnInit {
       || this.router.url.includes('popular')
       || this.router.url.includes('details')
       || this.router.url.includes('author')
+      || this.router.url.includes('search')
     );
   }
 
