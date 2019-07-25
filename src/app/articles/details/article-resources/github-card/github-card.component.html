@@ -1,45 +1,45 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="header-image">
-      <i class="fab fa-github"></i>
-    </div>
-    <div class="col-md-4">
-      <mat-card-title class="text-black-50"><a href="{{ github.url }}">{{ github.info.title}}</a></mat-card-title>
-    </div>
-    <div class="col-md-2">
-      {{ github.info.n_stars }} <i class="fas fa-star"></i>
-    </div>
-    <div class="col-md-2">
-      <img src="../../../../assets/img/githubs/frameworks/{{github.info.framework}}.jpg" height="20px"
-           *ngIf="github.info.framework">
-    </div>
-  </mat-card-header>
-  <mat-card-content>
-    <!--<p>-->
-    <div class="col-md-8">
-      {{github.info.description}}
-    </div>
-    <!--</p>-->
-  </mat-card-content>
-  <mat-card-actions>
-    <div class="row">
-      <div class="col-md-2 offset-sm-1">
-        <span id="github-rating-{{ github.id }}">{{ github.rating }}</span>
-        <button mat-icon-button [ngClass]="github.is_like ? 'primary-icon' : 'grey-icon' "
-                (click)="githubs.changResourceLike(github)">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <!--<button type="button" rel="tooltip" title="" (click)="changResourceLike(github)" class="btn btn-primary btn-link" data-original-title="Edit Task">-->
-        <!--<i class="fas fa-heart" *ngIf="github.is_like"></i>-->
-        <!--<i class="far fa-heart" *ngIf="!github.is_like"></i>-->
+<!--<mat-card class="example-card">-->
+  <!--<mat-card-header>-->
+    <!--<div mat-card-avatar class="header-image">-->
+      <!--<i class="fab fa-github"></i>-->
+    <!--</div>-->
+    <!--<div class="col-md-4">-->
+      <!--<mat-card-title class="text-black-50"><a href="{{ github.url }}">{{ github.info.title}}</a></mat-card-title>-->
+    <!--</div>-->
+    <!--<div class="col-md-2">-->
+      <!--{{ github.info.n_stars }} <i class="fas fa-star"></i>-->
+    <!--</div>-->
+    <!--<div class="col-md-2">-->
+      <!--<img src="../../../../assets/img/githubs/frameworks/{{github.info.framework}}.jpg" height="20px"-->
+           <!--*ngIf="github.info.framework">-->
+    <!--</div>-->
+  <!--</mat-card-header>-->
+  <!--<mat-card-content>-->
+    <!--&lt;!&ndash;<p>&ndash;&gt;-->
+    <!--<div class="col-md-8">-->
+      <!--{{github.info.description}}-->
+    <!--</div>-->
+    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+  <!--</mat-card-content>-->
+  <!--<mat-card-actions>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-2 offset-sm-1">-->
+        <!--<span id="github-rating-{{ github.id }}">{{ github.rating }}</span>-->
+        <!--<button mat-icon-button [ngClass]="github.is_like ? 'primary-icon' : 'grey-icon' "-->
+                <!--(click)="githubs.changResourceLike(github)">-->
+          <!--<mat-icon>favorite</mat-icon>-->
         <!--</button>-->
-      </div>
-      <div class="col-md-9">
-        <mat-chip-list aria-label="Fish selection">
-          <mat-chip *ngFor="let tag of github.info.topics">{{tag}}</mat-chip>
-        </mat-chip-list>
-      </div>
-    </div>
+        <!--&lt;!&ndash;<button type="button" rel="tooltip" title="" (click)="changResourceLike(github)" class="btn btn-primary btn-link" data-original-title="Edit Task">&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="fas fa-heart" *ngIf="github.is_like"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;<i class="far fa-heart" *ngIf="!github.is_like"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+      <!--</div>-->
+      <!--<div class="col-md-9">-->
+        <!--<mat-chip-list aria-label="Fish selection">-->
+          <!--<mat-chip *ngFor="let tag of github.info.topics">{{tag}}</mat-chip>-->
+        <!--</mat-chip-list>-->
+      <!--</div>-->
+    <!--</div>-->
 
-  </mat-card-actions>
-</mat-card>
+  <!--</mat-card-actions>-->
+<!--</mat-card>-->
