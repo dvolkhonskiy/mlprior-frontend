@@ -9,7 +9,7 @@ export class APIService {
 
   API_URL_STATS = environment.baseUrl + 'api/stats';
   API_URL_TREND = environment.baseUrl + 'api/visualization/trends';
-  API_URL_CATEG = environment.baseUrl + 'api/visualization/categoriesForm';
+  API_URL_CATEG = environment.baseUrl + 'api/visualization/categories';
   API_URL_FEEDBACK = environment.baseUrl + 'api/feedback';
 
 

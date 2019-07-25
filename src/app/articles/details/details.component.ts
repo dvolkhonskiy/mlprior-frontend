@@ -17,7 +17,7 @@ import {TrackingService} from '../../shared/tracking.service';
 export class DetailsComponent implements OnInit {
 
   article: Article;
-  relatedArticles: Article[] = [];
+  // relatedArticles: Article[] = [];
   resources: ArticleResource[];
   id: string;
   isAuthenticated = false;
@@ -48,8 +48,7 @@ export class DetailsComponent implements OnInit {
     this.articleService.fetchArticleDetails(this.id).subscribe(
       data => {
         this.article = data;
-        this.resources = data.blog_posts.concat(data.githubs);
-        this.resources = this.resources.sort((a, b) => b.rating - a.rating);
+        this.resources = data.resources;
         this.titleService.setTitle('ML p(r)ior | ' + this.article.title);
       },
       error => console.error('couldn\'t post because', error)
@@ -73,11 +72,11 @@ export class DetailsComponent implements OnInit {
         this.articleService.fetchArticleDetails(params.id).subscribe(
           data => {
             this.article = data;
+            console.log(this.article);
             this.titleService.setTitle('ML p(r)ior | ' + this.article.title);
-            this.resources = data.blog_posts.concat(data.githubs);
-            this.resources = this.resources.sort((a, b) => b.rating - a.rating);
+            this.resources = data.resources;
             console.log(this.resources);
-            this.resetArticles();
+            // this.resetArticles();
             // this.articleService.fetchArticles(this.type, this.nextPage, {articleId: this.article.articleId}).subscribe(
             //   relatedData => {
             //     this.relatedArticles = this.relatedArticles.concat(relatedData.results);
@@ -97,7 +96,7 @@ export class DetailsComponent implements OnInit {
   }
 
   resetArticles(): void {
-    this.relatedArticles = [];
+    // this.relatedArticles = [];
     this.nextPage = '';
     this.showRelated = false;
   }

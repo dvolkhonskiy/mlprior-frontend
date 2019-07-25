@@ -8,6 +8,9 @@
   /*!*align-items: center;*!*/
 /*}*/
 
+table {
+  width: 100%;
+}
 
 .grey-icon {
   color: #9b9b9b;

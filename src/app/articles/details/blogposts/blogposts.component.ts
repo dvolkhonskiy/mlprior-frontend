@@ -28,26 +28,26 @@ export class BlogpostsComponent implements OnInit {
     // );
   }
 
-  updateBlogPosts() {
-    // this.articleService.fetchBlogPosts
-  }
+  // updateBlogPosts() {
+  //   // this.articleService.fetchBlogPosts
+  // }
 
-  addBlogPost() {
-    const blogpost = this.newBlogPostForm.value;
-    this.articleService.addBlogPost(blogpost.title, blogpost.url, this.details.article.id).subscribe(
-      data => {
-        this.updateBlogPosts();
-        this.newBlogPostForm.reset();
-      },
-      error => {
-        console.error(error);
-      }
-    );
-  }
+  // addBlogPost() {
+  //   const blogpost = this.newBlogPostForm.value;
+  //   this.articleService.addBlogPost(blogpost.title, blogpost.url, this.details.article.id).subscribe(
+  //     data => {
+  //       this.updateBlogPosts();
+  //       this.newBlogPostForm.reset();
+  //     },
+  //     error => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
 
-  changBlogPostLike(blogpost) {
-    this.articleService.changeBlogPostLike(blogpost, !blogpost.is_like);
-    blogpost.is_like = !blogpost.is_like;
-  }
+  // changBlogPostLike(blogpost) {
+  //   this.articleService.changeBlogPostLike(blogpost, !blogpost.is_like);
+  //   blogpost.is_like = !blogpost.is_like;
+  // }
 
 }

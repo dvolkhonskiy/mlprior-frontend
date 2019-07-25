@@ -17,9 +17,8 @@ export class ArticleService implements OnInit {
   API_URL_ARTICLES_LIST = environment.baseUrl + 'api/articles/';
 
   API_URL_ARTICLE_DETAILS = environment.baseUrl + 'api/articles/details/';
-  API_URL_ARTICLE_LIBRARY = environment.baseUrl + 'api/articles/saved/';
-  API_URL_BLOGPOSTS = environment.baseUrl + 'api/blogposts/';
-  API_URL_GITHUBS = environment.baseUrl + 'api/githubs/';
+  API_URL_ARTICLE_LIBRARY = environment.baseUrl + 'api/articles/';
+  API_URL_GITHUBS = environment.baseUrl + 'api/resources/';
   API_URL_SEARCH = environment.baseUrl + 'api/search';
   API_URL_SUMMARY_FEEDBACK = environment.baseUrl + 'api/summary_sentences/feedback/';
 
@@ -53,32 +52,33 @@ export class ArticleService implements OnInit {
     return this.http.put(this.API_URL_SUMMARY_FEEDBACK + id + '/', data);
   }
 
-  updateBlogPost(blogpost, update): void {
-    this.http.put(this.API_URL_BLOGPOSTS + blogpost.id + '/', update).subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {
-        console.error(error);
-      }
-    );
-  }
+  // updateBlogPost(blogpost, update): void {
+  //   this.http.put(this.API_URL_BLOGPOSTS + blogpost.id + '/', update).subscribe(
+  //     data => {
+  //       console.log(data);
+  //     },
+  //     error => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
+  //
+  // addBlogPost(title: string, url: string, articleId: string) {
+  //   const blogpost = {
+  //     title: title,
+  //     url: url,
+  //     article_id: articleId
+  //   };
+  //   return this.http.post(this.API_URL_BLOGPOSTS, blogpost);
+  // }
 
-  addBlogPost(title: string, url: string, articleId: string) {
-    const blogpost = {
-      title: title,
+  addResource(url: string, type: string, articleId: string) {
+    const resource = {
       url: url,
-      article_id: articleId
+      article_id: articleId,
+      type: type
     };
-    return this.http.post(this.API_URL_BLOGPOSTS, blogpost);
-  }
-
-  addResource(url: string, articleId: string) {
-    const github = {
-      url: url,
-      article_id: articleId
-    };
-    return this.http.post(this.API_URL_GITHUBS, github);
+    return this.http.post(this.API_URL_GITHUBS, resource);
   }
 
   updateGitHub(github, update) {
@@ -117,12 +117,12 @@ export class ArticleService implements OnInit {
     article.like_dislike = likeDislike;
   }
 
-  changeBlogPostLike(blogpost, isLike): void {
-    // this.redirectIfNotAuthenticated();
-    this.updateBlogPost(blogpost, {
-      is_like: isLike
-    });
-  }
+  // changeBlogPostLike(blogpost, isLike): void {
+  //   // this.redirectIfNotAuthenticated();
+  //   this.updateBlogPost(blogpost, {
+  //     is_like: isLike
+  //   });
+  // }
 
   // fetchArticleForAuthor(name: string, page: string) {
   //

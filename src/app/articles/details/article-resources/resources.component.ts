@@ -18,11 +18,12 @@ export class ResourcesComponent implements OnInit {
   isLoading = false;
   created = true;
   error = '';
-  newGitHubForm = new FormGroup({
-    url: new FormControl()
+  newResourceForm = new FormGroup({
+    url: new FormControl(),
+    resourceType: new FormControl()
   });
 
-  displayedColumns: string[] = ['title', 'n_stars'];
+  displayedColumns: string[] = ['type', 'title', 'n_stars'];
   dataSource = new MatTableDataSource(this.details.resources);
 
   panelOpenState = false;
@@ -36,17 +37,17 @@ export class ResourcesComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  addGitHub() {
+  addResource() {
     this.isLoading = true;
-    const github = this.newGitHubForm.value;
-    this.articleService.addResource(github.url, this.details.article.id).subscribe(
+    const resource = this.newResourceForm.value;
+    this.articleService.addResource(resource.url, resource.resourceType, this.details.article.id).subscribe(
       data => {
         // this.updateBlogPosts();
-        this.newGitHubForm.reset();
-        this.details.fetchArticle();
+        this.newResourceForm.reset();
+        // this.details.fetchArticle();
         this.isLoading = false;
         this.error = data['error'];
-        setTimeout(() => { this.details.fetchArticle(); }, 10000);
+        setTimeout(() => { this.details.fetchArticle(); }, 5000);
       },
       error => {
         console.error(error);
@@ -59,7 +60,7 @@ export class ResourcesComponent implements OnInit {
     if (resource.type === 'github') {
       this.articleService.changeGitHubLike(resource, !resource.is_like);
     } else {
-      this.articleService.changeBlogPostLike(resource, !resource.is_like);
+      // this.articleService.changeBlogPostLike(resource, !resource.is_like);
     }
 
     resource.is_like = !resource.is_like;

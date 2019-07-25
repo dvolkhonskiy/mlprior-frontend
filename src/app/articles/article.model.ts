@@ -12,22 +12,17 @@ export interface ArticleAuthor {
 }
 
 
-export interface ArticleResourceInfo {
-  title?: string;
-  description?: string;
-  n_stars?: number;
-  framework?: string;
-  topics?: string[];
-}
-
-
 export interface ArticleResource {
   id: string;
   url: string;
   rating: number;
   type: string;
   is_like: boolean;
-  info: ArticleResourceInfo;
+  title?: string;
+  description?: string;
+  n_stars?: number;
+  framework?: string;
+  topics?: string[];
 }
 
 export interface SummarySentence {
@@ -43,8 +38,7 @@ export interface Article {
   title: string;
   abstract: string;
   url: string;
-  blog_posts?: ArticleResource[];
-  githubs?: ArticleResource[];
+  resources?: ArticleResource[];
   date: Date;
   category: string;
   arxiv_id: string;

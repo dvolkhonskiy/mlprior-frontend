@@ -12,18 +12,74 @@
   </mat-card-header>
 
   <mat-card-content >
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <form [formGroup]="newResourceForm" id="resourceForm" (submit)="addResource()" *ngIf="details.isAuthenticated">
+
+    <div class="row">
+    <div class="col-md-3">
+
+      <mat-form-field hintLabel="Resource URL">
+        <input matInput formControlName="url" required placeholder="Enter the URL here">
+        <!--<mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>-->
+      </mat-form-field>
+
+    </div>
+    <div class="col-md-3">
+
+      <mat-form-field>
+        <mat-select placeholder="Select resource type" required formControlName="resourceType">
+          <mat-option value="github">GitHub</mat-option>
+          <mat-option value="blogpost">Blog post</mat-option>
+          <mat-option value="slides">Slides</mat-option>
+          <mat-option value="youtube">YouTube</mat-option>
+          <mat-option value="reddit">Reddit</mat-option>
+          <mat-option value="website">Website</mat-option>
+        </mat-select>
+        <!--<mat-hint align="end"></mat-hint>-->
+      </mat-form-field>
+    </div>
+
+      <div class="col-md-2">
+        <button mat-raised-button color="primary" type="submit">Add resource</button>
+      </div>
+    </div>
+
+    </form>
+
+    <div class="alert alert-danger" *ngIf="error">
+      <h3>An error occurred!</h3>
+      <p>{{ error }}</p>
+    </div>
+
+    <p></p>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="details.resources && details.resources.length > 0">
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+        <td mat-cell *matCellDef="let resource">
+          <i class="fab fa-github" *ngIf="resource.type === 'github'"></i>
+          <i class="fab fa-medium" *ngIf="resource.type === 'blogpost'"></i>
+          <i class="fab fa-slideshare" *ngIf="resource.type === 'slides'"></i>
+          <i class="fab fa-youtube" *ngIf="resource.type === 'youtube'"></i>
+          <i class="fab fa-reddit" *ngIf="resource.type === 'reddit'"></i>
+          <i class="fas fa-home" *ngIf="resource.type === 'website'"></i>
+        </td>
+      </ng-container>s
 
       <!-- Position Column -->
       <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-        <td mat-cell *matCellDef="let resource"> {{resource.url}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let resource"> <a href="{{resource.url}}" target="_blank">{{resource.title}}</a>  </td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="n_stars">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Stars </th>
-        <td mat-cell *matCellDef="let resource"> <span></span> </td>
+        <td mat-cell *matCellDef="let resource">
+          <i class="fas fa-star" *ngIf="resource.n_stars"></i>
+          <span>{{resource.n_stars}}</span>
+        </td>
       </ng-container>
 
       <!--&lt;!&ndash; Weight Column &ndash;&gt;-->
@@ -42,11 +98,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </mat-card-content>
-
-  <mat-card-actions>
-    cheburek
-  </mat-card-actions>
-
 </mat-card>
 
 
@@ -67,7 +118,7 @@
       <!--&lt;!&ndash;Add resource&ndash;&gt;-->
     <!--&lt;!&ndash;</mat-card-header>&ndash;&gt;-->
     <!--<mat-card-content>-->
-      <!--<form [formGroup]="newGitHubForm" id="gitHubForm" (submit)="addGitHub()">-->
+      <!--<form [formGroup]="newResourceForm" id="gitHubForm" (submit)="addGitHub()">-->
         <!--<mat-form-field style="width: 100%;">-->
           <!--<input matInput type="url" placeholder="Resource URL" formControlName="url" class='form-control'/>-->
         <!--</mat-form-field>-->
@@ -85,7 +136,7 @@
       <!--&lt;!&ndash;<mat-tab-group>&ndash;&gt;-->
         <!--&lt;!&ndash;<mat-tab label="GitHub Repository">&ndash;&gt;-->
           <!--&lt;!&ndash;<div class="col-sm-12">&ndash;&gt;-->
-            <!--&lt;!&ndash;<form [formGroup]="newGitHubForm" articleId="gitHubForm" (submit)="addResource()">&ndash;&gt;-->
+            <!--&lt;!&ndash;<form [formGroup]="newResourceForm" articleId="gitHubForm" (submit)="addResource()">&ndash;&gt;-->
               <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
                     <!--&lt;!&ndash;<input matInput type="url" placeholder="GitHub repository URL" formControlName="url" class='form-control'/>&ndash;&gt;-->
               <!--&lt;!&ndash;</mat-form-field>&ndash;&gt;-->
@@ -187,7 +238,7 @@
   <!--<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>-->
   <!--<div class="collapse" articleId="collapseExample" [ngbCollapse]="isCollapsed" *ngIf="!isLoading">-->
   <!--<div class="col-sm-12">-->
-  <!--<form [formGroup]="newGitHubForm" articleId="gitHubForm" (submit)="addResource()">-->
+  <!--<form [formGroup]="newResourceForm" articleId="gitHubForm" (submit)="addResource()">-->
   <!--<div class="row">-->
   <!--<div class="col-md-12">-->
   <!--<div class="form-group">-->

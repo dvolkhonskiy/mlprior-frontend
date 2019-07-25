@@ -45,11 +45,11 @@
   </div>
 
   <p></p>
-  <app-summary *ngIf="article.summary_sentences.length > 0" [summary]="article.summary_sentences" [collapsed]="true"></app-summary>
+  <app-summary *ngIf="article.summary_sentences && article.summary_sentences.length > 0" [summary]="article.summary_sentences" [collapsed]="true"></app-summary>
 
   <p></p>
   <!--<div class="col-md-12">-->
-    <!--<app-resources></app-resources>-->
+    <app-resources *ngIf="isAuthenticated || resources.length != 0"></app-resources>
   <!--</div>-->
 
 
