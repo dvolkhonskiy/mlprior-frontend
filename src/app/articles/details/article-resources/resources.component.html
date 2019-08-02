@@ -1,7 +1,3 @@
-
-
-
-
 <mat-card>
 
   <mat-card-header>
@@ -84,7 +80,15 @@
         </td>
       </ng-container>
 
-      <!--&lt;!&ndash; Weight Column &ndash;&gt;-->
+
+      <ng-container matColumnDef="framework">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Framework </th>
+        <td mat-cell *matCellDef="let resource">
+          <img src="../../../../assets/img/githubs/frameworks/{{resource.framework}}.jpg" height="15px" *ngIf="resource.framework">
+       </td>
+     </ng-container>
+
+     <!--&lt;!&ndash; Weight Column &ndash;&gt;-->
       <!--<ng-container matColumnDef="weight">-->
         <!--<th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>-->
         <!--<td mat-cell *matCellDef="let element"> {{element.weight}} </td>-->

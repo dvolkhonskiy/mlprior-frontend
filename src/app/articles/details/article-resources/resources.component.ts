@@ -23,7 +23,7 @@ export class ResourcesComponent implements OnInit {
     resourceType: new FormControl()
   });
 
-  displayedColumns: string[] = ['type', 'title', 'n_stars'];
+  displayedColumns: string[] = ['type', 'title', 'n_stars', 'framework'];
   dataSource = new MatTableDataSource(this.details.resources);
 
   panelOpenState = false;
