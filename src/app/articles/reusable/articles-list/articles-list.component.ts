@@ -18,6 +18,8 @@ export class ArticlesListComponent implements OnInit {
   type: string;
   name: string;
   articleId: string;
+  withGitHub = false;
+  withResources = false;
 
 
   error: string = null;
@@ -178,6 +180,9 @@ export class ArticlesListComponent implements OnInit {
     params.endYear = '' + this.endYear;
 
     params.categories = this.categories;
+
+    params.withResources = this.withResources;
+    params.withGitHub = this.withGitHub;
 
     this.articleService.fetchArticles(this.type, this.page, params).subscribe(
       data => {

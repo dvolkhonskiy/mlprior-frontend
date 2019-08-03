@@ -41,6 +41,21 @@
         </mat-form-field>
       </div>
 
+      <div class="sort-select col-lg-2">
+        <mat-checkbox
+          color="primary"
+          (change)="onFilter()"
+          [(ngModel)]="withGitHub">
+          <span style="color: #333;">With GitHub</span>
+        </mat-checkbox>
+        <mat-checkbox
+          color="primary"
+          (change)="onFilter()"
+          [(ngModel)]="withResources">
+          <span style="color: #333;">With Resources</span>
+        </mat-checkbox>
+      </div>
+
     <!--<div class="col-lg-2 sort-select">-->
     <!--<i class="material-icons sort-icon">sort</i>-->
     <!--<mat-form-field>-->

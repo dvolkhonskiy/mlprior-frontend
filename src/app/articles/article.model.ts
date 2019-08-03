@@ -66,4 +66,6 @@ export interface ArticleQueryParams {
   endYear?: string;
   sortBy?: string;
   categories?: string;
+  withGitHub?: boolean;
+  withResources?: boolean;
 }
