@@ -49,6 +49,14 @@ export class DetailsComponent implements OnInit {
       data => {
         this.article = data;
         this.resources = data.resources;
+        this.resources.sort(
+          (a, b) => {
+            // pretend non-github resources have 1000 stars
+            const aStars = a.type === 'github' ? a.n_stars : 1000;
+            const bStars = b.type === 'github' ? b.n_stars : 1000;
+            return bStars - aStars;
+          }
+        );
         this.titleService.setTitle('ML p(r)ior | ' + this.article.title);
       },
       error => console.error('couldn\'t post because', error)
@@ -75,17 +83,14 @@ export class DetailsComponent implements OnInit {
             console.log(this.article);
             this.titleService.setTitle('ML p(r)ior | ' + this.article.title);
             this.resources = data.resources;
-            console.log(this.resources);
-            // this.resetArticles();
-            // this.articleService.fetchArticles(this.type, this.nextPage, {articleId: this.article.articleId}).subscribe(
-            //   relatedData => {
-            //     this.relatedArticles = this.relatedArticles.concat(relatedData.results);
-            //     this.nextPage = relatedData.next ? relatedData.next : null;
-            //   },
-            //   error => {
-            //     this.error = error.message;
-            //   }
-            // );
+            this.resources.sort(
+              (a, b) => {
+                // pretend non-github resources have 1000 stars
+                const aStars = a.type === 'github' ? a.n_stars : 1000;
+                const bStars = b.type === 'github' ? b.n_stars : 1000;
+                return bStars - aStars;
+              }
+            );
           },
           error => console.error('couldn\'t post because', error)
         );

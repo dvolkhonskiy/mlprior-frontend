@@ -20,6 +20,11 @@ table {
   color: #4e73df;
 }
 
+.resources-container {
+  height: 320px;
+  overflow: auto;
+}
+
 
 /*.header-image {*/
   /*background-size: cover;*/
