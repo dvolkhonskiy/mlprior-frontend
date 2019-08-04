@@ -52,7 +52,7 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="type">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+        <th mat-header-cell *matHeaderCellDef> Type </th>
         <td mat-cell *matCellDef="let resource">
           <i class="fab fa-github" *ngIf="resource.type === 'github'"></i>
           <i class="fab fa-medium" *ngIf="resource.type === 'blogpost'"></i>
@@ -65,7 +65,7 @@
 
       <!-- Position Column -->
       <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <th mat-header-cell *matHeaderCellDef > Name </th>
         <td mat-cell *matCellDef="let resource">
           <a href="{{resource.url}}" target="_blank"><span *ngIf="!resource.title">{{resource.url}}</span><span *ngIf="resource.title">{{resource.title}}</span></a>
         </td>
@@ -73,7 +73,7 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="n_stars">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stars </th>
+        <th mat-header-cell *matHeaderCellDef> Stars </th>
         <td mat-cell *matCellDef="let resource">
           <i class="fas fa-star" *ngIf="resource.n_stars"></i>
           <span *ngIf="resource.n_stars">{{resource.n_stars}}</span>
@@ -82,7 +82,7 @@
 
 
       <ng-container matColumnDef="framework">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Framework </th>
+        <th mat-header-cell *matHeaderCellDef > Framework </th>
         <td mat-cell *matCellDef="let resource">
           <img src="../../../../assets/img/githubs/frameworks/{{resource.framework}}.jpg" height="15px" *ngIf="resource.framework">
        </td>
