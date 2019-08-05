@@ -8,7 +8,7 @@ import {ArticlesListComponent} from '../articles-list.component';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor(private articleList: ArticlesListComponent) { }
+  constructor(public articleList: ArticlesListComponent) { }
 
   ngOnInit() {
   }
