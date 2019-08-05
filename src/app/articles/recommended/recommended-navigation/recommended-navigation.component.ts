@@ -10,9 +10,28 @@ import {AuthService} from '../../../auth/auth.service';
   styleUrls: ['./recommended-navigation.component.css', '../../../app.component.css']
 })
 export class RecommendedNavigationComponent implements OnInit {
-  constructor() {
+  lastTime = 'all';
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        if (params.last) {
+          this.lastTime = params.last;
+        }
+      });
+  }
+
+  onLastButton(last: string) {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {'last': last}
+    });
+  }
+
+  isActiveRoute(last: string) {
+    return this.lastTime === last;
+  }
 
 }

@@ -1,0 +1,74 @@
+<mat-card>
+  <!--<mat-card-header>-->
+  <!--<div mat-card-avatar><i class="material-icons card-avatar">build</i></div>-->
+  <!--<mat-card-title>Parameters</mat-card-title>-->
+  <!--</mat-card-header>-->
+  <mat-card-content>
+
+    <div class="row">
+
+
+
+      <div class="sort-select col-lg-2">
+        <mat-form-field style="width: min-content">
+          <mat-label>Start year</mat-label>
+          <mat-select [(value)]="articleList.startYear" (selectionChange)="articleList.onFilter()">
+            <mat-option *ngFor="let year of articleList.availableYears" [value]="year">
+              {{year}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="sort-select col-lg-2">
+        <mat-form-field>
+          <mat-label>End year</mat-label>
+          <mat-select [(value)]="articleList.endYear" (selectionChange)="articleList.onFilter()">
+            <mat-option *ngFor="let year of articleList.availableYears" [value]="year">
+              {{year}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="sort-select col-lg-2">
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select [formControl]="articleList.categoriesForm" multiple>
+            <mat-option *ngFor="let cat of articleList.categoriesList" [value]="cat.value">
+              {{cat.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="sort-select col-lg-2">
+        <mat-checkbox
+          color="primary"
+          (change)="articleList.onFilter()"
+          [(ngModel)]="articleList.withGitHub">
+          <span style="color: #333;">With GitHub</span>
+        </mat-checkbox>
+        <mat-checkbox
+          color="primary"
+          (change)="articleList.onFilter()"
+          [(ngModel)]="articleList.withResources">
+          <span style="color: #333;">With Resources</span>
+        </mat-checkbox>
+      </div>
+
+      <!--<div class="col-lg-2 sort-select">-->
+      <!--<i class="material-icons sort-icon">sort</i>-->
+      <!--<mat-form-field>-->
+      <!--<mat-label>Sort by</mat-label>-->
+      <!--<mat-select [(value)]="sortBy" (selectionChange)="onFilter()">-->
+      <!--<mat-option *ngFor="let sortOption of availableSort" [value]="sortOption.value">-->
+      <!--{{sortOption.viewValue}}-->
+      <!--</mat-option>-->
+      <!--</mat-select>-->
+      <!--</mat-form-field>-->
+      <!--</div>-->
+    </div>
+
+  </mat-card-content>
+</mat-card>

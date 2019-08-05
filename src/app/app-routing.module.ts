@@ -27,11 +27,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: { title: 'Recommended' }
       },
-      {
-        path: 'recent',
-        component: RecommendedComponent,
-        data: { title: 'Recent' }
-      },
+      // {
+      //   path: 'recent',
+      //   component: RecommendedComponent,
+      //   data: { title: 'Recent' }
+      // },
       {
         path: 'popular',
         component: RecommendedComponent,

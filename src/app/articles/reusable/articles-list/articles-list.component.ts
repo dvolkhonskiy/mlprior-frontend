@@ -42,6 +42,8 @@ export class ArticlesListComponent implements OnInit {
 
   searchQuery = '';
 
+  lastTime: string;
+
   categoriesList = [
     {viewValue: 'Artificial Intelligence', value: 'cs.AI'},
     {viewValue: 'Hardware Architecture', value: 'cs.AR'},
@@ -117,6 +119,13 @@ export class ArticlesListComponent implements OnInit {
           this.isLoading = true;
           this.loadNextBatch();
         }
+
+        if (params.last) {
+          this.resetArticles(false);
+          this.lastTime = params.last;
+          this.isLoading = true;
+          this.loadNextBatch();
+        }
       });
 
     this.route.url.subscribe(
@@ -156,6 +165,7 @@ export class ArticlesListComponent implements OnInit {
     this.articles = [];
     this.page = 1;
     this.hasNextPage = true;
+    this.lastTime = '';
     if (full) {
       this.name = '';
       this.articleId = '';
@@ -174,6 +184,10 @@ export class ArticlesListComponent implements OnInit {
 
     if (this.type === 'search') {
       params.q = this.searchQuery;
+    }
+
+    if (this.lastTime) {
+      params.last = this.lastTime;
     }
 
     params.startYear = '' + this.startYear;

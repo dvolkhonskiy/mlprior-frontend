@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 ml-auto mr-auto">
+  <div class="col-md-4 ml-auto mr-auto">
     <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
       <div class="btn-group">
         <button [routerLink]="['/', 'articles', 'popular']" class="btn btn-white" routerLinkActive="btn-primary" role="button">
@@ -10,13 +10,49 @@
           <i class="material-icons" style="color: #4caf50;">widgets</i>
           <span routerLinkActive="text-dark"> Recommended</span>
         </button>
-        <button [routerLink]="['/', 'articles', 'recent']" class="btn btn-white" routerLinkActive="btn-primary" role="button">
-          <i class="material-icons" style="color: #ff9800;">access_time</i>
-          <span routerLinkActive="text-dark"> Recent</span>
-          <div class="ripple-container"></div>
+      </div>
+    </ul>
+  </div>
+  <div class="col-md-6 ml-auto mr-auto">
+    <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
+      <div class="btn-group">
+        <button (click)="onLastButton('day')" [class.btn-primary]="isActiveRoute('day')" class="btn btn-white" routerLinkActive="btn-primary" role="button">
+          <span routerLinkActive="text-dark"> Last day</span>
+        </button>
+        <button (click)="onLastButton('week')" [class.btn-primary]="isActiveRoute('week')" class="btn btn-white" routerLinkActive="btn-primary" role="button">
+          <span routerLinkActive="text-dark"> Last week</span>
+        </button>
+        <button (click)="onLastButton('month')" [class.btn-primary]="isActiveRoute('month')" class="btn btn-white" routerLinkActive="btn-primary" role="button">
+          <span routerLinkActive="text-dark"> Last month</span>
+        </button>
+        <button (click)="onLastButton('year')" [class.btn-primary]="isActiveRoute('year')" class="btn btn-white" routerLinkActive="btn-primary" role="button">
+          <span routerLinkActive="text-dark"> Last year</span>
+        </button>
+        <button (click)="onLastButton('all')" [class.btn-primary]="isActiveRoute('all')" class="btn btn-white" routerLinkActive="btn-primary" role="button">
+          <span routerLinkActive="text-dark"> All time</span>
         </button>
       </div>
     </ul>
   </div>
+  <!--<div class="col-md-6 ml-auto mr-auto">-->
 
+  <!--<mat-button-toggle-group #group="matButtonToggleGroup">-->
+    <!--<mat-button-toggle value="left" aria-label="Text align left">-->
+      <!--Last day-->
+    <!--</mat-button-toggle>-->
+    <!--<mat-button-toggle value="right" aria-label="Text align right">-->
+      <!--Last week-->
+    <!--</mat-button-toggle>-->
+    <!--<mat-button-toggle value="justify" aria-label="Text align justify">-->
+      <!--Last month-->
+    <!--</mat-button-toggle>-->
+    <!--<mat-button-toggle value="justify" aria-label="Text align justify">-->
+      <!--Last year-->
+    <!--</mat-button-toggle>-->
+    <!--<mat-button-toggle value="justify" aria-label="Text align justify">-->
+      <!--All time-->
+    <!--</mat-button-toggle>-->
+  <!--</mat-button-toggle-group>-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
 </div>

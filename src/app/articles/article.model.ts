@@ -68,4 +68,5 @@ export interface ArticleQueryParams {
   categories?: string;
   withGitHub?: boolean;
   withResources?: boolean;
+  last?: string;
 }

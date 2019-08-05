@@ -42,6 +42,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import {TrackingService} from './shared/tracking.service';
 import { ArticlesListComponent } from './articles/reusable/articles-list/articles-list.component';
 import { SearchComponent } from './articles/search/search.component';
+import { FiltersComponent } from './articles/reusable/articles-list/filters/filters.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { SearchComponent } from './articles/search/search.component';
     AuthorsListComponent,
     PricingComponent,
     ArticlesListComponent,
-    SearchComponent
+    SearchComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
