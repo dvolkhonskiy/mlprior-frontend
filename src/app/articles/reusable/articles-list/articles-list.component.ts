@@ -165,7 +165,6 @@ export class ArticlesListComponent implements OnInit {
     this.articles = [];
     this.page = 1;
     this.hasNextPage = true;
-    this.lastTime = '';
     if (full) {
       this.name = '';
       this.articleId = '';
