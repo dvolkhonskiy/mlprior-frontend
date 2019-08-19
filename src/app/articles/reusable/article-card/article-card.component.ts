@@ -12,6 +12,8 @@ import {TrackingService} from '../../../shared/tracking.service';
 export class ArticleCardComponent implements OnInit, AfterViewInit {
   @Input() article: Article;
   @Input() isAuthenticated: boolean;
+  @Input() limit = 100;
+  truncating = true;
 
   constructor(private articleService: ArticleService,
               private focusMonitor: FocusMonitor,

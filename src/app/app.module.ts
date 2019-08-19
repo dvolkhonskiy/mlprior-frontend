@@ -43,6 +43,9 @@ import {TrackingService} from './shared/tracking.service';
 import { ArticlesListComponent } from './articles/reusable/articles-list/articles-list.component';
 import { SearchComponent } from './articles/search/search.component';
 import { FiltersComponent } from './articles/reusable/articles-list/filters/filters.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { ProfileComponent } from './auth/profile/profile.component';
+import {TruncateModule} from '@yellowspot/ng-truncate';
 
 
 @NgModule({
@@ -75,7 +78,8 @@ import { FiltersComponent } from './articles/reusable/articles-list/filters/filt
     PricingComponent,
     ArticlesListComponent,
     SearchComponent,
-    FiltersComponent
+    FiltersComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -89,7 +93,9 @@ import { FiltersComponent } from './articles/reusable/articles-list/filters/filt
     DxSelectBoxModule,
     DxRangeSelectorModule,
     DxTextAreaModule,
-    MaterialAngularModule
+    MaterialAngularModule,
+    NgxPayPalModule,
+    TruncateModule
   ],
   providers: [
     ArticleService,

@@ -30,7 +30,17 @@
   </div>
   <div class="card-body">
 
-    {{ article.abstract }}
+    <!--{{article.abstract}}-->
+
+    <div *ngIf="article.abstract.length <= limit">{{article.abstract}}</div>
+    <div *ngIf="truncating && article.abstract.length > limit">
+      {{article.abstract | truncate : limit}}
+      <a (click)="truncating = false" href="#">show more</a>
+    </div>
+    <div *ngIf="!truncating && article.abstract.length > limit">
+      {{article.abstract}}
+    </div>
+
     <hr>
     <div class="row form-group">
 
