@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   isLanding = true;
 
   constructor(private router: Router,
-              protected authService: AuthService,
+              public authService: AuthService,
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
               @Inject(PLATFORM_ID) private platformId

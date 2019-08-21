@@ -12,7 +12,7 @@ import {UserProfile} from '../user.model';
 export class ProfileComponent implements OnInit {
   profile: UserProfile;
   subscription: PremiumSubscription;
-  constructor(protected authService: AuthService, private apiService: APIService) { }
+  constructor(public authService: AuthService, private apiService: APIService) { }
 
   ngOnInit() {
     this.authService.getProfile().subscribe(
