@@ -1,5 +1,7 @@
 
-<mat-card>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<mat-card *ngIf="!isLoading">
   <mat-card-header>
     <div mat-card-avatar class="header-image">
       <i class="fas fa-align-justify"></i>
@@ -11,6 +13,29 @@
 
     <div *ngIf="authService.isPremium">
       Expires {{subscription.endDate}}
+
+      <div class="row">
+        <div class="col-md-2">
+      <mat-checkbox
+        color="primary"
+        (change)="onChange()"
+        [(ngModel)]="subscription.dailyMail">
+        <span style="color: #333;">Receive Daily Digest</span>
+      </mat-checkbox>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+      <mat-checkbox
+        color="primary"
+        (change)="onChange()"
+        [(ngModel)]="subscription.weeklyMail">
+        <span style="color: #333;">Receive Weekly Digest</span>
+      </mat-checkbox>
+        </div>
+    </div>
+
     </div>
     <div *ngIf="!authService.isPremium">
       <button mat-raised-button color="primary" style="font-weight: bold;" routerLink="/premium">Start Premium Trial</button>

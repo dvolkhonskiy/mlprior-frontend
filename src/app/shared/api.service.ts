@@ -24,6 +24,10 @@ export class APIService {
     return this.httpClient.get<PremiumSubscription>(this.API_URL_PREMIUM);
   }
 
+  updateSubscription(subscription: PremiumSubscription) {
+    return this.httpClient.put(this.API_URL_PREMIUM, subscription);
+  }
+
   getStats(): any {
     return this.httpClient.get(this.API_URL_STATS);
   }

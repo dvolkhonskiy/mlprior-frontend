@@ -12,6 +12,10 @@ import {UserProfile} from '../user.model';
 export class ProfileComponent implements OnInit {
   profile: UserProfile;
   subscription: PremiumSubscription;
+
+
+  isLoading = true;
+
   constructor(public authService: AuthService, private apiService: APIService) { }
 
   ngOnInit() {
@@ -29,10 +33,17 @@ export class ProfileComponent implements OnInit {
       data => {
         this.subscription = data;
         console.log(data);
+        this.isLoading = false;
       },
       error => {
         console.log(error);
       }
+    );
+  }
+
+  onChange() {
+    this.apiService.updateSubscription(this.subscription).subscribe(
+      data => console.log(data)
     );
   }
 
