@@ -8,25 +8,18 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./profile-menu.component.css', '../app.component.css']
 })
 export class ProfileMenuComponent implements OnInit, OnDestroy {
-  isAuthenticated = false;
-  private userSub: Subscription;
+  // private userSub: Subscription;
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
-  ngOnInit() {
-    this.userSub = this.authService.user.subscribe(
-      user => {
-        this.isAuthenticated = !!user;
-      }
-    );
-  }
+  ngOnInit() { }
 
   onLogout() {
     this.authService.logout();
   }
 
   ngOnDestroy(): void {
-    this.userSub.unsubscribe();
+    // this.userSub.unsubscribe();
   }
 
 }

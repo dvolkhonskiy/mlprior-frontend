@@ -17,7 +17,7 @@ import {DetailsComponent} from './articles/details/details.component';
 import {BlogpostsComponent} from './articles/details/blogposts/blogposts.component';
 import {ResourcesComponent} from './articles/details/article-resources/resources.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.component';
 import { TrendsComponent } from './dashboard/trends/trends.component';
 import {DxChartModule, DxSelectBoxModule, DxRangeSelectorModule, DxTextAreaModule} from 'devextreme-angular';
 import {DashboardDataService} from './dashboard/dashboard-data.service';
@@ -38,7 +38,7 @@ import { SummaryComponent } from './articles/details/summary/summary.component';
 import {ArticleLikeComponent} from './articles/reusable/article-like/article-like.component';
 import { AuthorComponent } from './articles/author/author.component';
 import { AuthorsListComponent } from './articles/reusable/authors-list/authors-list.component';
-import { PricingComponent } from './pricing/pricing.component';
+import { PremiumComponent } from './premium/premium.component';
 import {TrackingService} from './shared/tracking.service';
 import { ArticlesListComponent } from './articles/reusable/articles-list/articles-list.component';
 import { SearchComponent } from './articles/search/search.component';
@@ -75,7 +75,7 @@ import {TruncateModule} from '@yellowspot/ng-truncate';
     ArticleLikeComponent,
     AuthorComponent,
     AuthorsListComponent,
-    PricingComponent,
+    PremiumComponent,
     ArticlesListComponent,
     SearchComponent,
     FiltersComponent,

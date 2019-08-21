@@ -5,8 +5,8 @@
 
 .btn-primary {
   color: #ffffff;
-  background-color: #2196f3;
-  border-color: #2196f3;
+  background-color: #4e73df;
+  border-color: #4e73df;
   box-shadow: none;
 }
 
@@ -24,8 +24,8 @@
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #ffffff;
-  background-color: #2196f3;
-  border-color: #2196f3;
+  background-color: #4e73df;
+  border-color: #4e73df;
 }
 
 

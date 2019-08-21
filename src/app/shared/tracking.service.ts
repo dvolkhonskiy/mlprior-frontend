@@ -46,4 +46,14 @@ export class TrackingService {
   trackOpenHighlights() {
     this.trackAction('OPEN article.summary');
   }
+
+  // premium
+
+  trackOpenPremiumDescription() {
+    this.trackAction('PREMIUM open description');
+  }
+
+  trackStartTrialPremium() {
+    this.trackAction('PREMIUM start trial');
+  }
 }

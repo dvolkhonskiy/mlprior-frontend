@@ -1,11 +1,12 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {BehaviorSubject} from 'rxjs';
-import {User} from './user.model';
+import {BehaviorSubject, Subscription} from 'rxjs';
+import {UserProfile, User} from './user.model';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {TrackingService} from '../shared/tracking.service';
+import {APIService} from '../shared/api.service';
 
 interface UserResponse {
   email: string;
@@ -17,17 +18,47 @@ export interface AuthResponseData {
 }
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnInit, OnDestroy {
   user = new BehaviorSubject<User>(null);
+  _isAuthenticated = false;
+  _is_premium = false;
+  private userSub: Subscription;
 
   private API_URL_LOGIN = environment.baseUrl + 'api/auth/login';
   private API_URL_SIGN_UP = environment.baseUrl + 'api/auth/signup';
   private API_URL_USER = environment.baseUrl + 'api/user';
+  API_URL_PROFILE = environment.baseUrl + 'api/profile';
+  API_URL_SUBSCRIPTION = environment.baseUrl + 'api/premium';
 
   public redirectUrl: string;
   private tokenExpirationTimer: any;
 
-  constructor(private http: HttpClient, private router: Router, private trackingService: TrackingService) { }
+  constructor(private http: HttpClient,
+              private router: Router,
+              private trackingService: TrackingService,
+              private apiService: APIService
+  ) { }
+
+  ngOnInit(): void {
+    this.userSub = this.user.subscribe(
+      user => {
+        this._isAuthenticated = !!user;
+        console.log(this.isAuthenticated);
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
+
+  get isAuthenticated() {
+    return this._isAuthenticated;
+  }
+
+  get isPremium() {
+    return this._is_premium;
+  }
 
   signUp(firstName: string, secondName: string, email: string, password: string) {
     let data = {user: {email: email, password:  password}};
@@ -82,6 +113,8 @@ export class AuthService {
         new Date(userData._tokenExpirationDate).getTime() -
         new Date().getTime();
       this.autoLogout(expirationDuration);
+      this._isAuthenticated = true;
+      this.checkIsPremium();
     }
   }
 
@@ -94,6 +127,8 @@ export class AuthService {
       new Date().getTime();
     this.autoLogout(expirationDuration);
     localStorage.setItem('userData', JSON.stringify(newUser));
+    this._isAuthenticated = true;
+    this.checkIsPremium();
   }
 
   logout() {
@@ -101,6 +136,8 @@ export class AuthService {
     this.router.navigate(['/dashboard']);
     localStorage.removeItem('userData');
     this.trackingService.trackLogOut();
+    this._isAuthenticated = false;
+    this._is_premium = false;
   }
 
   getTokenExpirationDate(token: string) {
@@ -109,11 +146,20 @@ export class AuthService {
     return token_decoded.exp * 1000;
   }
 
-  autoLogout(expirationDuration: number) {
 
+
+  autoLogout(expirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
+  }
+
+  checkIsPremium() {
+    this.apiService.getSubscription().subscribe(
+      data => {
+        this._is_premium = data.premium;
+      }
+    );
   }
 
   // public updateData(token) {
@@ -126,5 +172,9 @@ export class AuthService {
   //   this.tokenExpires = new Date(token_decoded.exp * 1000);
   //   this.username = token_decoded.username;
   // }
+
+  getProfile() {
+    return this.http.get<UserProfile>(this.API_URL_PROFILE);
+  }
 
 }

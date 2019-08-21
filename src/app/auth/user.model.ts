@@ -1,3 +1,5 @@
+import {PremiumSubscription} from '../premium/subscription.model';
+
 export class User {
   constructor(public email: string, private _token: string, private _tokenExpirationDate: Date) {   }
 
@@ -11,4 +13,9 @@ export class User {
   get expirationDate() {
     return this._tokenExpirationDate;
   }
+}
+
+export interface UserProfile {
+  first_name: string;
+  second_name: string;
 }

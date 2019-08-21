@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService, AuthResponseData } from './auth.service';
 import {TrackingService} from '../shared/tracking.service';
@@ -14,18 +14,28 @@ import {TrackingService} from '../shared/tracking.service';
   ],
   providers: []
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   isLoginMode = true;
   isLoading = false;
   public errors: any = [];
+  returnToPremiumPage = false;
 
   constructor(
     public authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
     private trackingService: TrackingService
   ) {  }
 
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      console.log(params);
+      if (params.premium === 'true') {
+        this.returnToPremiumPage = true;
+      }
+      });
+  }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -56,7 +66,9 @@ export class LoginComponent {
       resData => {
         console.log(resData);
         this.isLoading = false;
-        if (this.authService.redirectUrl) {
+        if (this.returnToPremiumPage) {
+          this.router.navigate(['/premium']);
+        } else if (this.authService.redirectUrl) {
           this.router.navigate([this.authService.redirectUrl]);
           this.authService.redirectUrl = null;
         } else {
@@ -72,26 +84,4 @@ export class LoginComponent {
 
     form.reset();
   }
-
-  // login() {
-  //   this.isLoading = true;
-  //   this.authService.login(this.user.email, this.user.password).subscribe(
-  //     data => {
-  //       console.log(data);
-  //       this.isLoading = false;
-  //       if (this.authService.redirectUrl) {
-  //         this.router.navigate([this.authService.redirectUrl]);
-  //         this.authService.redirectUrl = null;
-  //       } else {
-  //         this.router.navigate(['/dashboard']);
-  //       }
-  //     },
-  //     err => {
-  //       console.log(err.error);
-  //       this.isLoading = false;
-  //       this.errors = err.error;
-  //     }
-  //   );
-  // }
-
 }

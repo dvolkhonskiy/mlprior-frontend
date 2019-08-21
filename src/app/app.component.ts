@@ -5,6 +5,7 @@ import {Title} from '@angular/platform-browser';
 import {filter, mergeMap, map} from 'rxjs/operators';
 import {isPlatformBrowser} from '@angular/common';
 
+
 // import {AuthService} from './_user.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
   isLanding = true;
 
   constructor(private router: Router,
-              private authService: AuthService,
+              protected authService: AuthService,
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
               @Inject(PLATFORM_ID) private platformId

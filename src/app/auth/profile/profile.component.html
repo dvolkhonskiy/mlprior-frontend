@@ -1,15 +1,23 @@
-<mat-card>
 
+<mat-card>
   <mat-card-header>
     <div mat-card-avatar class="header-image">
       <i class="fas fa-align-justify"></i>
     </div>
-    <mat-card-title class="text-dark">Profile settings</mat-card-title>
+    <mat-card-title class="text-dark">Premium Settings</mat-card-title>
   </mat-card-header>
 
   <mat-card-content>
+
+    <div *ngIf="authService.isPremium">
+      Expires {{subscription.endDate}}
+    </div>
+    <div *ngIf="!authService.isPremium">
+      <button mat-raised-button color="primary" style="font-weight: bold;" routerLink="/premium">Start Premium Trial</button>
+    </div>
 
 
 
   </mat-card-content>
 </mat-card>
+

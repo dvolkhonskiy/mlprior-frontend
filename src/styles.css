@@ -44,6 +44,11 @@
   background-color: #4e73df!important;
 }
 
+.mlprior-warning-button {
+  font-weight: bold;
+  background-color: #df604f !important;
+}
+
 .dropdown-menu .dropdown-item:hover,
 .dropdown-menu .dropdown-item:focus,
 .dropdown-menu a:hover,
