@@ -49,7 +49,7 @@ export class AuthService implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.userSub.unsubscribe();
+    // this.userSub.unsubscribe();
   }
 
   get isAuthenticated() {
