@@ -24,10 +24,17 @@ export class RecommendedNavigationComponent implements OnInit {
   }
 
   onLastButton(last: string) {
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {'last': last}
-    });
+    if (this.router.url.includes('popular') || this.router.url.includes('recommended')) {
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: {'last': last}
+      });
+    } else {
+      this.router.navigate(['/', 'articles', 'popular'], {
+        relativeTo: this.route,
+        queryParams: {'last': last}
+      });
+    }
   }
 
   isActiveRoute(last: string) {
