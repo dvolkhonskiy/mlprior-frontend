@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
 import {PremiumSubscription} from '../premium/subscription.model';
+import {TransferHttpService} from '@gorniv/ngx-universal';
 
 @Injectable()
 export class APIService {
@@ -14,7 +15,7 @@ export class APIService {
   API_URL_FEEDBACK = environment.baseUrl + 'api/feedback';
   API_URL_PREMIUM = environment.baseUrl + 'api/premium';
 
-  constructor(private httpClient: HttpClient) {  }
+  constructor(private httpClient: TransferHttpService) {  }
 
   switchToPremium() {
     return this.httpClient.post(this.API_URL_PREMIUM, {});

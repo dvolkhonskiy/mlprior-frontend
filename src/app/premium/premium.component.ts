@@ -13,7 +13,7 @@ declare var paypal;
   styleUrls: ['./premium.component.css']
 })
 export class PremiumComponent implements OnInit {
-  @ViewChild('paypal') paypalElement: ElementRef;
+  @ViewChild('paypal', {read: false, static: true}) paypalElement: ElementRef;
 
   public payPalConfig?: IPayPalConfig;
   showSuccess: boolean;

@@ -82,8 +82,8 @@ export class TrendsComponent implements OnInit {
     'web', 'wireless', 'word', 'world'
   ];
 
-  @ViewChild('fruitInput', {read: false}) fruitInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', {read: false}) matAutocomplete: MatAutocomplete;
+  @ViewChild('fruitInput', {read: false, static: true}) fruitInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', {read: false, static: true}) matAutocomplete: MatAutocomplete;
 
   resolutionKeys: string[] = ['Month', 'Quarter', 'Half', 'Year'];
   resolutions = { Month: 1, Quarter: 3, Half: 6, Year: 12};

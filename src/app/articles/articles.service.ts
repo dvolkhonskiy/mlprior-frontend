@@ -1,12 +1,13 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { TransferHttpService } from '@gorniv/ngx-universal';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
 import {tap, map, take, exhaustMap} from 'rxjs/operators';
 
 import {Article, BlogPost, GitHub, ArticleAuthor, SummarySentence, ArticleList} from './article.model';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
+// import {el} from '@angular/platform-browser/testing/src/browser_util';
 import {Subscription} from 'rxjs';
 
 @Injectable()
@@ -24,7 +25,7 @@ export class ArticleService implements OnInit {
 
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: TransferHttpService) {}
 
   ngOnInit(): void {
 
@@ -152,7 +153,7 @@ export class ArticleService implements OnInit {
   }
 
   fetchArticleDetails(id) {
-    return this.http.get<Article>(this.API_URL_ARTICLE_DETAILS + id).pipe(tap(res => {
+    return this.http.get<Article>(this.API_URL_ARTICLE_DETAILS + id + '/').pipe(tap(res => {
       return res;
     }));
   }

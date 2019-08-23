@@ -31,7 +31,7 @@ export class ResourcesComponent implements OnInit {
   constructor(public details: DetailsComponent, public articleService: ArticleService) {
   }
 
-  @ViewChild(MatSort, {read: true}) sort: MatSort;
+  @ViewChild(MatSort, {read: true, static: true}) sort: MatSort;
 
   ngOnInit() {
     this.dataSource.sort = this.sort;

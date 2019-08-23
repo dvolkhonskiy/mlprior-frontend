@@ -46,6 +46,8 @@ import { FiltersComponent } from './articles/reusable/articles-list/filters/filt
 import { NgxPayPalModule } from 'ngx-paypal';
 import { ProfileComponent } from './auth/profile/profile.component';
 import {TruncateModule} from '@yellowspot/ng-truncate';
+import {TransferHttpCacheModule} from '@nguniversal/common';
+import {TransferHttpService} from '@gorniv/ngx-universal';
 
 
 @NgModule({
@@ -95,7 +97,8 @@ import {TruncateModule} from '@yellowspot/ng-truncate';
     DxTextAreaModule,
     MaterialAngularModule,
     NgxPayPalModule,
-    TruncateModule
+    TruncateModule,
+    TransferHttpCacheModule
   ],
   providers: [
     ArticleService,
@@ -107,7 +110,8 @@ import {TruncateModule} from '@yellowspot/ng-truncate';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }
+    },
+    TransferHttpService
   ],
   bootstrap: [AppComponent]
 })
