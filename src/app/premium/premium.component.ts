@@ -41,7 +41,7 @@ export class PremiumComponent implements OnInit {
           console.log(data);
           this.authService.checkIsPremium();
           this.trackingService.trackStartTrialPremium();
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/profile'], {queryParams: {'intro': 'true'}});
         },
         error => {
           console.log(error);

@@ -4,6 +4,7 @@ import {forkJoin} from 'rxjs';
 import {ArticleService} from '../../articles.service';
 import {error} from '@angular/compiler/src/util';
 import {TrackingService} from '../../../shared/tracking.service';
+import {AuthService} from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-summary',
@@ -15,7 +16,10 @@ export class SummaryComponent implements OnInit {
   isFeedbackSent = false;
   error = '';
   @Input() collapsed: boolean;
-  constructor(private articleService: ArticleService, private trackingService: TrackingService) { }
+  constructor(private articleService: ArticleService,
+              private trackingService: TrackingService,
+              public authService: AuthService
+  ) { }
 
   setLikeToSummarySentence(sentence: SummarySentence) {
     sentence.isLike = !sentence.isLike;

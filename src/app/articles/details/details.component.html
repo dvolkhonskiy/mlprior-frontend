@@ -26,7 +26,7 @@
       {{ article.abstract }}
       <hr>
       <div class="row form-group">
-        <div class="col-sm-10 button-row">
+        <div class="col-sm-8 button-row">
           <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;" (click)="trackingService.trackOpenPDF()" target="_blank">PDF</a>
 
           <button mat-stroked-button *ngIf="!article.in_lib"
@@ -36,10 +36,18 @@
           <button mat-stroked-button *ngIf="article.in_lib"
                   (click)="articleService.addRemoveFromLib(article)" [disabled]="!isAuthenticated" style="font-weight: bold;">Saved</button>
         </div>
-        <div class="col-md-2">
+        <!--<div class="col-md-7">-->
+          <!--<b><a routerLink="/login">Login</a> to like/save this paper, take notes and configure your recommendations</b>-->
+        <!--</div>-->
+        <div class="col-sm-2">
           <app-articlelike [article]="article" [isAuthenticated]="isAuthenticated"></app-articlelike>
         </div>
         <p>
+      </div>
+      <div class="row" *ngIf="!isAuthenticated">
+        <div class="col-sm-10">
+          <b class="text-rose"><a routerLink="/login">Login</a> to like/save this paper, take notes and configure your recommendations</b>
+        </div>
       </div>
     </div>
   </div>
