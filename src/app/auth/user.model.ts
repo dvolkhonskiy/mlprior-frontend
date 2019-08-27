@@ -16,6 +16,7 @@ export class User {
 }
 
 export interface UserProfile {
+  email: string;
   first_name: string;
   second_name: string;
 }

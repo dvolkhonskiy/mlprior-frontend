@@ -174,7 +174,7 @@ export class AuthService implements OnInit, OnDestroy {
   // }
 
   getProfile() {
-    return this.http.get<UserProfile>(this.API_URL_PROFILE);
+    return this.http.get<{'profile': UserProfile}>(this.API_URL_PROFILE);
   }
 
 }

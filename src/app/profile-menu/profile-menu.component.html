@@ -10,7 +10,7 @@
   <div class="col-md-auto ml-auto mr-auto">
     <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist">
       <div class="nav-item dropdown" *ngIf="authService.isAuthenticated">
-        <button mat-raised-button  [matMenuTriggerFor]="menu"><i class="material-icons">person</i>Account</button>
+        <button mat-raised-button  [matMenuTriggerFor]="menu"><i class="material-icons">person</i>{{userName}}</button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="profile">Profile</button>
           <button mat-menu-item (click)="onLogout()">Log out</button>
