@@ -10,7 +10,7 @@ import {UserProfile} from '../auth/user.model';
 })
 export class ProfileMenuComponent implements OnInit, OnDestroy {
   private profile: UserProfile;
-  private userName: string;
+  public userName: string;
 
   constructor(public authService: AuthService) { }
 
