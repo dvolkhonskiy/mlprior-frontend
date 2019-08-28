@@ -54,9 +54,9 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  showPremiumAlert() {
-    this.dialog.open(DialogDataExampleDialog, {});
-  }
+  // showPremiumAlert() {
+  //   this.dialog.open(DialogDataExampleDialog, {});
+  // }
 
   onChange() {
     this.apiService.updateSubscription(this.subscription).subscribe(
@@ -66,10 +66,10 @@ export class ProfileComponent implements OnInit {
 
 }
 
-@Component({
-  selector: 'welcome_dialog',
-  templateUrl: 'welcome_dialog.html',
-})
-export class DialogDataExampleDialog {
-  constructor() {}
-}
+// @Component({
+//   selector: 'welcome_dialog',
+//   templateUrl: 'welcome_dialog.html',
+// })
+// export class DialogDataExampleDialog {
+//   constructor() {}
+// }
