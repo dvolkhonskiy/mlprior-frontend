@@ -1,3 +1,6 @@
-<h3>Articles of {{name}}</h3>
+
+<div class="row">
+  <h3>Articles of <b>{{name}}</b></h3><a routerLink="/login" class="text-rose" *ngIf="!authService.isAuthenticated"><i>Is it you?</i></a>
+</div>
 
 <app-articles-list></app-articles-list>
