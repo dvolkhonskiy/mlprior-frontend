@@ -2,5 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: http://www.mlprior.com/sitemap.xml
-Sitemap: http://www.mlprior.com/sitemap2.xml
+Sitemap: https://www.mlprior.com/sitemaps/sitemapindex.xml
