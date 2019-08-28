@@ -25,7 +25,7 @@ export class AuthorComponent implements OnInit {
   constructor(public articleService: ArticleService,
               public route: ActivatedRoute,
               private router: Router,
-              private authService: AuthService,
+              public authService: AuthService,
               private titleService: Title
   ) { }
 
