@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {APIService} from '../shared/api.service';
 import {NgForm} from '@angular/forms';
+import {LoginDialogService} from '../auth/login-dialog.service';
 
 @Component({
   selector: 'app-landing',
@@ -30,7 +31,10 @@ export class LandingComponent implements OnInit {
   nGitHubs = 0;
   isSuccess = false;
 
-  constructor(private apiService: APIService) { }
+  constructor(
+    private apiService: APIService,
+    public loginDialog: LoginDialogService,
+  ) { }
 
   ngOnInit() {
     this.apiService.getStats().subscribe(

@@ -16,7 +16,7 @@
           <button mat-menu-item (click)="onLogout()">Log out</button>
         </mat-menu>
       </div>
-      <button mat-raised-button color="primary" class="mlprior-primary-button" routerLink="/login" *ngIf="!authService.isAuthenticated">Login</button>
+      <button mat-raised-button color="primary" class="mlprior-primary-button" (click)="loginDialog.openDialog()" *ngIf="!authService.isAuthenticated">Login</button>
     </ul>
   </div>
 </div>

@@ -4,6 +4,8 @@ import {AuthService} from './auth/auth.service';
 import {Title} from '@angular/platform-browser';
 import {filter, mergeMap, map} from 'rxjs/operators';
 import {isPlatformBrowser} from '@angular/common';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {LoginComponent} from './auth/login.component';
 
 
 // import {AuthService} from './_user.service';
@@ -21,6 +23,7 @@ export class AppComponent implements OnInit {
               public authService: AuthService,
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
+
               @Inject(PLATFORM_ID) private platformId
   ) {  }
 
@@ -66,4 +69,6 @@ export class AppComponent implements OnInit {
       || this.router.url.includes('disliked')
     );
   }
+
+
 }

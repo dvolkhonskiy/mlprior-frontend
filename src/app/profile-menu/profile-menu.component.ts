@@ -2,6 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {Subscription} from 'rxjs';
 import {UserProfile} from '../auth/user.model';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {LoginComponent} from '../auth/login.component';
+import {LoginDialogService} from '../auth/login-dialog.service';
 
 @Component({
   selector: 'app-profile-menu',
@@ -12,7 +15,10 @@ export class ProfileMenuComponent implements OnInit, OnDestroy {
   private profile: UserProfile;
   public userName: string;
 
-  constructor(public authService: AuthService) { }
+  constructor(
+    public authService: AuthService,
+    public loginDialog: LoginDialogService,
+  ) { }
 
   ngOnInit() {
 

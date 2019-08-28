@@ -4,6 +4,7 @@ import {APIService} from '../shared/api.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
 import {TrackingService} from '../shared/tracking.service';
+import {LoginDialogService} from '../auth/login-dialog.service';
 
 declare var paypal;
 
@@ -25,7 +26,8 @@ export class PremiumComponent implements OnInit {
   constructor(private apiService: APIService,
               private router: Router,
               private authService: AuthService,
-              private trackingService: TrackingService
+              private trackingService: TrackingService,
+              public loginDialog: LoginDialogService,
   ) { }
 
   product = {
@@ -48,7 +50,7 @@ export class PremiumComponent implements OnInit {
         }
       );
     } else {
-      this.router.navigate(['/', 'login'], {queryParams: {'premium': 'true'}});
+      this.loginDialog.openDialog();
     }
   }
 

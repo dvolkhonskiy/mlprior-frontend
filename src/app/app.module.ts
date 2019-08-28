@@ -48,6 +48,7 @@ import { ProfileComponent } from './auth/profile/profile.component';
 import {TruncateModule} from '@yellowspot/ng-truncate';
 import {TransferHttpCacheModule} from '@nguniversal/common';
 import {TransferHttpService} from '@gorniv/ngx-universal';
+import {LoginDialogService} from './auth/login-dialog.service';
 
 
 @NgModule({
@@ -105,6 +106,7 @@ import {TransferHttpService} from '@gorniv/ngx-universal';
     APIService,
     DashboardDataService,
     AuthService,
+    LoginDialogService,
     TrackingService,
     {
       provide: HTTP_INTERCEPTORS,
@@ -112,6 +114,9 @@ import {TransferHttpService} from '@gorniv/ngx-universal';
       multi: true
     },
     TransferHttpService
+  ],
+  entryComponents: [
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })

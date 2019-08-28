@@ -312,7 +312,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login">
+            <a class="nav-link" (click)="loginDialog.openDialog(['/articles/popular'])">
               Login / SignUp
             </a>
           </li>
@@ -409,7 +409,7 @@
             <i class="fas fa-th-list"></i>
           </div>
           <div class="services-content">
-            <h3><a routerLink="/articles/popular">ArXiv articles</a></h3>
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">ArXiv articles</a></h3>
             <p>We have already indexed {{nArticles}} ArXiv papers from Computer Science...</p>
           </div>
         </div>
@@ -421,8 +421,8 @@
             <i class="fas fa-bookmark"></i>
           </div>
           <div class="services-content">
-            <h3><a routerLink="/login">Personal Library</a></h3>
-            <p>Save interesting papers to your personal library. Take notes. <a routerLink="/login">Login</a> to start using the full range of features</p>
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">Personal Library</a></h3>
+            <p>Save interesting papers to your personal library. Take notes. <a (click)="loginDialog.openDialog(['/articles/popular'])">Login</a> to start using the full range of features</p>
           </div>
         </div>
       </div>
@@ -433,7 +433,7 @@
             <i class="fab fa-medium"></i>
           </div>
           <div class="services-content">
-            <h3><a routerLink="/login">Blog Posts</a></h3>
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">Blog Posts</a></h3>
             <p>We regularly attach blog posts to scientific papers</p>
           </div>
         </div>
@@ -445,7 +445,7 @@
             <i class="fab fa-github"></i>
           </div>
           <div class="services-content">
-            <h3><a routerLink="/login">GitHub repositories<sup>*</sup></a></h3>
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">GitHub repositories<sup>*</sup></a></h3>
             <p>We have already attached {{nGitHubs}} GitHub repositories to corresponding papers</p>
           </div>
         </div>
@@ -457,8 +457,8 @@
             <i class="material-icons">widgets</i>
           </div>
           <div class="services-content">
-            <h3><a routerLink="/login">Recommendation system</a></h3>
-            <p>Use our recommendation system in order to filter out non-relevant articles. <a routerLink="/login">Sign up</a> to configure the system</p>
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">Recommendation system</a></h3>
+            <p>Use our recommendation system in order to filter out non-relevant articles. <a (click)="loginDialog.openDialog(['/articles/popular'])">Sign up</a> to configure the system</p>
           </div>
         </div>
       </div>
@@ -469,7 +469,7 @@
             <i class="material-icons">subtitles</i>
           </div>
           <div class="services-content">
-            <h3><a routerLink="/articles/popular">AI highlighting</a></h3>
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">AI highlighting</a></h3>
             <p>For each paper we created the summary: 5 most important sentences from the article.</p>
           </div>
         </div>

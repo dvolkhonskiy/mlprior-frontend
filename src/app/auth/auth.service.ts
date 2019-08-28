@@ -62,7 +62,6 @@ export class AuthService implements OnInit, OnDestroy {
 
   signUp(firstName: string, secondName: string, email: string, password: string) {
     let data = {user: {email: email, password:  password}};
-    console.log(data);
     return this.http.post<AuthResponseData>(this.API_URL_SIGN_UP, data).pipe(
       tap(
         resData => {
@@ -133,7 +132,6 @@ export class AuthService implements OnInit, OnDestroy {
 
   logout() {
     this.user.next(null);
-    this.router.navigate(['/dashboard']);
     localStorage.removeItem('userData');
     this.trackingService.trackLogOut();
     this._isAuthenticated = false;
