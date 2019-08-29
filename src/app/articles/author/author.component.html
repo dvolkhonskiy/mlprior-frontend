@@ -1,6 +1,6 @@
 
 <div class="row">
-  <h3>Articles of <b>{{name}}</b></h3><a routerLink="/login" class="text-rose" *ngIf="!authService.isAuthenticated"><i>Is it you?</i></a>
+  <h3>Articles of <b>{{name}}</b></h3><a [routerLink]="" (click)="loginDialog.openDialog()" class="text-rose" *ngIf="!authService.isAuthenticated"><i>Is it you?</i></a>
 </div>
 
 <app-articles-list></app-articles-list>

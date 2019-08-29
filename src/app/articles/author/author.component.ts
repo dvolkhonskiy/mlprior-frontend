@@ -5,6 +5,7 @@ import {ArticleService} from '../articles.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {Title} from '@angular/platform-browser';
+import {LoginDialogService} from '../../auth/login-dialog.service';
 
 @Component({
   selector: 'app-author',
@@ -26,7 +27,8 @@ export class AuthorComponent implements OnInit {
               public route: ActivatedRoute,
               private router: Router,
               public authService: AuthService,
-              private titleService: Title
+              private titleService: Title,
+              public loginDialog: LoginDialogService
   ) { }
 
   ngOnInit() {

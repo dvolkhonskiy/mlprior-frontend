@@ -422,7 +422,7 @@
           </div>
           <div class="services-content">
             <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">Personal Library</a></h3>
-            <p>Save interesting papers to your personal library. Take notes. <a (click)="loginDialog.openDialog(['/articles/popular'])">Login</a> to start using the full range of features</p>
+            <p>Save interesting papers to your personal library. Take notes. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Login</a> to start using the full range of features</p>
           </div>
         </div>
       </div>
@@ -445,7 +445,7 @@
             <i class="fab fa-github"></i>
           </div>
           <div class="services-content">
-            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">GitHub repositories<sup>*</sup></a></h3>
+            <h3><a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">GitHub repositories<sup>*</sup></a></h3>
             <p>We have already attached {{nGitHubs}} GitHub repositories to corresponding papers</p>
           </div>
         </div>
@@ -457,8 +457,8 @@
             <i class="material-icons">widgets</i>
           </div>
           <div class="services-content">
-            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">Recommendation system</a></h3>
-            <p>Use our recommendation system in order to filter out non-relevant articles. <a (click)="loginDialog.openDialog(['/articles/popular'])">Sign up</a> to configure the system</p>
+            <h3><a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Recommendation system</a></h3>
+            <p>Use our recommendation system in order to filter out non-relevant articles. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Sign up</a> to configure the system</p>
           </div>
         </div>
       </div>
