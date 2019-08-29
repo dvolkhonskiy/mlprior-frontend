@@ -10,10 +10,15 @@ import { Observable } from 'rxjs';
 import { map, tap, take } from 'rxjs/operators';
 
 import { AuthService } from './auth.service';
+import {LoginDialogService} from './login-dialog.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private loginDialog: LoginDialogService
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -32,8 +37,7 @@ export class AuthGuard implements CanActivate {
         if (isAuth) {
           return true;
         }
-        this.authService.redirectUrl = router.url;
-        return this.router.createUrlTree(['/login']);
+        this.loginDialog.openDialog([router.url]);
       })
     );
   }
