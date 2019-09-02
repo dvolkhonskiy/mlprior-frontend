@@ -44,16 +44,17 @@
         </div>
         <p>
       </div>
-      <div class="row" *ngIf="!isAuthenticated">
-        <div class="col-sm-10">
-          <b class="text-rose"><a routerLink="/login">Login</a> to like/save this paper, take notes and configure your recommendations</b>
-        </div>
-      </div>
     </div>
   </div>
 
   <p></p>
   <app-summary *ngIf="article.summary_sentences && article.summary_sentences.length > 0" [summary]="article.summary_sentences" [collapsed]="true"></app-summary>
+  <p></p>
+  <mat-card *ngIf="!isAuthenticated">
+    <b class="text-rose"><a [routerLink]="" (click)="loginDialog.openDialog()">Login</a> to like/save this paper, take notes and configure your recommendations</b>
+  </mat-card>
+
+
 
   <p></p>
   <!--<div class="col-md-12">-->

@@ -7,6 +7,7 @@ import {Article, ArticleResource} from '../article.model';
 import {Subscription} from 'rxjs';
 import {Title} from '@angular/platform-browser';
 import {TrackingService} from '../../shared/tracking.service';
+import {LoginDialogService} from '../../auth/login-dialog.service';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(private httpClient: HttpClient, private articleService: ArticleService,
               private route: ActivatedRoute, private authService: AuthService, private titleService: Title,
-              private trackingService: TrackingService) {
+              private trackingService: TrackingService, public loginDialog: LoginDialogService) {
   }
 
   onShowRelated() {
