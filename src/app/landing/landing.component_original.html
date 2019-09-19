@@ -1,0 +1,1061 @@
+<!--body class="landing-page sidebar-collapse">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" articleId="sectionsNav">
+  <div class="container">
+    <div class="navbar-translate">
+    </div>
+    <div class="collapse navbar-collapse">
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button class="btn btn-primary" routerLink="/articles/recent">
+            <i class="material-icons">input</i> Enter
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-primary" routerLink="/login" onclick="">
+            <i class="material-icons">person</i> Login
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="page-header header-filter header-background" data-parallax="true">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="title">ML p(r)ior</h1>
+        <h3>Your Research starts here...</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main main-raised">
+  <div class="container">
+    <div class="section text-center">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="title">We help AI researchers to organize their scientific flow:</h2>
+         </div>
+      </div>
+      <div class="features">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="info">
+              <div class="icon icon-info">
+                <i class="fas fa-warehouse"></i>
+              </div>
+              <h4 class="info-title">Warehouse</h4>
+              <p>Storing and recommending <p>research articles
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info">
+              <div class="icon icon-success">
+                <i class="material-icons">library_books</i>
+              </div>
+              <h4 class="info-title">Blog Posts</h4>
+              <p>Connecting scientific papers <p>with corresponding blog posts
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info">
+              <div class="icon icon-success">
+                <i class="fab fa-github"></i>
+              </div>
+              <h4 class="info-title">GitHub Repositories</h4>
+              <p>Connecting scientific papers <p>with corresponding GitHub repositories
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info">
+              <div class="icon icon-danger">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h4 class="info-title">Analysis</h4>
+              <p>Providing AI research analysis: <p>trends, hot topics, articles popularity
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="section text-center">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <h2 class="title">ML p(r)ior stores</h2>
+      </div>
+    </div>
+
+      <div class="container py-md">
+        <div class="row row-grid justify-content-between align-items-center">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="fas fa-th-list"></i>
+            </div>
+            <p class="card-category">Articles</p>
+            <h3 class="card-title">{{ nArticles }}
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i>
+              Added today: n
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">library_books</i>
+            </div>
+            <p class="card-category">Blog Posts</p>
+
+            <h3 class="card-title">{{ nBlogPosts }}
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i>
+              Added today: n
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <p class="card-category">GitHub Repositories</p>
+            <h3 class="card-title">{{ nGitHubs }}
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i>
+              Added today: n
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="section section-shaped">
+      <div class="container py-md">
+        <div class="row row-grid justify-content-between align-items-center">
+          <div class="col-lg-4 col-md-10 ml-auto">
+            <h3 class="title">Storing and recommending research articles
+            </h3>
+            <h4 class="description">We store, analyze and recommend <strong>{{nArticles}} AI research papers</strong>... Log in to use our powerful recomndation system</h4>
+            <div class="btn-wrapper">
+              <a routerLink="/login" class="btn btn-primary">Login Page</a>
+              <a routerLink="/signup" class="btn btn-white">Register Page</a>
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-12 ml-auto">
+            <img src="../../../../assets/img/landing/landing/articles.svg" style="max-height: 350px;" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+
+      <div class="container py-md">
+        <div class="row row-grid justify-content-between align-items-center">
+          <div class="col-lg-7 col-md-12 ml-auto">
+            <img src="../../../../assets/img/landing/landing/blogposts.svg" style="max-height: 350px;" class="img-fluid">
+          </div>
+          <div class="col-lg-4 col-md-10 ml-auto">
+            <h3 class="title">Blogposts and GitHub
+            </h3>
+            <h4 class="description">Quickly find Blog Posts and GitHub Repositories related to scientific papers. We store <strong>{{nBlogPosts}} Blog Posts</strong> ans <strong>{{nGitHubs}} GitHub Repositories</strong></h4>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section">
+
+      <div class="container py-md">
+        <div class="row row-grid justify-content-between align-items-center">
+
+          <div class="col-lg-4 col-md-10 ml-auto">
+            <h3 class="title">Study latest AI trends
+            </h3>
+            <h4 class="description">Use our beautiful interactive visualizations for discovering AI research world</h4>
+          </div>
+          <div class="col-lg-7 col-md-12 ml-auto">
+            <img src="../../../../assets/img/landing/landing/analytics.svg" style="max-height: 350px;" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="section section-contacts">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="text-center title">Subscribe to our news</h2>
+          <form #subscribeForm="ngForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating"><strong>Your Name</strong></label>
+                  <input type="text"
+                         articleId="name"
+                         class="form-control"
+                         ngModel
+                         name="name"
+                         required
+                         placeholder="My name is ML p(r)ior! What is you name?">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating"><strong>Your Email</strong></label>
+                  <input type="email"
+                         articleId="email"
+                         class="form-control"
+                         ngModel
+                         name="email"
+                         required
+                         placeholder="Email...">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleMessage" class="bmd-label-floating"><strong>Comment? Suggestion?</strong></label>
+              <textarea type="text"
+                        articleId="text"
+                        class="form-control"
+                        ngModel
+                        name="text"
+                        placeholder="Type here..."></textarea>
+            </div>
+            <div class="row">
+              <div class="col-md-4 ml-auto mr-auto text-center">
+                <button class="btn btn-primary btn-raised" (click)="onSubmit(subscribeForm)">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+            <div class="row" *ngIf="isSuccess">
+              <div class="col-md-4 ml-auto mr-auto text-center">
+                Your message was successfully sent. Thank you friend!
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer footer-default">
+  <div class="container">
+    <div class="copyright float-right">
+      &copy;
+      <script>
+        document.write(new Date().getFullYear())
+      </script>, ML p(r)ior
+    </div>
+  </div>
+</footer>
+</body-->
+
+
+<body>
+
+<!-- Header Area wrapper Starts -->
+<header id="header-wrap">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <a routerLink="/" class="navbar-brand"><img height="50" src="../../assets/img/logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="lni-menu"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/dashboard">
+              Home
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/dashboard">
+              <span class="text-danger">Premium</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/articles/popular">
+              Articles
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="loginDialog.openDialog(['/articles/popular'])">
+              Login / SignUp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Hero Area Start -->
+  <div id="hero-area" class="hero-area-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="contents text-center">
+            <h2 class="head-title wow fadeInUp">Personal assistant for researchers</h2>
+            <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
+              <a routerLink="/articles/popular" class="btn btn-common">Start</a>
+            </div>
+          </div>
+          <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
+            <img class="img-fluid" src="../../assets/landing/img/hero-1.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hero Area End -->
+
+</header>
+<!-- Header Area wrapper End -->
+
+<!-- Feature Section Start -->
+<div id="feature">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="text-wrapper">
+          <div>
+            <h2 class="title-hl wow fadeInLeft" data-wow-delay="0.3s">We help you find and read <br> scientific papers faster.</h2>
+            <p class="mb-4">Our AI-based algorithms selects only relevant scientific papers and summarize them into 5 sentences</p>
+            <!--<a href="#" class="btn btn-common">More About Us</a>-->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 padding-none feature-bg">
+        <div class="feature-thumb">
+          <div class="feature-item wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="icon">
+              <i class="material-icons">widgets</i>
+            </div>
+            <div class="feature-content">
+              <h3>Select</h3>
+              <p>AI-based recommendation system selects papers specially for you</p>
+            </div>
+          </div>
+          <div class="feature-item wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+            <div class="icon">
+              <i class="material-icons">subtitles</i>
+            </div>
+            <div class="feature-content">
+              <h3>Summarize</h3>
+              <p>AI-based summarization algorithm compress the whole article into 5 sentences.</p>
+            </div>
+          </div>
+          <div class="feature-item wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="700ms">
+            <div class="icon">
+              <i class="material-icons">dvr</i>
+            </div>
+            <div class="feature-content">
+              <h3>Read in 1 min</h3>
+              <p>Forget "one hour per paper" reading. Enjoy automatic highlights</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Feature Section End -->
+
+<!-- Services Section Start -->
+<section id="services" class="section-padding bg-gray">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Our Features</h2>
+      <p>Made by researchers for researchers</p>
+    </div>
+    <div class="row">
+      <!-- Services item -->
+      <div class="col-md-6 col-lg-4 col-xs-12">
+        <div class="services-item wow fadeInRight" data-wow-delay="0.3s">
+          <div class="icon">
+            <i class="fas fa-th-list"></i>
+          </div>
+          <div class="services-content">
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">ArXiv articles</a></h3>
+            <p>We have already indexed {{nArticles}} ArXiv papers from Computer Science...</p>
+          </div>
+        </div>
+      </div>
+      <!-- Services item -->
+      <div class="col-md-6 col-lg-4 col-xs-12">
+        <div class="services-item wow fadeInRight" data-wow-delay="0.6s">
+          <div class="icon">
+            <i class="fas fa-bookmark"></i>
+          </div>
+          <div class="services-content">
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">Personal Library</a></h3>
+            <p>Save interesting papers to your personal library. Take notes. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Login</a> to start using the full range of features</p>
+          </div>
+        </div>
+      </div>
+      <!-- Services item -->
+      <div class="col-md-6 col-lg-4 col-xs-12">
+        <div class="services-item wow fadeInRight" data-wow-delay="0.9s">
+          <div class="icon">
+            <i class="fab fa-medium"></i>
+          </div>
+          <div class="services-content">
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">Blog Posts</a></h3>
+            <p>We regularly attach blog posts to scientific papers</p>
+          </div>
+        </div>
+      </div>
+      <!-- Services item -->
+      <div class="col-md-6 col-lg-4 col-xs-12">
+        <div class="services-item wow fadeInRight" data-wow-delay="1.2s">
+          <div class="icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="services-content">
+            <h3><a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">GitHub repositories<sup>*</sup></a></h3>
+            <p>We have already attached {{nGitHubs}} GitHub repositories to corresponding papers</p>
+          </div>
+        </div>
+      </div>
+      <!-- Services item -->
+      <div class="col-md-6 col-lg-4 col-xs-12">
+        <div class="services-item wow fadeInRight" data-wow-delay="1.5s">
+          <div class="icon">
+            <i class="material-icons">widgets</i>
+          </div>
+          <div class="services-content">
+            <h3><a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Recommendation system</a></h3>
+            <p>Use our recommendation system in order to filter out non-relevant articles. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Sign up</a> to configure the system</p>
+          </div>
+        </div>
+      </div>
+      <!-- Services item -->
+      <div class="col-md-6 col-lg-4 col-xs-12">
+        <div class="services-item wow fadeInRight" data-wow-delay="1.8s">
+          <div class="icon">
+            <i class="material-icons">subtitles</i>
+          </div>
+          <div class="services-content">
+            <h3><a (click)="loginDialog.openDialog(['/articles/popular'])">AI highlighting</a></h3>
+            <p>For each paper we created the summary: 5 most important sentences from the article.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Services Section End -->
+
+<!-- Start Video promo Section -->
+<!--<section class="video-promo section-padding">-->
+  <!--<div class="overlay"></div>-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-12 col-sm-12">-->
+        <!--<div class="video-promo-content text-center wow fadeInUp" data-wow-delay="0.3s">-->
+          <!--<a href="https://www.youtube.com/watch?v=yP6kdOZHids" class="video-popup"><i class="lni-film-play"></i></a>-->
+          <!--<h2 class="mt-3 wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Watch Video</h2>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->
+<!-- End Video Promo Section -->
+
+<!-- Team Section Start -->
+<!--<section articleId="team" class="section-padding text-center">-->
+  <!--<div class="container">-->
+    <!--<div class="section-header text-center">-->
+      <!--<h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Meet our team</h2>-->
+      <!--<p>A desire to help and empower others between community contributors in technology <br> began to grow in 2020.</p>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-6 col-md-6 col-lg-3">-->
+        <!--&lt;!&ndash; Team Item Starts &ndash;&gt;-->
+        <!--<div class="team-item text-center wow fadeInRight" data-wow-delay="0.3s">-->
+          <!--<div class="team-img">-->
+            <!--<img class="img-fluid" src="../../assets/img/landing/team/team-01.png" alt="">-->
+            <!--<div class="team-overlay">-->
+              <!--<div class="overlay-social-icon text-center">-->
+                <!--<ul class="social-icons">-->
+                  <!--<li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="info-text">-->
+            <!--<h3><a href="#">David Smith</a></h3>-->
+            <!--<p>Chief Operating Officer</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Team Item Ends &ndash;&gt;-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-md-6 col-lg-3">-->
+        <!--&lt;!&ndash; Team Item Starts &ndash;&gt;-->
+        <!--<div class="team-item text-center wow fadeInRight" data-wow-delay="0.6s">-->
+          <!--<div class="team-img">-->
+            <!--<img class="img-fluid" src="../../assets/img/landing/team/team-02.png" alt="">-->
+            <!--<div class="team-overlay">-->
+              <!--<div class="overlay-social-icon text-center">-->
+                <!--<ul class="social-icons">-->
+                  <!--<li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="info-text">-->
+            <!--<h3><a href="#">Eric Peterson</a></h3>-->
+            <!--<p>Product Designer</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Team Item Ends &ndash;&gt;-->
+      <!--</div>-->
+
+      <!--<div class="col-sm-6 col-md-6 col-lg-3">-->
+        <!--&lt;!&ndash; Team Item Starts &ndash;&gt;-->
+        <!--<div class="team-item text-center wow fadeInRight" data-wow-delay="0.9s">-->
+          <!--<div class="team-img">-->
+            <!--<img class="img-fluid" src="../../assets/img/landing/team/team-03.png" alt="">-->
+            <!--<div class="team-overlay">-->
+              <!--<div class="overlay-social-icon text-center">-->
+                <!--<ul class="social-icons">-->
+                  <!--<li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="info-text">-->
+            <!--<h3><a href="#">Durwin Babb</a></h3>-->
+            <!--<p>Lead Designer</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Team Item Ends &ndash;&gt;-->
+      <!--</div>-->
+
+      <!--<div class="col-sm-6 col-md-6 col-lg-3">-->
+        <!--&lt;!&ndash; Team Item Starts &ndash;&gt;-->
+        <!--<div class="team-item text-center wow fadeInRight" data-wow-delay="1.2s">-->
+          <!--<div class="team-img">-->
+            <!--<img class="img-fluid" src="../../assets/img/landing/team/team-04.png" alt="">-->
+            <!--<div class="team-overlay">-->
+              <!--<div class="overlay-social-icon text-center">-->
+                <!--<ul class="social-icons">-->
+                  <!--<li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>-->
+                  <!--<li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="info-text">-->
+            <!--<h3><a href="#">Marijn Otte</a></h3>-->
+            <!--<p>Front-end Developer</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Team Item Ends &ndash;&gt;-->
+      <!--</div>-->
+
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->
+<!--&lt;!&ndash; Team Section End &ndash;&gt;-->
+
+<!-- Counter Section Start -->
+<section id="counter" class="section-padding">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-12 col-md-12 col-xs-12">
+        <div class="row">
+          <!-- Start counter -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon-o"><i class="fas fa-th-list"></i></div>
+              <div class="fact-count">
+                <h3><span class="counter">{{nArticles}}</span></h3>
+                <p>Articles</p>
+              </div>
+            </div>
+          </div>
+          <!-- End counter -->
+          <!-- Start counter -->
+          <!--<div class="col-lg-3 col-md-6 col-xs-12">-->
+            <!--<div class="counter-box wow fadeInUp" data-wow-delay="0.4s">-->
+              <!--<div class="icon-o"><i class="lni-emoji-smile"></i></div>-->
+              <!--<div class="fact-count">-->
+                <!--<h3><span class="counter">2124</span></h3>-->
+                <!--<p></p>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!-- End counter -->
+          <!-- Start counter -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="counter-box wow fadeInUp" data-wow-delay="0.6s">
+              <div class="icon-o"><i class="fab fa-medium"></i></div>
+              <div class="fact-count">
+                <h3><span class="counter">{{nBlogPosts}}</span></h3>
+                <p>Blog Posts</p>
+              </div>
+            </div>
+          </div>
+          <!-- End counter -->
+          <!-- Start counter -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="counter-box wow fadeInUp" data-wow-delay="0.8s">
+              <div class="icon-o"><i class="fab fa-github"></i></div>
+              <div class="fact-count">
+                <h3><span class="counter">{{nGitHubs}}</span></h3>
+                <p>GitHubs</p>
+              </div>
+            </div>
+          </div>
+          <!-- End counter -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Counter Section End -->
+
+<!-- Pricing section Start -->
+<!--<section articleId="premium" class="section-padding bg-gray">-->
+  <!--<div class="container">-->
+    <!--<div class="section-header text-center">-->
+      <!--<h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Best Pricing</h2>-->
+      <!--<p>A desire to help and empower others between community contributors in technology <br> began to grow in 2020.</p>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12">-->
+        <!--<div class="table wow fadeInLeft" data-wow-delay="1.2s">-->
+          <!--<div class="title">-->
+            <!--<h3>Basic</h3>-->
+          <!--</div>-->
+          <!--<div class="premium-header">-->
+            <!--<p class="price-value">$12.90<span>/ Month</span></p>-->
+          <!--</div>-->
+          <!--<ul class="description">-->
+            <!--<li>Business Analyzing</li>-->
+            <!--<li>24/7 Tech Suport</li>-->
+            <!--<li>Operational Excellence</li>-->
+            <!--<li>Business Idea Ready</li>-->
+            <!--<li>2 Database</li>-->
+            <!--<li>Customer Support</li>-->
+          <!--</ul>-->
+          <!--<button class="btn btn-common">Get It</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12 active">-->
+        <!--<div class="table wow fadeInUp" articleId="active-tb" data-wow-delay="1.2s">-->
+          <!--<div class="title">-->
+            <!--<h3>Profesional</h3>-->
+          <!--</div>-->
+          <!--<div class="premium-header">-->
+            <!--<p class="price-value">$49.90<span>/ Month</span></p>-->
+          <!--</div>-->
+          <!--<ul class="description">-->
+            <!--<li>Business Analyzing</li>-->
+            <!--<li>24/7 Tech Suport</li>-->
+            <!--<li>Operational Excellence</li>-->
+            <!--<li>Business Idea Ready</li>-->
+            <!--<li>2 Database</li>-->
+            <!--<li>Customer Support</li>-->
+          <!--</ul>-->
+          <!--<button class="btn btn-common">Get It</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12">-->
+        <!--<div class="table wow fadeInRight" data-wow-delay="1.2s">-->
+          <!--<div class="title">-->
+            <!--<h3>Expert</h3>-->
+          <!--</div>-->
+          <!--<div class="premium-header">-->
+            <!--<p class="price-value">$89.90<span>/ Month</span></p>-->
+          <!--</div>-->
+          <!--<ul class="description">-->
+            <!--<li>Business Analyzing</li>-->
+            <!--<li>24/7 Tech Suport</li>-->
+            <!--<li>Operational Excellence</li>-->
+            <!--<li>Business Idea Ready</li>-->
+            <!--<li>2 Database</li>-->
+            <!--<li>Customer Support</li>-->
+          <!--</ul>-->
+          <!--<button class="btn btn-common">Get It</button>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->
+<!-- Pricing Table Section End -->
+
+<!--<div class="skill-area section-padding">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-lg-6 col-md-12 col-xs-12 wow fadeInLeft" data-wow-delay="0.3s">-->
+        <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/JWm8MZC1ggA?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+      <!--</div>-->
+      <!--<div class="col-lg-6 col-md-12 col-xs-12 info wow fadeInRight" data-wow-delay="0.3s">-->
+        <!--<div class="site-heading">-->
+          <!--<h2 class="section-title">Our <span>Skill</span></h2>-->
+          <!--<p>-->
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus architecto laudantium dolorem, aut aspernatur modi minima alias provident obcaecati! Minima odio porro nemo magnam dolore minus asperiores veniam dolorum est!-->
+          <!--</p>-->
+          <!--<p>-->
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, nesciunt possimus quaerat ipsam, corporis architecto aspernatur non aut! Dolorum consectetur placeat excepturi, perspiciatis sunt.-->
+          <!--</p>-->
+        <!--</div>-->
+        <!--<div class="skills-section">-->
+          <!--&lt;!&ndash; Progress Bar Start &ndash;&gt;-->
+          <!--<div class="progress-box">-->
+            <!--<h5>Strategy &amp; Analysis <span class="pull-right">88%</span></h5>-->
+            <!--<div class="progress" style="opacity: 1; left: 0px;">-->
+              <!--<div class="progress-bar" role="progressbar" data-width="87" style="width: 87%;"></div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="progress-box">-->
+            <!--<h5>Eeconomic growth <span class="pull-right">95%</span></h5>-->
+            <!--<div class="progress" style="opacity: 1; left: 0px;">-->
+              <!--<div class="progress-bar" role="progressbar" data-width="96" style="width: 96%;"></div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="progress-box">-->
+            <!--<h5>Achieves goals <span class="pull-right">70%</span></h5>-->
+            <!--<div class="progress" style="opacity: 1; left: 0px;">-->
+              <!--<div class="progress-bar" role="progressbar" data-width="52" style="width: 52%;"></div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; End Progressbar &ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!-- Portfolio Section -->
+<!--<section articleId="portfolios" class="section-padding">-->
+  <!--&lt;!&ndash; Container Starts &ndash;&gt;-->
+  <!--<div class="container">-->
+    <!--<div class="section-header text-center">-->
+      <!--<h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Our Works</h2>-->
+      <!--<p>A desire to help and empower others between community contributors in technology <br> began to grow in 2020.</p>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--&lt;!&ndash; Portfolio Controller/Buttons &ndash;&gt;-->
+        <!--<div class="controls text-center">-->
+          <!--<a class="filter active btn btn-common btn-effect" data-filter="all">-->
+            <!--All-->
+          <!--</a>-->
+          <!--<a class="filter btn btn-common btn-effect" data-filter=".design">-->
+            <!--Design-->
+          <!--</a>-->
+          <!--<a class="filter btn btn-common btn-effect" data-filter=".development">-->
+            <!--Development-->
+          <!--</a>-->
+          <!--<a class="filter btn btn-common btn-effect" data-filter=".print">-->
+            <!--Print-->
+          <!--</a>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Portfolio Controller/Buttons Ends&ndash;&gt;-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; Portfolio Recent Projects &ndash;&gt;-->
+    <!--<div articleId="portfolio" class="row">-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12 mix development print">-->
+        <!--<div class="portfolio-item">-->
+          <!--<div class="shot-item">-->
+            <!--<img src="../../assets/landing/img/landing/portfolio/img-1.jpg" alt="" />-->
+            <!--<div class="single-content">-->
+              <!--<div class="fancy-table">-->
+                <!--<div class="table-cell">-->
+                  <!--<div class="zoom-icon">-->
+                    <!--<a class="lightbox" href="../../assets/landing/img/landing/portfolio/img-1.jpg"><i class="lni-eye item-icon"></i></a>-->
+                  <!--</div>-->
+                  <!--<a href="#">Creative Design</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12 mix design print">-->
+        <!--<div class="portfolio-item">-->
+          <!--<div class="shot-item">-->
+            <!--<img src="../../assets/landing/img/landing/portfolio/img-2.jpg" alt="" />-->
+            <!--<div class="single-content">-->
+              <!--<div class="fancy-table">-->
+                <!--<div class="table-cell">-->
+                  <!--<div class="zoom-icon">-->
+                    <!--<a class="lightbox" href="../../assets/landing/img/landing/portfolio/img-2.jpg"><i class="lni-eye item-icon"></i></a>-->
+                  <!--</div>-->
+                  <!--<a href="#">Retina Ready</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12 mix development">-->
+        <!--<div class="portfolio-item">-->
+          <!--<div class="shot-item">-->
+            <!--<img src="../../assets/landing/img/landing/portfolio/img-3.jpg" alt="" />-->
+            <!--<div class="single-content">-->
+              <!--<div class="fancy-table">-->
+                <!--<div class="table-cell">-->
+                  <!--<div class="zoom-icon">-->
+                    <!--<a class="lightbox" href="../../assets/landing/img/landing/portfolio/img-3.jpg"><i class="lni-eye item-icon"></i></a>-->
+                  <!--</div>-->
+                  <!--<a href="#">Responsive</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12 mix development design">-->
+        <!--<div class="portfolio-item">-->
+          <!--<div class="shot-item">-->
+            <!--<img src="../../assets/landing/img/landing/portfolio/img-4.jpg" alt="" />-->
+            <!--<div class="single-content">-->
+              <!--<div class="fancy-table">-->
+                <!--<div class="table-cell">-->
+                  <!--<div class="zoom-icon">-->
+                    <!--<a class="lightbox" href="../../assets/landing/img/landing/portfolio/img-4.jpg"><i class="lni-eye item-icon"></i></a>-->
+                  <!--</div>-->
+                  <!--<a href="#">Well Documented</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12 mix development">-->
+        <!--<div class="portfolio-item">-->
+          <!--<div class="shot-item">-->
+            <!--<img src="../../assets/landing/img/landing/portfolio/img-5.jpg" alt="" />-->
+            <!--<div class="single-content">-->
+              <!--<div class="fancy-table">-->
+                <!--<div class="table-cell">-->
+                  <!--<div class="zoom-icon">-->
+                    <!--<a class="lightbox" href="../../assets/landing/img/landing/portfolio/img-5.jpg"><i class="lni-eye item-icon"></i></a>-->
+                  <!--</div>-->
+                  <!--<a href="#">Customer Support</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-xs-12 mix print design">-->
+        <!--<div class="portfolio-item">-->
+          <!--<div class="shot-item">-->
+            <!--<img src="../../assets/landing/img/landing/portfolio/img-6.jpg" alt="" />-->
+            <!--<div class="single-content">-->
+              <!--<div class="fancy-table">-->
+                <!--<div class="table-cell">-->
+                  <!--<div class="zoom-icon">-->
+                    <!--<a class="lightbox" href="../../assets/landing/img/landing/portfolio/img-6.jpg"><i class="lni-eye item-icon"></i></a>-->
+                  <!--</div>-->
+                  <!--<a href="#">User Friendly</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--&lt;!&ndash; Container Ends &ndash;&gt;-->
+<!--</section>-->
+<!-- Portfolio Section Ends -->
+
+
+
+
+
+<!-- Contact Section Start -->
+<section id="contact" class="section-padding">
+  <div class="container">
+    <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">
+      <div class="col-md-6 col-lg-6 col-sm-12">
+        <div class="contact-block">
+          <form #subscribeForm="ngForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating"><strong>Your Name</strong></label>
+                  <input type="text"
+                         id="name"
+                         class="form-control"
+                         ngModel
+                         name="name"
+                         required
+                         placeholder="Name...">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating"><strong>Your Email</strong></label>
+                  <input type="email"
+                         id="email"
+                         class="form-control"
+                         ngModel
+                         name="email"
+                         required
+                         placeholder="Email...">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleMessage" class="bmd-label-floating"><strong>Tell us something</strong></label>
+              <textarea type="text"
+                        id="text"
+                        class="form-control"
+                        ngModel
+                        name="text"
+                        placeholder="Type here..."></textarea>
+            </div>
+            <div class="row">
+              <div class="col-md-4 ml-auto mr-auto text-center">
+                <button class="btn btn-primary btn-raised" (click)="onSubmit(subscribeForm)">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+            <div class="row" *ngIf="isSuccess">
+              <div class="col-md-4 ml-auto mr-auto text-center">
+                Your message was successfully sent. Thank you friend!
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12">
+        <div class="contact-right-area wow fadeIn">
+          <div class="contact-title">
+            <h1>Subscribe to our updates</h1>
+            <p>Or just write your feedback</p>
+          </div>
+          <h2>Contact Us</h2>
+          <div class="contact-right">
+            <!--<div class="single-contact">-->
+              <!--<div class="contact-icon">-->
+                <!--<i class="lni-map-marker"></i>-->
+              <!--</div>-->
+              <!--<p>ADDRESS: 28 Green Tower, New York City, USA</p>-->
+            <!--</div>-->
+            <div class="single-contact">
+              <div class="contact-icon">
+                <i class="material-icons">mail</i>
+              </div>
+              <p><a href="#">Email:  mlpriorcom@gmail.com</a></p>
+            </div>
+            <!--<div class="single-contact">-->
+              <!--<div class="contact-icon">-->
+                <!--<i class="lni-phone-handset"></i>-->
+              <!--</div>-->
+              <!--<p><a href="#">Phone:  +84 846 250 592</a></p>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact Section End -->
+
+<!-- Copyright Section Start -->
+<div class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-3 col-xs-12">
+        <div class="footer-logo">
+          <!--<img src="../../assets/img/logo.png" alt="" height="50">-->
+          Code repositories from <a href="https://paperswithcode.com">paperswithcode.com</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-12">
+        <div class="social-icon text-center">
+          <a class="twitter" href="http://twitter.com/mlprior_com"><i class="fab fa-twitter"></i></a>
+          <a class="twitter" href="http://t-do.ru/mlprior"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5 col-xs-12">
+        <p class="float-right">This page was Designed and Developed by <a href="http://uideck.com" rel="nofollow">UIdeck</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Copyright Section End -->
+
+<!-- Go to Top Link -->
+<a href="#" class="back-to-top">
+  <i class="lni-arrow-up"></i>
+</a>
+
+<!-- Preloader -->
+<!--<div articleId="preloader">-->
+  <!--<div class="loader" articleId="loader-1"></div>-->
+<!--</div>-->
+<!-- End Preloader -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="../../assets/landing/js/jquery-min.js"></script>-->
+<!--<script src="../../assets/landing/js/popper.min.js"></script>-->
+<!--<script src="../../assets/landing/js/bootstrap.min.js"></script>-->
+<!--<script src="../../assets/landing/js/owl.carousel.min.js"></script>-->
+<!--<script src="../../assets/landing/js/jquery.mixitup.js"></script>-->
+<!--<script src="../../assets/landing/js/wow.js"></script>-->
+<!--<script src="../../assets/landing/js/jquery.nav.js"></script>-->
+<!--<script src="../../assets/landing/js/scrolling-nav.js"></script>-->
+<!--<script src="../../assets/landing/js/jquery.easing.min.js"></script>-->
+<!--<script src="../../assets/landing/js/jquery.counterup.min.js"></script>-->
+<!--<script src="../../assets/landing/js/nivo-lightbox.js"></script>-->
+<!--<script src="../../assets/landing/js/jquery.magnific-popup.min.js"></script>-->
+<!--<script src="../../assets/landing/js/waypoints.min.js"></script>-->
+<!--<script src="../../assets/landing/js/jquery.slicknav.js"></script>-->
+<!--<script src="../../assets/landing/js/landing.js"></script>-->
+<!--<script src="../../assets/landing/js/form-validator.min.js"></script>-->
+<!--<script src="../../assets/landing/js/contact-form-script.min.js"></script>-->
+
+</body>

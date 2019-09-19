@@ -2,14 +2,18 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {APIService} from '../shared/api.service';
 import {NgForm} from '@angular/forms';
 import {LoginDialogService} from '../auth/login-dialog.service';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {RequestDemoComponent} from './request-demo/request-demo.component';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: [
     // '../../assets/css/style.css',
-    // './landing.component.css',
+    './landing.component.css',
 
+    '../../../node_modules/material-design-icons/iconfont/material-icons.css',
 
     '../../assets/landing/css/bootstrap.min.css',
     '../../assets/landing/css/slicknav.css',
@@ -34,6 +38,7 @@ export class LandingComponent implements OnInit {
   constructor(
     private apiService: APIService,
     public loginDialog: LoginDialogService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -93,5 +98,22 @@ export class LandingComponent implements OnInit {
       }
     );
     form.reset();
+  }
+
+  openDialog(next?: any[]) {
+    // if (this.dialog.getDialogById())/
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '500px';
+    dialogConfig.id = 'requestDemo';
+    dialogConfig.data = {};
+
+    this.dialog.open(RequestDemoComponent, dialogConfig);
+  }
+
+  closeDialogWindow() {
+    this.dialog.getDialogById('requestDemo').close();
   }
 }

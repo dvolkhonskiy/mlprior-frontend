@@ -9,7 +9,7 @@ import {LoginDialogService} from '../auth/login-dialog.service';
 declare var paypal;
 
 @Component({
-  selector: 'app-pricing',
+  selector: 'app-premium',
   templateUrl: './premium.component.html',
   styleUrls: ['./premium.component.css']
 })

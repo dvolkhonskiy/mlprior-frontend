@@ -49,6 +49,9 @@ import {TruncateModule} from '@yellowspot/ng-truncate';
 import {TransferHttpCacheModule} from '@nguniversal/common';
 import {TransferHttpService} from '@gorniv/ngx-universal';
 import {LoginDialogService} from './auth/login-dialog.service';
+import { FileUploadComponent } from './landing/file-upload/file-upload.component';
+import { PricingComponent } from './landing/pricing/pricing.component';
+import { RequestDemoComponent } from './landing/request-demo/request-demo.component';
 
 
 @NgModule({
@@ -82,7 +85,10 @@ import {LoginDialogService} from './auth/login-dialog.service';
     ArticlesListComponent,
     SearchComponent,
     FiltersComponent,
-    ProfileComponent
+    ProfileComponent,
+    FileUploadComponent,
+    PricingComponent,
+    RequestDemoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -116,7 +122,8 @@ import {LoginDialogService} from './auth/login-dialog.service';
     TransferHttpService
   ],
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    RequestDemoComponent
   ],
   bootstrap: [AppComponent]
 })

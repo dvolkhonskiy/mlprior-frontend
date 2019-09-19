@@ -1,5 +1,5 @@
 import {Component, OnInit, Inject, PLATFORM_ID} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
+import {ActivatedRoute, ExtraOptions, NavigationEnd, Route, Router, RouterModule} from '@angular/router';
 import {AuthService} from './auth/auth.service';
 import {Title} from '@angular/platform-browser';
 import {filter, mergeMap, map} from 'rxjs/operators';
@@ -13,7 +13,10 @@ import {LoginComponent} from './auth/login.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [
+    './app.component.css',
+    '../../node_modules/material-design-icons/iconfont/material-icons.css',
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'mlprior-frontend';

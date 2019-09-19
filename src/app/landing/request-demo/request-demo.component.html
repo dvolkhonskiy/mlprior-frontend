@@ -1,0 +1,70 @@
+
+<div class="row align-items-center">
+  <!--<div class="col-lg-6 col-md-8 col-sm-8 ml-auto mr-auto mt-auto ">-->
+  <div *ngIf="isLoading" style="text-align: center;">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="card card-login" *ngIf="!isLoading">
+    <form #authForm="ngForm" *ngIf="!isLoading">
+      <div class="card-body ">
+        <h4>Select you feature of interest:</h4>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="favoriteFeature">
+          <mat-radio-button color="primary" class="example-radio-button" *ngFor="let feature of features" [value]="feature">
+            {{feature}}
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <h3 class="card-description text-center">Leave your contacts. We will contact you soon</h3>
+
+        <div class="form-group has-default bmd-form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">perm_identity</i>
+                            </span>
+            </div>
+            <input type="text"
+                   id="firstName"
+                   class="form-control"
+                   ngModel
+                   name="firstName"
+                   required
+                   placeholder="You first name...">
+            <span class="text-rose" *ngFor="let error of errors.firstName"><br/>
+              {{ error }}</span>
+          </div>
+        </div>
+        <div class="form-group has-default bmd-form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">mail</i>
+                            </span>
+            </div>
+            <input type="email"
+                   id="email"
+                   class="form-control"
+                   ngModel
+                   name="email"
+                   required
+                   placeholder="Email...">
+          </div>
+          <span class="text-rose" *ngFor="let error of errors.email"><br/>
+            {{ error }}</span>
+        </div>
+        <span class="text-rose" *ngFor="let error of errors.error">{{ error }}<br/></span>
+
+      </div>
+      <div class="card-footer justify-content-center">
+        <button mat-raised-button color="primary" (click)="onSubmit(authForm)">Submit</button>
+        <!--<button class="btn btn-primary btn-user btn-block" (click)="onSubmit(authForm)">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button>-->
+      </div>
+    </form>
+  </div>
+</div>
+
+
