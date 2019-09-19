@@ -10,6 +10,7 @@ export class RequestDemoComponent implements OnInit {
   public errors: any = [];
   favoriteFeature: string;
   features: string[] = ['Citation suggestions', 'Formulas analysis', 'Scientific Writing', 'Acceptance Prediction'];
+  isLoading = false;
 
   constructor() { }
 
