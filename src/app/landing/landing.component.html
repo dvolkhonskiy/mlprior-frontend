@@ -14,25 +14,25 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
           <li class="nav-item active">
-            <a class="nav-link" routerLink="/dashboard">
-              Home
+            <a [routerLink]="" (click)="openDialog()" class="nav-link">
+              Request Demo
             </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/dashboard">
-              <span class="text-danger">Premium</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/articles/popular">
-              Articles
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="loginDialog.openDialog(['/articles/popular'])">
-              Login / SignUp
-            </a>
-          </li>
+          <!--<li class="nav-item active">-->
+            <!--<a class="nav-link" routerLink="/dashboard">-->
+              <!--<span class="text-danger">Premium</span>-->
+            <!--</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link" routerLink="/articles/popular">-->
+              <!--Articles-->
+            <!--</a>-->
+          <!--</li>-->
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link" (click)="loginDialog.openDialog(['/articles/popular'])">-->
+              <!--Login / SignUp-->
+            <!--</a>-->
+          <!--</li>-->
         </ul>
       </div>
     </div>
@@ -46,9 +46,9 @@
         <div class="col-md-12 col-sm-12">
           <div class="contents text-center">
             <h2 class="head-title wow fadeInUp">Scientific writing assistant</h2>
-            <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
-              <a [routerLink]="" (click)="openDialog()" class="btn btn-common">Start</a>
-            </div>
+            <!--<div class="header-button wow fadeInUp" data-wow-delay="0.3s">-->
+              <!--<a [routerLink]="" (click)="openDialog()" class="btn btn-common">Start</a>-->
+            <!--</div>-->
           </div>
           <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
             <!--<img class="img-fluid" src="../../assets/landing/img/hero-1.png" alt="">-->
@@ -70,8 +70,8 @@
       <div class="col-lg-6 col-md-12 col-sm-12">
         <div class="text-wrapper">
           <div>
-            <h2 class="title-hl wow fadeInLeft" data-wow-delay="0.3s">Analyse your scientific paper and increase the probability of acceptance</h2>
-            <p class="mb-4">Want your work to be accepted? </p>
+            <h2 class="title-hl wow fadeInLeft" data-wow-delay="0.3s">Spend time researching, not editing!</h2>
+            <h5 class="mb-4">Do impactful research</h5>
             <!--<a href="#" class="btn btn-common">More About Us</a>-->
           </div>
         </div>
@@ -113,17 +113,17 @@
 <!-- Feature Section End -->
 <section id="" class="section-padding bg-gray">
   <div class="container">
-<div class="row">
+<div class="row align-items-center">
 
-  <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
+  <div class="col-lg-8 col-md-12 pl-0 pt-70 pr-5">
     <div class="business-item-img">
       <img class="peerly" src="../../assets/landing/img/literature.png" style="box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);">
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 pl-4">
+  <div class="col-lg-4 col-md-12 pl-4">
     <div class="business-item-info">
       <a [routerLink]="" (click)="openDialog()"><h3>Don't miss citations</h3></a>
-      <p>ML prior suggests references you forgot to include to article</p>
+      <h5>ML prior suggests references you forgot to include to article</h5>
       <!--<a class="btn btn-common" href="#">download</a>-->
     </div>
   </div>
@@ -134,16 +134,16 @@
 
 <section class="section-padding  bg-gray">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 pl-4">
+    <div class="row align-items-center">
+      <div class="col-lg-4 col-md-12 pl-4">
         <div class="business-item-info">
           <a [routerLink]="" (click)="openDialog()"><h3>Check formulas</h3></a>
-          <p>Check consistency of formulas and variables. </p>
+          <h5>Check consistency of formulas and variables. </h5>
           <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
       </div>
 
-      <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
+      <div class="col-lg-8 col-md-12 pl-0 pt-70 pr-5">
         <div class="business-item-img">
           <img class="peerly" src="../../assets/landing/img/Formulas.png" style="box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);">
         </div>
@@ -155,17 +155,17 @@
 
 <section  class="section-padding  bg-gray">
   <div class="container">
-    <div class="row">
+    <div class="row align-items-center">
 
-      <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
+      <div class="col-lg-8 col-md-12 pl-0 pt-70 pr-5">
         <div class="business-item-img">
           <img class="peerly" src="../../assets/landing/img/acceptance.png" style="">
         </div>
       </div>
-      <div class="col-lg-6 col-md-12 pl-4">
+      <div class="col-lg-4 col-md-12 pl-4">
         <div class="business-item-info">
           <a [routerLink]="" (click)="openDialog()"><h3>Predict acceptance probability</h3></a>
-          <p>Get probability of acceptance to different conferences</p>
+          <h5>Get probability of acceptance to different conferences</h5>
           <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
       </div>
@@ -176,18 +176,18 @@
 
 <section class="section-padding  bg-gray">
   <div class="container">
-    <div class="row">
+    <div class="row align-items-center">
 
 
-      <div class="col-lg-6 col-md-12 pl-4">
+      <div class="col-lg-4 col-md-12 pl-4">
         <div class="business-item-info">
           <a [routerLink]="" (click)="openDialog()"><h3>Scientific writing</h3></a>
-          <p>Make your writing truly scientific</p>
+          <h5>Make your writing truly scientific</h5>
           <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
       </div>
 
-      <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
+      <div class="col-lg-8 col-md-12 pl-0 pt-70 pr-5">
         <div class="business-item-img">
           <img class="peerly" src="../../assets/landing/img/skipped_parts.png" style="box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);">
           <!--<object type="image/svg+xml" data="../../assets/landing/img/undraw_typewriter_i8xd.svg" width="800" height="400" ></object>-->
@@ -201,22 +201,22 @@
 
 <section class="section-padding  bg-gray">
   <div class="container">
-    <div class="row">
+    <div class="row align-items-center">
 
 
 
 
-      <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
+      <div class="col-lg-8 col-md-12 pl-0 pt-70 pr-5">
         <div class="business-item-img">
           <img class="peerly" src="../../assets/landing/img/fit_to_conf.png" style="box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);">
           <!--<object type="image/svg+xml" data="../../assets/landing/img/undraw_typewriter_i8xd.svg" width="800" height="400" ></object>-->
         </div>
       </div>
 
-      <div class="col-lg-6 col-md-12 pl-4">
+      <div class="col-lg-4 col-md-12 pl-4">
         <div class="business-item-info">
           <a [routerLink]="" (click)="openDialog()"><h3>Conference template</h3></a>
-          <p>Check whether your article satisfies conference template</p>
+          <h5>Check whether your article satisfies conference template</h5>
           <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
       </div>
