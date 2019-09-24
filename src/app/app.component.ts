@@ -15,7 +15,7 @@ import {LoginComponent} from './auth/login.component';
   templateUrl: './app.component.html',
   styleUrls: [
     './app.component.css',
-    '../../node_modules/material-design-icons/iconfont/material-icons.css',
+    // '../../node_modules/material-design-icons/iconfont/material-icons.css',
   ]
 })
 export class AppComponent implements OnInit {

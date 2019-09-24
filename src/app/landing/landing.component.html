@@ -70,8 +70,8 @@
       <div class="col-lg-6 col-md-12 col-sm-12">
         <div class="text-wrapper">
           <div>
-            <h2 class="title-hl wow fadeInLeft" data-wow-delay="0.3s">We help you find and read <br> scientific papers faster.</h2>
-            <p class="mb-4">Our AI-based algorithms selects only relevant scientific papers and summarize them into 5 sentences</p>
+            <h2 class="title-hl wow fadeInLeft" data-wow-delay="0.3s">Analyse your scientific paper and increase the probability of acceptance</h2>
+            <p class="mb-4">Want your work to be accepted? </p>
             <!--<a href="#" class="btn btn-common">More About Us</a>-->
           </div>
         </div>
@@ -83,8 +83,8 @@
               <i class="material-icons">widgets</i>
             </div>
             <div class="feature-content">
-              <h3>Select</h3>
-              <p>AI-based recommendation system selects papers specially for you</p>
+              <h3>Upload</h3>
+              <p>Upload your paper with LaTeX</p>
             </div>
           </div>
           <div class="feature-item wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
@@ -92,8 +92,8 @@
               <i class="material-icons">subtitles</i>
             </div>
             <div class="feature-content">
-              <h3>Summarize</h3>
-              <p>AI-based summarization algorithm compress the whole article into 5 sentences.</p>
+              <h3>Analyse</h3>
+              <p>AI-base algorithms will check your article</p>
             </div>
           </div>
           <div class="feature-item wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="700ms">
@@ -101,8 +101,8 @@
               <i class="material-icons">dvr</i>
             </div>
             <div class="feature-content">
-              <h3>Read in 1 min</h3>
-              <p>Forget "one hour per paper" reading. Enjoy automatic highlights</p>
+              <h3>Improve</h3>
+              <p>Follow our guidelines and increase the probability of being accepted to a conference of journal</p>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
   </div>
   <div class="col-lg-6 col-md-12 pl-4">
     <div class="business-item-info">
-      <h3>Don't miss citations</h3>
+      <a [routerLink]="" (click)="openDialog()"><h3>Don't miss citations</h3></a>
       <p>ML prior suggests references you forgot to include to article</p>
       <!--<a class="btn btn-common" href="#">download</a>-->
     </div>
@@ -137,7 +137,7 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 pl-4">
         <div class="business-item-info">
-          <h3>Check formulas</h3>
+          <a [routerLink]="" (click)="openDialog()"><h3>Check formulas</h3></a>
           <p>Check consistency of formulas and variables. </p>
           <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
@@ -159,12 +159,12 @@
 
       <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
         <div class="business-item-img">
-          <img class="peerly" src="../../assets/landing/img/acceptance.png" style="box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);">
+          <img class="peerly" src="../../assets/landing/img/acceptance.png" style="">
         </div>
       </div>
       <div class="col-lg-6 col-md-12 pl-4">
         <div class="business-item-info">
-          <h3>Predict acceptance probability</h3>
+          <a [routerLink]="" (click)="openDialog()"><h3>Predict acceptance probability</h3></a>
           <p>Get probability of acceptance to different conferences</p>
           <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
@@ -181,7 +181,7 @@
 
       <div class="col-lg-6 col-md-12 pl-4">
         <div class="business-item-info">
-          <h3>Scientific writing</h3>
+          <a [routerLink]="" (click)="openDialog()"><h3>Scientific writing</h3></a>
           <p>Make your writing truly scientific</p>
           <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
@@ -199,183 +199,217 @@
 </section>
 
 
-<!-- Services Section Start -->
-<section id="services" class="section-padding bg-gray">
+<section class="section-padding  bg-gray">
   <div class="container">
-    <div class="section-header text-center">
-      <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Our Features</h2>
-      <p>Made by researchers for researchers</p>
-    </div>
     <div class="row">
-      <!-- Services item -->
-      <div class="col-md-6 col-lg-4 col-xs-12">
-        <div class="services-item wow fadeInRight" data-wow-delay="0.3s">
-          <div class="icon">
-            <i class="fas fa-th-list"></i>
-          </div>
-          <div class="services-content">
-            <h3><a (click)="openDialog()">ArXiv articles</a></h3>
-            <p>We have already indexed {{nArticles}} ArXiv papers from Computer Science...</p>
-          </div>
+
+
+
+
+      <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
+        <div class="business-item-img">
+          <img class="peerly" src="../../assets/landing/img/fit_to_conf.png" style="box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);">
+          <!--<object type="image/svg+xml" data="../../assets/landing/img/undraw_typewriter_i8xd.svg" width="800" height="400" ></object>-->
         </div>
       </div>
-      <!-- Services item -->
-      <div class="col-md-6 col-lg-4 col-xs-12">
-        <div class="services-item wow fadeInRight" data-wow-delay="0.6s">
-          <div class="icon">
-            <i class="fas fa-bookmark"></i>
-          </div>
-          <div class="services-content">
-            <h3><a (click)="openDialog()">Personal Library</a></h3>
-            <p>Save interesting papers to your personal library. Take notes. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Login</a> to start using the full range of features</p>
-          </div>
+
+      <div class="col-lg-6 col-md-12 pl-4">
+        <div class="business-item-info">
+          <a [routerLink]="" (click)="openDialog()"><h3>Conference template</h3></a>
+          <p>Check whether your article satisfies conference template</p>
+          <!--<a class="btn btn-common" href="#">download</a>-->
         </div>
       </div>
-      <!-- Services item -->
-      <div class="col-md-6 col-lg-4 col-xs-12">
-        <div class="services-item wow fadeInRight" data-wow-delay="0.9s">
-          <div class="icon">
-            <i class="fab fa-medium"></i>
-          </div>
-          <div class="services-content">
-            <h3><a (click)="openDialog()">Blog Posts</a></h3>
-            <p>We regularly attach blog posts to scientific papers</p>
-          </div>
-        </div>
-      </div>
-      <!-- Services item -->
-      <div class="col-md-6 col-lg-4 col-xs-12">
-        <div class="services-item wow fadeInRight" data-wow-delay="1.2s">
-          <div class="icon">
-            <i class="fab fa-github"></i>
-          </div>
-          <div class="services-content">
-            <h3><a [routerLink]="" (click)="openDialog()">GitHub repositories<sup>*</sup></a></h3>
-            <p>We have already attached {{nGitHubs}} GitHub repositories to corresponding papers</p>
-          </div>
-        </div>
-      </div>
-      <!-- Services item -->
-      <div class="col-md-6 col-lg-4 col-xs-12">
-        <div class="services-item wow fadeInRight" data-wow-delay="1.5s">
-          <div class="icon">
-            <i class="material-icons">widgets</i>
-          </div>
-          <div class="services-content">
-            <h3><a [routerLink]="" (click)="openDialog()">Recommendation system</a></h3>
-            <p>Use our recommendation system in order to filter out non-relevant articles. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Sign up</a> to configure the system</p>
-          </div>
-        </div>
-      </div>
-      <!-- Services item -->
-      <div class="col-md-6 col-lg-4 col-xs-12">
-        <div class="services-item wow fadeInRight" data-wow-delay="1.8s">
-          <div class="icon">
-            <i class="material-icons">subtitles</i>
-          </div>
-          <div class="services-content">
-            <h3><a (click)="openDialog()">AI highlighting</a></h3>
-            <p>For each paper we created the summary: 5 most important sentences from the article.</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
+
+
+<!-- Services Section Start -->
+<!--<section id="services" class="section-padding bg-gray">-->
+  <!--<div class="container">-->
+    <!--<div class="section-header text-center">-->
+      <!--<h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Our Features</h2>-->
+      <!--<p>Made by researchers for researchers</p>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--&lt;!&ndash; Services item &ndash;&gt;-->
+      <!--<div class="col-md-6 col-lg-4 col-xs-12">-->
+        <!--<div class="services-item wow fadeInRight" data-wow-delay="0.3s">-->
+          <!--<div class="icon">-->
+            <!--<i class="fas fa-th-list"></i>-->
+          <!--</div>-->
+          <!--<div class="services-content">-->
+            <!--<h3><a (click)="openDialog()">ArXiv articles</a></h3>-->
+            <!--<p>We have already indexed {{nArticles}} ArXiv papers from Computer Science...</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; Services item &ndash;&gt;-->
+      <!--<div class="col-md-6 col-lg-4 col-xs-12">-->
+        <!--<div class="services-item wow fadeInRight" data-wow-delay="0.6s">-->
+          <!--<div class="icon">-->
+            <!--<i class="fas fa-bookmark"></i>-->
+          <!--</div>-->
+          <!--<div class="services-content">-->
+            <!--<h3><a (click)="openDialog()">Personal Library</a></h3>-->
+            <!--<p>Save interesting papers to your personal library. Take notes. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Login</a> to start using the full range of features</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; Services item &ndash;&gt;-->
+      <!--<div class="col-md-6 col-lg-4 col-xs-12">-->
+        <!--<div class="services-item wow fadeInRight" data-wow-delay="0.9s">-->
+          <!--<div class="icon">-->
+            <!--<i class="fab fa-medium"></i>-->
+          <!--</div>-->
+          <!--<div class="services-content">-->
+            <!--<h3><a (click)="openDialog()">Blog Posts</a></h3>-->
+            <!--<p>We regularly attach blog posts to scientific papers</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; Services item &ndash;&gt;-->
+      <!--<div class="col-md-6 col-lg-4 col-xs-12">-->
+        <!--<div class="services-item wow fadeInRight" data-wow-delay="1.2s">-->
+          <!--<div class="icon">-->
+            <!--&lt;!&ndash;<i class="fab fa-github"></i>&ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="services-content">-->
+            <!--<h3><a [routerLink]="" (click)="openDialog()">GitHub repositories<sup>*</sup></a></h3>-->
+            <!--<p>We have already attached {{nGitHubs}} GitHub repositories to corresponding papers</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; Services item &ndash;&gt;-->
+      <!--<div class="col-md-6 col-lg-4 col-xs-12">-->
+        <!--<div class="services-item wow fadeInRight" data-wow-delay="1.5s">-->
+          <!--<div class="icon">-->
+            <!--&lt;!&ndash;<i class="material-icons">widgets</i>&ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="services-content">-->
+            <!--<h3><a [routerLink]="" (click)="openDialog()">Recommendation system</a></h3>-->
+            <!--<p>Use our recommendation system in order to filter out non-relevant articles. <a [routerLink]="" (click)="loginDialog.openDialog(['/articles/popular'])">Sign up</a> to configure the system</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; Services item &ndash;&gt;-->
+      <!--<div class="col-md-6 col-lg-4 col-xs-12">-->
+        <!--<div class="services-item wow fadeInRight" data-wow-delay="1.8s">-->
+          <!--<div class="icon">-->
+            <!--<i class="material-icons">subtitles</i>-->
+          <!--</div>-->
+          <!--<div class="services-content">-->
+            <!--<h3><a (click)="openDialog()">AI highlighting</a></h3>-->
+            <!--<p>For each paper we created the summary: 5 most important sentences from the article.</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->
 <!-- Services Section End -->
 
 
+<section>
+  <div class=" row justify-content-md-center">
+  <div class="col-md-4">
+  <app-request-demo></app-request-demo>
+  </div>
+  </div>
+</section>
 
 
 <!-- Contact Section Start -->
-<section id="contact" class="section-padding">
-  <div class="container">
-    <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">
-      <div class="col-md-6 col-lg-6 col-sm-12">
-        <div class="contact-block">
-          <form #subscribeForm="ngForm">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="bmd-label-floating"><strong>Your Name</strong></label>
-                  <input type="text"
-                         id="name"
-                         class="form-control"
-                         ngModel
-                         name="name"
-                         required
-                         placeholder="Name...">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="bmd-label-floating"><strong>Your Email</strong></label>
-                  <input type="email"
-                         id="email"
-                         class="form-control"
-                         ngModel
-                         name="email"
-                         required
-                         placeholder="Email...">
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="exampleMessage" class="bmd-label-floating"><strong>Tell us something</strong></label>
-              <textarea type="text"
-                        id="text"
-                        class="form-control"
-                        ngModel
-                        name="text"
-                        placeholder="Type here..."></textarea>
-            </div>
-            <div class="row">
-              <div class="col-md-4 ml-auto mr-auto text-center">
-                <button class="btn btn-primary btn-raised" (click)="onSubmit(subscribeForm)">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-            <div class="row" *ngIf="isSuccess">
-              <div class="col-md-4 ml-auto mr-auto text-center">
-                Your message was successfully sent. Thank you friend!
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-6 col-sm-12">
-        <div class="contact-right-area wow fadeIn">
-          <div class="contact-title">
-            <h1>Subscribe to our updates</h1>
-            <p>Or just write your feedback</p>
-          </div>
-          <h2>Contact Us</h2>
-          <div class="contact-right">
+<!--<section id="contact" class="section-padding">-->
+  <!--<div class="container">-->
+    <!--<div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">-->
+      <!--<div class="col-md-6 col-lg-6 col-sm-12">-->
+        <!--<div class="contact-block">-->
+          <!--<form #subscribeForm="ngForm">-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-6">-->
+                <!--<div class="form-group">-->
+                  <!--<label class="bmd-label-floating"><strong>Your Name</strong></label>-->
+                  <!--<input type="text"-->
+                         <!--id="name"-->
+                         <!--class="form-control"-->
+                         <!--ngModel-->
+                         <!--name="name"-->
+                         <!--required-->
+                         <!--placeholder="Name...">-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="col-md-6">-->
+                <!--<div class="form-group">-->
+                  <!--<label class="bmd-label-floating"><strong>Your Email</strong></label>-->
+                  <!--<input type="email"-->
+                         <!--id="email"-->
+                         <!--class="form-control"-->
+                         <!--ngModel-->
+                         <!--name="email"-->
+                         <!--required-->
+                         <!--placeholder="Email...">-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="exampleMessage" class="bmd-label-floating"><strong>Tell us something</strong></label>-->
+              <!--<textarea type="text"-->
+                        <!--id="text"-->
+                        <!--class="form-control"-->
+                        <!--ngModel-->
+                        <!--name="text"-->
+                        <!--placeholder="Type here..."></textarea>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<div class="col-md-4 ml-auto mr-auto text-center">-->
+                <!--<button class="btn btn-primary btn-raised" (click)="onSubmit(subscribeForm)">-->
+                  <!--Subscribe-->
+                <!--</button>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row" *ngIf="isSuccess">-->
+              <!--<div class="col-md-4 ml-auto mr-auto text-center">-->
+                <!--Your message was successfully sent. Thank you friend!-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</form>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-lg-6 col-sm-12">-->
+        <!--<div class="contact-right-area wow fadeIn">-->
+          <!--<div class="contact-title">-->
+            <!--<h1>Subscribe to our updates</h1>-->
+            <!--<p>Or just write your feedback</p>-->
+          <!--</div>-->
+          <!--<h2>Contact Us</h2>-->
+          <!--<div class="contact-right">-->
+            <!--&lt;!&ndash;<div class="single-contact">&ndash;&gt;-->
+              <!--&lt;!&ndash;<div class="contact-icon">&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="lni-map-marker"></i>&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--&lt;!&ndash;<p>ADDRESS: 28 Green Tower, New York City, USA</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
             <!--<div class="single-contact">-->
               <!--<div class="contact-icon">-->
-                <!--<i class="lni-map-marker"></i>-->
+                <!--<i class="material-icons">mail</i>-->
               <!--</div>-->
-              <!--<p>ADDRESS: 28 Green Tower, New York City, USA</p>-->
+              <!--<p><a href="#">Email:  mlpriorcom@gmail.com</a></p>-->
             <!--</div>-->
-            <div class="single-contact">
-              <div class="contact-icon">
-                <i class="material-icons">mail</i>
-              </div>
-              <p><a href="#">Email:  mlpriorcom@gmail.com</a></p>
-            </div>
-            <!--<div class="single-contact">-->
-              <!--<div class="contact-icon">-->
-                <!--<i class="lni-phone-handset"></i>-->
-              <!--</div>-->
-              <!--<p><a href="#">Phone:  +84 846 250 592</a></p>-->
-            <!--</div>-->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+            <!--&lt;!&ndash;<div class="single-contact">&ndash;&gt;-->
+              <!--&lt;!&ndash;<div class="contact-icon">&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="lni-phone-handset"></i>&ndash;&gt;-->
+              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--&lt;!&ndash;<p><a href="#">Phone:  +84 846 250 592</a></p>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->
 <!-- Contact Section End -->
 
 <!-- Copyright Section Start -->

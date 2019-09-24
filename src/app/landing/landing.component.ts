@@ -13,8 +13,6 @@ import {HttpClient} from '@angular/common/http';
     // '../../assets/css/style.css',
     './landing.component.css',
 
-    '../../../node_modules/material-design-icons/iconfont/material-icons.css',
-
     '../../assets/landing/css/bootstrap.min.css',
     '../../assets/landing/css/slicknav.css',
     '../../assets/landing/css/owl.carousel.min.css',
@@ -100,7 +98,7 @@ export class LandingComponent implements OnInit {
     form.reset();
   }
 
-  openDialog(next?: any[]) {
+  openDialog(next?: string) {
     // if (this.dialog.getDialogById())/
     const dialogConfig = new MatDialogConfig();
 
@@ -108,7 +106,7 @@ export class LandingComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = '500px';
     dialogConfig.id = 'requestDemo';
-    dialogConfig.data = {};
+    dialogConfig.data = {'next': next};
 
     this.dialog.open(RequestDemoComponent, dialogConfig);
   }

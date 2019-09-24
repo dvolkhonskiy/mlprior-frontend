@@ -13,6 +13,7 @@ export class APIService {
   API_URL_TREND = environment.baseUrl + 'api/visualization/trends';
   API_URL_CATEG = environment.baseUrl + 'api/visualization/categories';
   API_URL_FEEDBACK = environment.baseUrl + 'api/feedback';
+  API_URL_REQUEST_DEMO = environment.baseUrl + 'api/requestdemo';
   API_URL_PREMIUM = environment.baseUrl + 'api/premium';
 
   constructor(private httpClient: TransferHttpService) {  }
@@ -60,5 +61,16 @@ export class APIService {
     };
 
     return this.httpClient.post(this.API_URL_FEEDBACK, body);
+  }
+
+  sendRequestDemo(name, email, feature, message) {
+    const body = {
+      name: name,
+      message: message,
+      email: email,
+      feature: feature,
+      source: 1
+    };
+    return this.httpClient.post(this.API_URL_REQUEST_DEMO, body);
   }
 }
