@@ -37,7 +37,7 @@ export class RequestDemoComponent implements OnInit {
   // # 4 -- Fit to a conference
   // # 5 -- Acceptance prediction
 
-    const feature = this.features.indexOf(this.favoriteFeature);
+    const feature = this.features.indexOf(this.favoriteFeature) + 1;
     this.isLoading = true;
     this.apiService.sendRequestDemo(name, email, feature, text).subscribe(
       data => {
