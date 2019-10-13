@@ -27,6 +27,7 @@
       <hr>
       <div class="row form-group">
         <div class="col-sm-8 button-row">
+          <button mat-raised-button color="warn" routerLink="/" style="font-weight: bold;">Analyse your article</button>
           <a mat-stroked-button href="{{ article.url }}" style="font-weight: bold;" (click)="trackingService.trackOpenPDF()" target="_blank">PDF</a>
 
           <button mat-stroked-button *ngIf="!article.in_lib"

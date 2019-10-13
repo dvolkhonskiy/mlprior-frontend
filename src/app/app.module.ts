@@ -52,6 +52,7 @@ import {LoginDialogService} from './auth/login-dialog.service';
 import { FileUploadComponent } from './landing/file-upload/file-upload.component';
 import { PricingComponent } from './landing/pricing/pricing.component';
 import { RequestDemoComponent } from './landing/request-demo/request-demo.component';
+import {AcceptanceComponent, SanitizeHtmlPipe} from './landing/acceptance/acceptance.component';
 
 
 @NgModule({
@@ -88,7 +89,9 @@ import { RequestDemoComponent } from './landing/request-demo/request-demo.compon
     ProfileComponent,
     FileUploadComponent,
     PricingComponent,
-    RequestDemoComponent
+    RequestDemoComponent,
+    AcceptanceComponent,
+    SanitizeHtmlPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -1,0 +1,35 @@
+
+<div class="row align-items-center">
+  <!--<div class="col-lg-6 col-md-8 col-sm-8 ml-auto mr-auto mt-auto ">-->
+  <div *ngIf="isLoading" style="text-align: center;">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="card card-login" *ngIf="!isLoading">
+    <h2 class="text-center"><b>Predict probability of being accepted</b></h2>
+    <form #authForm="ngForm" *ngIf="!isLoading">
+      <div class="card-body ">
+        <h4 class="text-center">AISTATS, ICML, ICLR, CVPR, KDD, ACL, NeurIPS, AAAI, WWW</h4>
+
+      <!--</div>-->
+      <!--<div class="card-footer justify-content-center">-->
+        <div *ngIf="!isLoading" class="text-center">
+          <button mat-raised-button  color="primary" (click)="onClick(authForm)">Upload PDF</button>
+          <input style="display:none;" type="file" id="fileUpload" placeholder="Upload file" accept=".pdf">
+        </div>
+        <div *ngIf="isLoading">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+        <!--<h4 class="text-rose" *ngIf="resultSvg">Your score: {{resultSvg}}</h4>-->
+        <!--<img *ngIf="resultSvg" src="data:image/svg;base64,{{resultSvg}}" />-->
+        <div class="text-center" *ngIf="resultSvg" [innerHTML]="resultSvg | sanitizeHtml">
+        </div>
+
+
+        <!--<button class="btn btn-primary btn-user btn-block" (click)="onSubmit(authForm)">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button>-->
+      </div>
+    </form>
+  </div>
+</div>
+
+
