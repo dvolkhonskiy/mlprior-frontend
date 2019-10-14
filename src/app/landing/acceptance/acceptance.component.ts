@@ -6,6 +6,7 @@ import {of, Subscription} from 'rxjs';
 import {RequestDemoComponent} from '../request-demo/request-demo.component';
 import {environment} from '../../../environments/environment';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {NgForm} from '@angular/forms';
 
 
 
@@ -25,6 +26,7 @@ export class AcceptanceComponent implements OnInit {
   @Input() accept = 'image/*';
   /** Allow you to add handler after its completion. Bubble up response text from remote. */
   @Output() complete = new EventEmitter<string>();
+  public errors: any = [];
 
   resultSvg: string;
   isLoading = false;
@@ -39,7 +41,18 @@ export class AcceptanceComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick() {
+  onClick(form: NgForm) {
+    // if (!form.valid) {
+    //   console.log('huy');
+    //   return;
+    // }
+
+    if (form.value.email === '') {
+      this.errors.push('Please enter your email');
+      return;
+    }
+    const email = form.value.email;
+
     const fileUpload = document.getElementById('fileUpload') as HTMLInputElement;
     fileUpload.onchange = () => {
       for (let index = 0; index < fileUpload.files.length; index++) {
@@ -47,25 +60,15 @@ export class AcceptanceComponent implements OnInit {
         this.files.push({ data: file, state: 'in',
           inProgress: false, progress: 0, canRetry: false, canCancel: true });
       }
-      this.uploadFiles();
+      this.uploadFiles(email);
     };
     fileUpload.click();
   }
 
-  cancelFile(file: FileUploadModel) {
-    file.sub.unsubscribe();
-    this.removeFileFromArray(file);
-  }
-
-  retryFile(file: FileUploadModel) {
-    this.uploadFile(file);
-    file.canRetry = false;
-  }
-
-  private uploadFile(file: FileUploadModel) {
+  private uploadFile(file: FileUploadModel, email: string) {
     const fd = new FormData();
     fd.append(this.param, file.data);
-    fd.append('info', 'huy');
+    fd.append('email', email);
 
     const req = new HttpRequest('POST', this.target, fd);
 
@@ -95,19 +98,19 @@ export class AcceptanceComponent implements OnInit {
           this.complete.emit(event.body);
           this.isLoading = false;
           this.resultSvg = atob(event.body.result_svg);
-
+          this.errors = [];
         }
       }
     );
   }
 
-  private uploadFiles() {
+  private uploadFiles(email: string) {
     this.isLoading = true;
     const fileUpload = document.getElementById('fileUpload') as HTMLInputElement;
     fileUpload.value = '';
 
     this.files.forEach(file => {
-      this.uploadFile(file);
+      this.uploadFile(file, email);
     });
   }
 

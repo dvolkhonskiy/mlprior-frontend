@@ -13,9 +13,26 @@
     <form #authForm="ngForm" *ngIf="!isLoading">
       <div class="card-body ">
         <h4 class="text-center text-dark">AISTATS, ICML, ICLR, CVPR, KDD, ACL, NeurIPS, AAAI, WWW</h4>
+<div class="justify-content-md-center">
+        <div class=" form-group has-default bmd-form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="far fa-envelope"></i><span class="text-rose">*</span>
+                            </span>
+            </div>
+            <input type="email"
+                   id="email"
+                   class="form-control"
+                   ngModel
+                   name="email"
+                   required
+                   placeholder="Email...">
+          </div>
+        </div>
+</div>
+        <span class="text-rose" *ngFor="let error of errors">{{ error }}<br/></span>
 
-      <!--</div>-->
-      <!--<div class="card-footer justify-content-center">-->
         <p></p>
         <div *ngIf="!isLoading" class="text-center">
           <button mat-raised-button  color="primary" (click)="onClick(authForm)">Upload PDF</button>
