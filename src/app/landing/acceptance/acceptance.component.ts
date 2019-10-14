@@ -68,7 +68,7 @@ export class AcceptanceComponent implements OnInit {
   private uploadFile(file: FileUploadModel, email: string) {
     const fd = new FormData();
     fd.append(this.param, file.data);
-    fd.append('email', email);
+    fd.append('info', email);
 
     const req = new HttpRequest('POST', this.target, fd);
 
