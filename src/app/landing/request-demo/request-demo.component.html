@@ -6,14 +6,18 @@
   </div>
 
   <div class="card card-login" *ngIf="!isLoading">
-    <h3 class="text-center">Improve you paper before submission</h3>
+    <h3 class="text-center text-dark">Get your paper analysed</h3>
     <form #authForm="ngForm" *ngIf="!isLoading">
       <div class="card-body ">
-        <h4>Available features:</h4>
+        <!--<h4>Available features:</h4>-->
 
         <mat-list>
-          <mat-list-item *ngFor="let feature of features"> {{feature}} </mat-list-item>
+          <div *ngFor="let feature of features">
+            <mat-list-item > {{feature}} </mat-list-item><mat-divider></mat-divider>
+          </div>
+
         </mat-list>
+        <p></p>
 
         <!--<mat-radio-group-->
           <!--class="example-radio-group"-->
@@ -40,7 +44,7 @@
                    ngModel
                    required
                    name="text"
-                   placeholder="Your request...">
+                   placeholder="Tell us what you want...">
           </div>
           <span class="text-rose" *ngFor="let error of errors.email"><br/>
             {{ error }}</span>
@@ -59,7 +63,7 @@
                    ngModel
                    name="name"
                    required
-                   placeholder="You first name...">
+                   placeholder="You name...">
             <span class="text-rose" *ngFor="let error of errors.firstName"><br/>
               {{ error }}</span>
           </div>
