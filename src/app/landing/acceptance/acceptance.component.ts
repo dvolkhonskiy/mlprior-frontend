@@ -87,6 +87,7 @@ export class AcceptanceComponent implements OnInit {
       tap(message => {console.log(message); }),
       last(),
       catchError((error: HttpErrorResponse) => {
+        console.log(error);
         file.inProgress = false;
         file.canRetry = true;
         return of(`${file.data.name} upload failed.`);
@@ -97,6 +98,7 @@ export class AcceptanceComponent implements OnInit {
           this.removeFileFromArray(file);
           this.complete.emit(event.body);
           this.isLoading = false;
+          console.log(event.body);
           this.resultSvg = atob(event.body.result_svg);
           this.errors = [];
         }
